@@ -1759,7 +1759,7 @@
         "Maximum permitted operating voltages for festoon lighting is 230V A.C..",
         "Where a neutral conductor is required for the connection of the Edison screw lamp holder, the conductor shall be connected to the inner contact."
       ],
-      "correct_index": 3
+      "correct_index": 1
     },
     {
       "id": 117,
@@ -1819,7 +1819,7 @@
         "protected by an RCD with a residual current rating greater than or equal to 30 mA.",
         "protected by an RCD with a residual current rating equal to 30 mA."
       ],
-      "correct_index": 3
+      "correct_index": 1
     },
     {
       "id": 122,
@@ -1831,10 +1831,7 @@
         "Trained portable appliance tester",
         "Competent person trained in the use of RCDs"
       ],
-      "correct_indices": [
-        0,
-        3
-      ]
+      "correct_indices": [2, 3]
     },
     {
       "id": 123,
@@ -1846,11 +1843,7 @@
         "False cars (guided work platforms) must be supplied from a minimum 230V, 30A socket outlet on a final sub-circuit protected by a 30 mA RCD.",
         "Supply cable must be installed in a way to minimize chemical damage."
       ],
-      "correct_indices": [
-        1,
-        2,
-        3
-      ]
+      "correct_indices": [0, 1]
     },
     {
       "id": 124,
@@ -1862,7 +1855,7 @@
         "Heavy duty; 5 mm2",
         "Heavy-duty; 3 mm2"
       ],
-      "correct_index": 2
+      "correct_index": 1
     },
     {
       "id": 125,
@@ -1874,11 +1867,7 @@
         "free from abrasions",
         "protected by 50 mA RCD"
       ],
-      "correct_indices": [
-        1,
-        2,
-        3
-      ]
+      "correct_indices": [1, 2]
     },
     {
       "id": 126,
@@ -1919,7 +1908,7 @@
         "When a bonding test is performed for RCD protected inverters, the value of resistance shall not exceed 1Ω.",
         "When arc welders are incorporated into generating sets, the minimum insulation resistance of the input circuit to the welding circuit shall be 1 MΩ."
       ],
-      "correct_index": 1
+      "correct_index": 2
     },
     {
       "id": 129,
@@ -1931,10 +1920,7 @@
         "When tested at 30mA, the RCD shall trip within 3s",
         "When tested at 30mA, the RCD shall trip within 300ms"
       ],
-      "correct_indices": [
-        1,
-        3
-      ]
+      "correct_indices": [1, 2]
     },
     {
       "id": 130,
