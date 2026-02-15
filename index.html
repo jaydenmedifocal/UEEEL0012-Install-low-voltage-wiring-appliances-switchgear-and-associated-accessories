@@ -864,12 +864,16 @@
       } else if (e.key === 'Enter') {
         e.preventDefault();
         var qKey = order[currentIndex];
-        if (!userAnswers[qKey]) {
+        var saved = userAnswers[qKey];
+        if (!saved) {
           var submitBtn = document.getElementById('submitBtn');
           if (submitBtn) submitBtn.click();
-        } else {
-          var nextBtn = document.getElementById('nextBtn');
+        } else if (saved.correct) {
+          var nextBtn = document.getElementById('nextBtn') || document.getElementById('tryAgainNextBtn');
           if (nextBtn) nextBtn.click();
+        } else {
+          var tryAgainBtn = document.getElementById('submitBtn');
+          if (tryAgainBtn) tryAgainBtn.click();
         }
       }
     }
@@ -971,15 +975,22 @@
         correct = user.every((v,i)=>String(v)===String(correctMatches[i]));
       }
 
-      if (correct && !userAnswers[qKey]) score++;
-      answered++;
+      const wasAlreadyAnswered = !!userAnswers[qKey];
+      const wasCorrectBefore = wasAlreadyAnswered && userAnswers[qKey].correct;
+      if (correct && !wasCorrectBefore) score++;
+      if (!wasAlreadyAnswered) answered++;
       let feedbackText = correct ? 'Correct!' : 'Incorrect. See correct answer(s) above.';
       if (!correct && q.type === 'ranking' && q.correct_order) feedbackText = 'Incorrect. Correct order (step per item): ' + (q.correct_order.join(', ')) + '.';
       if (!correct && q.type === 'match' && q.correct_matches) feedbackText = 'Incorrect. Correct: ' + (q.correct_matches.join(', ')) + '.';
       if (!correct && q.type === 'true_false' && (q.correct_answers || []).length) {
-        const parts = (q.correct_answers || []).map((ans, i) => (i + 1) + '. ' + (ans ? 'True' : 'False'));
-        feedbackText = 'Incorrect. Correct answers: ' + parts.join(', ') + '.';
+        const selectsOrdered = document.querySelectorAll('.q-block .tf-row select[data-original-index]');
+        const parts = Array.from(selectsOrdered).map(sel => {
+          const origIdx = parseInt(sel.dataset.originalIndex, 10);
+          return (q.correct_answers || [])[origIdx] ? 'True' : 'False';
+        });
+        feedbackText = 'Incorrect. Correct answers (top to bottom): ' + parts.join(', ') + '.';
       }
+      if (!correct) feedbackText += ' Change your answer above and click Try again, or Next to continue.';
       const save = { correct: correct, feedbackText: feedbackText };
       if (q.type === 'single') save.choice = savedChoice; // 0-based original index
       else if (q.type === 'multiple') save.chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
@@ -999,8 +1010,29 @@
       fb.className = 'feedback ' + (correct ? 'correct' : 'wrong');
       fb.textContent = feedbackText;
       fb.style.display = 'block';
-      document.getElementById('submitBtn').textContent = currentIndex + 1 < order.length ? 'Next →' : 'Finish';
-      document.getElementById('submitBtn').onclick = nextOrFinish;
+      const submitBtn = document.getElementById('submitBtn');
+      const btnRow = document.querySelector('.q-block .btn-row');
+      if (correct) {
+        submitBtn.textContent = currentIndex + 1 < order.length ? 'Next →' : 'Finish';
+        submitBtn.onclick = nextOrFinish;
+        submitBtn.style.display = '';
+        const tryNextBtn = document.getElementById('tryAgainNextBtn');
+        if (tryNextBtn) tryNextBtn.remove();
+        renderQuestionSidebar();
+      } else {
+        submitBtn.textContent = 'Try again';
+        submitBtn.onclick = submitAnswer;
+        submitBtn.style.display = '';
+        if (!document.getElementById('tryAgainNextBtn')) {
+          const tryNextBtn = document.createElement('button');
+          tryNextBtn.type = 'button';
+          tryNextBtn.id = 'tryAgainNextBtn';
+          tryNextBtn.className = 'btn-secondary';
+          tryNextBtn.textContent = currentIndex + 1 < order.length ? 'Next →' : 'Finish';
+          tryNextBtn.onclick = nextOrFinish;
+          btnRow.appendChild(tryNextBtn);
+        }
+      }
     }
 
     function nextOrFinish() {
