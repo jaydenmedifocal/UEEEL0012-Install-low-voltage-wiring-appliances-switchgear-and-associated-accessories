@@ -604,7 +604,8 @@
         "Perform an insulation resistance test using an insulation resistance tester and obtain a reading of approximately 1mOhm"
       ],
       "correct_indices": [
-        0
+        0,
+        3
       ]
     },
     {

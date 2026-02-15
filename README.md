@@ -2,7 +2,7 @@
 
 **Install low voltage wiring, appliances, switchgear and associated accessories.**
 
-If you remember all these questions and answers you will be perfectly fine in the exam and it will help with capstone. *(Capstone quiz coming soon.)*
+If you remember all these questions and answers you will be perfectly fine in the exam and it will help with capstone. **Questions and answers in this quiz were verified correct as of early 2026.** *(Capstone quiz coming soon.)*
 
 ---
 
@@ -24,8 +24,8 @@ The quiz is hosted on GitHub Pages. Anyone can use it in their browser—no inst
    - Section 1: questions 1–50  
    - Section 2: 51–100  
    - Section 3: 101–150  
-   - Section 4: 151–181  
-   - All: all 181 questions
+   - Section 4: 151–182  
+   - All: all 182 questions
 3. **Optional:** tick **Shuffle questions** before starting if you want a random order.
 4. **Answer each question** — single choice, multiple choice, true/false, ranking, or matching. Click **Submit**, then **Next** (or **← Previous** to go back and review).
 5. **At the end** you see your score (e.g. 48/50), a **question breakdown** (which you got right/wrong), and a **Print summary** button if you want a copy.
@@ -40,7 +40,7 @@ The quiz is hosted on GitHub Pages. Anyone can use it in their browser—no inst
 - **Unit:** UEEEL0012 — Install low voltage wiring, appliances, switchgear and associated accessories  
 - **Course:** TAFE NSW Electrotechnology Certificate III  
 - **Standards:** AS/NZS 3000:2018, Building Code of Australia, NCC  
-- **181 questions** in total: single choice, multiple choice, true/false (multi-part), ranking, and matching
+- **182 questions** in total: single choice, multiple choice, true/false (multi-part), ranking, and matching
 
 ---
 
