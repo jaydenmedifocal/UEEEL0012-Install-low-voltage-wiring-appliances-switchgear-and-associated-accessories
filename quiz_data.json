@@ -1,0 +1,2240 @@
+{
+  "title": "Electrical Installation & Standards Quiz",
+  "batch": 1,
+  "source": "AS/NZS 3000:2018, Building Code of Australia, NCC",
+  "questions": [
+    {
+      "id": 1,
+      "type": "single",
+      "text": "Under AS/NZS 3000:2018 Section 2.3.2.2, what type of cables in an electrical installation do not require connection through a mains switch that controls and protects an electrical supply?",
+      "options": [
+        "All fire-resistant cabling connected through switchgear as part of their installation.",
+        "All TPS cables utilised in an installation given that they are shielded from electrical surges and heating.",
+        "Any cables associated with ancillary equipment or measuring devices that are required to be connected to the supply side of the main switch.",
+        "Any cable supplying a safety service in an installation."
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 2,
+      "type": "multiple",
+      "text": "Under Australian Standards and building codes, what are examples of 2 methods of mechanical protection of wiring systems and electrical equipment?",
+      "options": [
+        "Protection against overload and short circuit currents by rearranging electrical equipment within a wiring system to create an optimal drawing of current",
+        "Protection against overload and short circuit currents using protective devices such as circuit breakers and fuses",
+        "Protection by internal arching of fault currents using a safety service circuit",
+        "Protection by automatic disconnection of the power supply using an overcurrent protective device or Residual Current Device (RCD)"
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 3,
+      "type": "single",
+      "text": "When undertaking an electrical installation, it is a requirement that cables are supported by:",
+      "options": [
+        "being attached to at least one building support pillar at all times.",
+        "being fixed in position by suitable clips, saddles, or clamps (or means that will not damage the wiring system.",
+        "being wrapped around building support beams or poles to prevent the sagging of cables over a distance.",
+        "being placed under flooring/carpeting where possible alleviates potential movement."
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 4,
+      "type": "single",
+      "text": "AS/NZS 3000:2018 Section 3.9 and the NCC Building Code of Australia specify that to protect a wiring system against and from another service you must:",
+      "options": [
+        "protect the wiring system with shielding that does not affect the dissipation of heat from the wiring system.",
+        "plan cable routes to ensure that gas, water, telecommunications, and electric wiring systems never have a common route.",
+        "maintain a separation of at least 20mm from any above ground gas or water services.",
+        "ensure that wiring systems are never installed within the vicinity of services that produce heat, smoke, or fumes."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 5,
+      "type": "multiple",
+      "text": "The Australian Telecommunications Services Requirements (AS/CA S009) and Australian Wiring Standards (AS/NZS 3000:2018), specify which 2 techniques for protecting low voltage wiring systems and equipment from telecommunications service systems?",
+      "options": [
+        "Install a barrier of durable insulating material between cables",
+        "Maintain a separation of at least 100mm between electrical sockets and telecommunication RJ45 Patch Panels",
+        "Use a shielded PVC low voltage cable",
+        "Maintain a separation of at least 50mm between service cable"
+      ],
+      "correct_indices": [0, 3]
+    },
+    {
+      "id": 6,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "According to Australian Standards and the Building Code of Australia, cables/wiring systems can be installed in suspended ceilings.",
+        "According to Australian Standards and the Building Code of Australia, cables/wiring systems cannot be installed through wall-lining materials.",
+        "According to Australian Standards and the Building Code of Australia, cables/wiring systems can be installed through any space formed between the roofing material and its immediate supporting member."
+      ],
+      "correct_answers": [true, true, false]
+    },
+    {
+      "id": 7,
+      "type": "single",
+      "text": "Which of the following is a prohibited location when installing cables?",
+      "options": [
+        "A suspended ceiling",
+        "Below a raised floor",
+        "On any wall, cupboard, or surface within 150mm of the edge of an open gas or electric cooking surface",
+        "Within 2.0m of any access to any space to which a person may gain entry"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 8,
+      "type": "single",
+      "text": "Which of the following is an example of an alternate supply under Australian Standards?",
+      "options": [
+        "Air conditioner Sub Circuit",
+        "Consumer Mains",
+        "Electrical Vehicle Charging System",
+        "Photovoltaic System"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 9,
+      "type": "single",
+      "text": "The NSW Standard Electricity Service & Installation Rules identifies an alternate supply as:",
+      "options": [
+        "all privately and publicly owned generating installations (whether standby or parallel generation) connected to the distribution system.",
+        "all privately and publicly owned battery storage installations connected to the distribution system.",
+        "all privately owned battery storage installations connected to the distribution system.",
+        "all privately owned generating installations (whether standby or parallel generation) connected to the distribution system."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 10,
+      "type": "single",
+      "text": "Which of the following Australian Standards Contains information regarding the general installation and safety requirements for battery energy storage systems?",
+      "options": [
+        "AS/NZS 5139",
+        "AS/NZS 3008",
+        "AS/NZS 3012",
+        "AS/NZS 3000"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 11,
+      "type": "multiple",
+      "text": "Under Australian Standards, when installing cables and current using carrying equipment and accessories in buildings, structures, and premises, what are 2 limitations on the penetration of structural elements?",
+      "options": [
+        "If the building or structure is greater than 15 years old, penetration of a structural element is only permitted after a wiring inspection report has been completed",
+        "Any opening through a structural element must be at least 50mm from any other service opening.",
+        "All components of the wiring system that penetrate through a structural element need a degree of protection of at least IP67.",
+        "The cross-sectional area of the opening through a structural element exceeds 500mm2."
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 12,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Under Australian Standards and Building Codes, in order to maintain fire protection integrity of buildings, cables and current-carrying equipment is permitted through walls as long as the penetration is sealed to the fire rating of that wall.",
+        "Under Australian Standards and Building Codes, in order to maintain fire protection integrity of buildings, it is a requirement that all cables and current-carrying equipment can withstand a temperature of at least 120oC.",
+        "Under Australian Standards and Building Codes, in order to maintain fire protection integrity of buildings, any electrical switch for the control of safety services must be separate from all other control switches."
+      ],
+      "correct_answers": [true, false, true]
+    },
+    {
+      "id": 13,
+      "type": "single",
+      "text": "Under the Building Code of Australia, it is a requirement that all emergency/safety services wiring above suspended ceilings:",
+      "options": [
+        "are resistant to the incipient spread of fire.",
+        "are attached to a support beam with a minimum thickness of 100mm.",
+        "are not attached to timber fixtures or supports due to a heightened risk of fire.",
+        "are at least 50mm apart from luminaries."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 14,
+      "type": "multiple",
+      "text": "What are 2 issues affecting heritage buildings and premises in relation to the penetration of structural and finished elements?",
+      "options": [
+        "When penetrating structural and finished elements of heritage buildings for new wiring, you must also rewire all existing connections to minimise the risk of fire, increasing installation cost and time.",
+        "If penetration is required, all possible measures should be taken to ensure that the fittings are unobtrusive and hidden, creating more complex installation planning.",
+        "When penetrating structural and finished elements of heritage buildings you must ensure that you use historical recreations of fittings, complicating installation design.",
+        "Penetration of structural and finished elements should generally be avoided, complicating cable routing options."
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 15,
+      "type": "single",
+      "text": "What is a significant issue in heritage buildings and premises in relation to accessing cable routes?",
+      "options": [
+        "Cable routes must always be concealed and hence installation may require access to confined spaces such as roof or underground cavities.",
+        "Written consent must be obtained by the electrician from the local council prior to attending a heritage site.",
+        "Heritage buildings tend to have poor ventilation and hence breathing apparatuses may be required when accessing cable routes which are often in confined spaces.",
+        "Due to their age, access points in heritage buildings often cannot support more than one person at a time, and hence most electrical installations must be completed solo."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 16,
+      "type": "single",
+      "text": "What is a significant issue in heritage buildings and premises in relation to the type and colour of exposed accessories?",
+      "options": [
+        "The type and colour of the exposed accessory must match the original colour of its surroundings. There may be additional work with regards to colour matching and painting.",
+        "The colour of the exposed accessory must always be neutral (white or black) and of similar type in accordance with the requirements of the Building Code of Australia and the NSW Heritage office.",
+        "The colour and type of the exposed accessory must be reviewed and approved by the NSW Heritage office.",
+        "Electrical accessories must always be concealed and hence it is not possible for them to be exposed."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 17,
+      "type": "multiple",
+      "text": "According to Section 3.3.2.2 in AS/NZS 3000:2018, what are 2 techniques for protection of the thermal effects of an electrical installation?",
+      "options": [
+        "Limiting the current to be carried by the cable to reduce its operating temperature",
+        "Limiting the voltage of the installation to reduce its operating temperature",
+        "Selecting a system that is capable of withstanding at least 5 times its normal operating temperature",
+        "Shielding"
+      ],
+      "correct_indices": [0, 3]
+    },
+    {
+      "id": 18,
+      "type": "single",
+      "text": "An electrician is considering techniques for the protection of an electrical wiring system and associated equipment against thermal impacts. Which of the following would satisfy requirements under Australian Standards and building codes?",
+      "options": [
+        "Installing a PVC barrier between the wiring system and source of heat to provide insulation.",
+        "Restricting current following through the wiring system and equipment to 90% of its total capacity.",
+        "Using an alternate supply for wiring systems and equipment close to a source of heat to ensure no additional heat is drawn from the mains.",
+        "Installing the wiring system and the equipment sufficiently far from any sources of heat"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 19,
+      "type": "multiple",
+      "text": "According to AS/NZS 3000:2018 socket-outlets are permitted in two of the restricted zones within a pool area. Which 2 zones are they?",
+      "options": [
+        "Zone 3",
+        "Zone 1",
+        "Zone 2",
+        "Zone 4"
+      ],
+      "correct_indices": [1, 2]
+    },
+    {
+      "id": 20,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Under Australian Standards and Building Codes, current using equipment and accessories can be installed close to non-electrical services as long as any forceable routine operation can be carried out on the other service without damage to the electrical equipment.",
+        "Under Australian Standards and Building Codes, it is permitted to install electrical equipment on the underside of a ceiling or roof, however, it is deemed likely to be disturbed.",
+        "Under Australian Standards and Building Codes, current using equipment and accessories are always required to be installed at separate locations to services that produce heat, smoke, or fumes."
+      ],
+      "correct_answers": [true, true, false]
+    },
+    {
+      "id": 21,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018 what 2 faults do circuit breakers protect an installation from?",
+      "options": [
+        "Overcurrent and high temperature",
+        "Overcurrent and undercurrent",
+        "Over voltage and under voltage",
+        "Overload current and short circuit current"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 22,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Under AS/NZS 3000:2018, controls should be incorporated in electrical installations for the purpose of isolation of circuits and other equipment in order to satisfy safety requirements when testing.",
+        "Under AS/NZS 3000:2018, controls should be used in electrical installations as a key protection against excessive earth leakage and short-circuits.",
+        "Under AS/NZS 3000:2018, control of safety devices should be arranged in a way that these control devices are separate from the control of other equipment."
+      ],
+      "correct_answers": [false, false, true]
+    },
+    {
+      "id": 23,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018, it is a requirement that after the installation of an RCD for the protection of electrical equipment, the RCD should be tested for isolation by either a/an:",
+      "options": [
+        "Current or check for dead test",
+        "Voltage or continuity test",
+        "Resistance or polarity test",
+        "Overcurrent or undercurrent test"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 24,
+      "type": "single",
+      "text": "According to the Building Code of Australia, an electrical switch can only be installed in an opening or recess in a wall floor or ceiling if:",
+      "options": [
+        "The recess is located at any point other than within 300mm horizontally or 600mm vertically of any opening or recess on the opposite side of the wall.",
+        "The thickness of the recess is 50% of the thickness of the wall and the gap between the service and the wall is fireproofed.",
+        "The recess is located opposite any point within 300mm horizontally or 600mm vertically of any opening or recess on the opposite side of the wall.",
+        "The thickness of the recess is 75% of the thickness of the wall and the gap between the service and the wall is fireproofed."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 25,
+      "type": "single",
+      "text": "Under Australian Standards, it is a requirement that overcurrent devices are always:",
+      "options": [
+        "used to earth the supply voltage.",
+        "clearly identified as suitable for operation.",
+        "installed for operating voltages above 60v.",
+        "contain two or more contacts."
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 26,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "It is a requirement that when installing electrical equipment in residential zones the equipment must be earthed with all extraneous conductive connected together by equipotential bonding conductors and connected to the protective earthing conductor of the electrical equipment, in accordance with Clause 5.6.2.6.",
+        "In NSW, local supply authorities are required to follow the requirements under AS/NZS 3000 for equipotential bonding.",
+        "Where electrical equipment situated in a classified zone, it is required to be earthed with all extraneous conductive parts in Zones 0,1 and 2 connected together by equipotential bonding conductors and connected to the protective earthing conductor of the electrical equipment, in accordance with Clause 5.6.2.6."
+      ],
+      "correct_answers": [false, true, true]
+    },
+    {
+      "id": 27,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018 and the Building Code of Australia, insulated conductors in a metallic wiring enclosure are required to be under ___ in length?",
+      "options": [
+        "3 meters",
+        "4 meters",
+        "2 meters",
+        "1 meter"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 28,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018 once you have determined the cross-sectional area of a conduit, you can use that area to work out how many cables can be used in that enclosure. Which of these is the maximum percentage of the cross-sectional area that can be used for cables?",
+      "options": [
+        "3 or more cables is 40% of the cross-sectional area",
+        "1 cable is 50% of the cross-sectional area",
+        "4 cables is 45% of the cross-sectional area",
+        "2 cables is 33% of the cross-sectional area"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 29,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018 if you have used a 4mm TPS and a 1.5mm TPS cable in your installation and need to place them in a suitable enclosure, which sized conduit would use?",
+      "options": [
+        "10mm PVC medium duty conduit",
+        "½ inch flexible conduit",
+        "10mm metal conduit",
+        "20mm PVC conduit"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 30,
+      "type": "multiple",
+      "text": "TPS cables are commonly installed in domestic, commercial, and industrial installations, and are commonly _______?",
+      "options": [
+        "Run underground without any protection",
+        "Protected by light duty PVC conduit in industrial settings",
+        "Tied to cable tray or ladder",
+        "Enclosed in conduit, trunking, or duct",
+        "Tied to catenary systems",
+        "Embedded in rendered walls",
+        "Clipped direct to surfaces",
+        "Unenclosed in wall and ceiling cavities"
+      ],
+      "correct_indices": [2, 3, 4, 5, 6, 7]
+    },
+    {
+      "id": 31,
+      "type": "multiple",
+      "text": "When finalising routes of wiring systems installed in buildings, structures, and premises, what 3 factors should be considered?",
+      "options": [
+        "Suitable fixings and connections shall be used where wiring systems are subject to vibration.",
+        "Wiring systems can be selected and installed with no regard to the effects of heat from external sources.",
+        "Corrosive and polluting substances will not affect wiring systems as the PVC insulation is resistant to such hazardous material.",
+        "Flora and Fauna do not constitute a hazard for wiring systems.",
+        "Wiring systems shall be selected and installed so as to minimise the risk of mechanical damage.",
+        "Wiring systems shall be selected and installed so that high humidity or entry of water does not cause damage."
+      ],
+      "correct_indices": [0, 4, 5]
+    },
+    {
+      "id": 32,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018 Clause 2.2.1, what is the most common low voltage earthing system arrangement used in electrical installations?",
+      "options": [
+        "MEN system (Multiple Earthed Neutral / TN-C-S)",
+        "IT system",
+        "TT system",
+        "Separated system"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 33,
+      "type": "single",
+      "text": "You're installing an electrical cable to chassis ground in an electrical circuit in order to distribute electricity. What wiring accessory should you use?",
+      "options": [
+        "Earth connector",
+        "Screw terminal",
+        "Patch Panel",
+        "Switchboard"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 34,
+      "type": "single",
+      "text": "A wiring accessory that is designed to protect a wiring system from an excessive current in an electrical circuit by melting a metal wire/strip is known as a/an:",
+      "options": [
+        "Circuit Breaker",
+        "Mains Switch",
+        "Fuse",
+        "Overcurrent Device"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 35,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Under Australian Standards, wiring systems should always be fixed with suitable clips, saddles, or clamps.",
+        "Under Australian Standards, wiring systems should always be fixed by means that will not be affected by unforeseeable future environmental factors.",
+        "Under Australian Standards, wiring systems should always be fixed by means that will not be affected by the wiring system material."
+      ],
+      "correct_answers": [false, false, true]
+    },
+    {
+      "id": 36,
+      "type": "single",
+      "text": "Under Australian Standards and the Building Code of Australia, there is a technique for protecting wiring systems through cable placement known as 'placing out of reach' this is where:",
+      "options": [
+        "the placement of a cable is restricted to access by a competent person and placed out of 'arms reach'.",
+        "the placement of a cable is at a minimum height of 1.5m above the ground to ensure it cannot be accessed by children.",
+        "the placement of a cable is restricted to access by a competent person and is placed at least 2.5m above the ground.",
+        "the placement of a cable is at a minimum height of 2.5m above the ground to ensure it cannot be accessed by children."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 37,
+      "type": "multiple",
+      "text": "You are installing cabling at a domestic residence and you must draw in wires through a non-conductive PVC conduit. What are 2 techniques you can use to assist with this installation?",
+      "options": [
+        "Using a fishhook to pull the wires by making a small piercing through their insulation and pulling through the conduit.",
+        "Using a fish tape to pull the wires through the conduit.",
+        "Pulling the wires through the conduit using a high suction vacuum.",
+        "Lubricating wires with a non-conductive gel and feeding them through the conduit."
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 38,
+      "type": "single",
+      "text": "Conductors within wiring systems are most commonly terminated by which technique?",
+      "options": [
+        "Screwing",
+        "Joining",
+        "Splicing",
+        "Welding"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 39,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Soldering, insulation displacement connections, crimping and ultrasonic welding are some of the most commonly used techniques to terminate wires.",
+        "Aluminium and copper conductors each require unique termination techniques.",
+        "Twisting, insulation displacement connections, shielding, and thermal welding are some of the most commonly used techniques to terminate wires."
+      ],
+      "correct_answers": [true, false, false]
+    },
+    {
+      "id": 40,
+      "type": "multiple",
+      "text": "What are 2 methods of maintaining the fire rating integrity of a switchboard within a wiring system?",
+      "options": [
+        "Protecting the switchboard against undercurrents using an undercurrent device.",
+        "Use a fire-retardant PVC enclosure for the switchboard and cable insulation.",
+        "Where a switchboard is enclosed in a case or surround, any wiring systems entering the switchboard enclosure shall pass-through openings that provide a close fit.",
+        "Internal sealing of wiring enclosures, especially those that enter at the top or sides of a switchboard."
+      ],
+      "correct_indices": [2, 3]
+    },
+    {
+      "id": 41,
+      "type": "multiple",
+      "text": "You are installing a cable in the kitchen at a domestic premise and need to pass the cable through a 6mm opening. What is a technique you can use to maintain the fire integrity of the installation?",
+      "options": [
+        "Use fire-resistant sealant for the opening given it is greater than 5mm diameter or greater",
+        "Ensure that the opening is at least 700mm from the stove and 600mm from the sink.",
+        "Use of heavy-duty or PVC based fire resistant cabling",
+        "Use a fire-resistant enclosure as openings under 10mm should not be sealed given the restriction of current."
+      ],
+      "correct_indices": [0, 2]
+    },
+    {
+      "id": 42,
+      "type": "ranking",
+      "text": "Rank in order the steps to carry out when doing an insulation resistance test of a lighting wiring system?",
+      "items": [
+        "Remove the lighting circuit neutral.",
+        "Remove the MEN link from the neutral bar.",
+        "With the circuit breaker off, measure resistance between Active and Earth.",
+        "Measure between Circuit Neutral and Earth.",
+        "Reconnect both the MEN link and circuit Neutral.",
+        "Both readings should be over 1MΩ."
+      ],
+      "correct_order": [2, 1, 3, 4, 6, 5]
+    },
+    {
+      "id": 43,
+      "type": "multiple",
+      "text": "You have just extended an existing wiring system with an additional cable and socket outlet. How would you test this cable to ensure it is safe to test and connect to the supply?",
+      "options": [
+        "Perform a continuity test using a multimeter to obtain an OL reading.",
+        "Perform a polarity test using a voltmeter and obtain a positive reading.",
+        "Visually inspect the cable for signs of damage and reverse polarity.",
+        "Perform an insulation resistance test using an insulation resistance tester and obtain a reading of approximately 1mOhm"
+      ],
+      "correct_indices": [0]
+    },
+    {
+      "id": 44,
+      "type": "single",
+      "text": "A technique for protecting an earthing conductor in a heating circuit is to use a 'rated conductor' between the heater enclosure and the ground connection (usually in a switchboard). Why is this important?",
+      "options": [
+        "It is important because the rating indicates thermal integrity thus determining what exact temperature range the cable/conductor can be used at.",
+        "It is important because the rating indicates the level of mechanical protection a conductor/cable possesses.",
+        "It is important because the rating indicates that if the current does flow to the ground the resistance will be low enough to prevent any significant voltage drop.",
+        "It is important because the rating indicates whether the conductor/cable will be able to overcurrent and undercurrent protection."
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 45,
+      "type": "multiple",
+      "text": "Which 3 techniques can you use for configuring a three-phase heating terminal allow for the connection of a neutral conductor?",
+      "options": [
+        "Parallel Connection",
+        "Star Connection",
+        "Series Connection",
+        "Delta Connection"
+      ],
+      "correct_indices": [0, 1, 2]
+    },
+    {
+      "id": 46,
+      "type": "single",
+      "text": "A common technique for connecting and configuring a neutral conductor in a lighting installation is the:",
+      "options": [
+        "Loop at the ground method",
+        "Loop at the switch method",
+        "Loop at the switchboard method",
+        "Loop at the light method"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 47,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Under AS/NZS 3000:2018 the technique for protecting luminaires (light fittings) with exposed metallic (conductive) parts is to them earthed using an earthing conductor connected to the earth terminal of the lighting point.",
+        "Under AS/NZS 3000:2018 the technique for protecting luminaires (light fittings) with exposed metallic (conductive) parts is to them earthed using an earthing conductor connected to the neutral terminal of the lighting point to create the path of least resistance.",
+        "Under AS/NZS 3000:2018 the technique for installing a protective earthing conductor in a lighting circuit must include connection to a suitably robust earthing terminal of the lighting point.",
+        "Under AS/NZS 3000:2018 the technique for installing a protective earthing conductor in a lighting circuit must include connection to a suitably robust earthing terminal of the lighting point using the loop at the switch method of installation."
+      ],
+      "correct_answers": [true, false, true, false]
+    },
+    {
+      "id": 48,
+      "type": "single",
+      "text": "The correct technique for connecting and configuring the neutral terminal in a smoke alarm is to:",
+      "options": [
+        "ensure that the terminals clamp the conductor between metal surfaces by using a flying type lead with a rotating connector.",
+        "ensure that the terminals clamp the conductor between metal surfaces without rotation of those surfaces.",
+        "ensure that the terminals clamp the conductor between metal surfaces by placing pressure along the length of the neutral conductor.",
+        "ensure that the terminals clamp the conductor between metal surfaces by rotating each surface."
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 49,
+      "type": "single",
+      "text": "Which technique for configuring a three-phase motor allows for the connection of a neutral conductor?",
+      "options": [
+        "Parallel Connection",
+        "Star Connection",
+        "Series Connection",
+        "Delta Connection"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 50,
+      "type": "single",
+      "text": "According to AS/NZS 3010:2017, when a multiple earth neutral system (MEN) is employed in a squirrel cage motor, the correct earth protection arrangement technique is:",
+      "options": [
+        "ensuring that the connection between the neutral conductor of the supply system and the earthing arrangement is wired through a MEN link to a secondary switchboard.",
+        "ensuring that the neutral and earth conductors of the supply system and the earthing arrangement operate in parallel with each other.",
+        "ensuring that the only connection between the neutral conductor of the supply system and the earthing arrangement is the MEN link located in the main switchboard and the earth fault loop cable located at the motor terminal.",
+        "ensuring that the only connection between the neutral conductor of the supply system and the earthing arrangement is the MEN link located in the main switchboard."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 51,
+      "type": "single",
+      "text": "Under Australian Standards, when installing a current transformer what is the correct technique to install protective earthing conductors?",
+      "options": [
+        "The current transformer secondary circuit terminal should be connected to the station earth at multiple points, with consideration of the number of the current transformers secondary winding connections.",
+        "If the current transformer has multiple sets of secondary windings a differential relay must be installed between the primary and secondary circuits and connect to the earth terminal.",
+        "If the current transformer has multiple sets of secondary windings, the individual winding be connected to the earth at each terminal.",
+        "The current transformer secondary circuit terminal should be connected to the station earth at only one point, irrespective of the number of current transformer secondary winding connections."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 52,
+      "type": "single",
+      "text": "What is a technique that can be used as part of the configuration of the neutral terminal of a power transformer with a high level of inductive impedance to protect it from surges?",
+      "options": [
+        "Install a neutral arrester at the neutral terminal",
+        "Create an earth-fault loop at the neutral terminal",
+        "Connect the neutral and earth terminals of the secondary transformer circuit with a neutral link",
+        "Configure the transformer in a delta-arrangement"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 53,
+      "type": "single",
+      "text": "How should you connect the main earth conductor to the main neutral conductor in a switchboard?",
+      "options": [
+        "Connect the earth conductor and neutral conductors directly with a copper earth bridge.",
+        "Connect the earth conductor to the earth bar and the neutral conductor to a neutral bar. Link the two bars together with a copper earth bridge.",
+        "Connect the earth conductor and neutral conductors directly with a MEN link.",
+        "Connect the earth conductor to the earth bar and the neutral conductor to a neutral bar. Link the two bars together with a MEN link."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 54,
+      "type": "single",
+      "text": "When connecting the terminals of a pendant socket outlet to a protective earthing conductor, how should the earthing pin aperture be connected to ensure compliance with Australian Standards?",
+      "options": [
+        "The earthing pin aperture should be connected to the contact that Is anterior to the circle embracing the pins.",
+        "The earthing pin aperture should be connected to the contact that Is adjacent to the right flat live pin.",
+        "The earthing pin aperture should be connected to the contact that Is radial to the circle embracing the pins.",
+        "The earthing pin aperture should be connected to the contact that Is adjacent to the left flat live pin."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 55,
+      "type": "single",
+      "text": "How should you connect the neutral conductor to the neutral terminal of a pendant plug socket by Australian Standards?",
+      "options": [
+        "Fit the neutral wire into the earth socket pin (when viewing the socket from the front).",
+        "Fit the neutral wire into the bottom middle neutral socket pin (when viewing the socket from the front).",
+        "Fit the neutral wire into the top left neutral socket pin (when viewing the socket from the front).",
+        "Fit the neutral wire into the top right neutral socket pin (when viewing the socket from the front)."
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 56,
+      "type": "single",
+      "text": "What is the common technique for connecting the neutral terminal of a residential split system air conditioning unit?",
+      "options": [
+        "Connect a neutral from the switchboard to the compressor and another neutral wire from the switchboard to the motor fan.",
+        "Connect the neutral wire from the switchboard to the compressor and motor fan using a wire connector as a common link.",
+        "Connect the neutral wire from the switchboard to the compressor directly and connect a neutral wire directly from the compressor to the motor fan.",
+        "Connect the neutral wire from the switchboard to the compressor and motor fan using a busbar as a common link."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 57,
+      "type": "single",
+      "text": "What type of protective earthing conductor is commonly used in the installation of an electric stove?",
+      "options": [
+        "1.5mm to 3.5mm shielded copper or aluminium UTP cable.",
+        "4mm to 6mm shielded copper or aluminium UTP cable.",
+        "1.5mm to 3.5mm shielded copper PVC cable.",
+        "4mm to 6mm shielded copper PVC cable."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 58,
+      "type": "single",
+      "text": "What would be the impact of switching the active and neutral phases in a single-phase electrical device?",
+      "options": [
+        "The device will continue to work as usual",
+        "The device will operate in reverse",
+        "The device will short-circuit",
+        "The device will overheat"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 59,
+      "type": "match",
+      "text": "Match the cable type used in the terminal configuration for the connection and configuration of phase for the following types of equipment.",
+      "left_items": [
+        "Motors in an industrial environment",
+        "Switchgear",
+        "Appliance (Kettle)",
+        "Smoke detectors",
+        "Pendent sockets",
+        "Heating and high-temperature equipment",
+        "Transformers",
+        "Lighting"
+      ],
+      "right_options": [
+        {"letter": "A", "text": "High power single insulated cable"},
+        {"letter": "B", "text": "Fibreglass braid sheathed cable or silicon insulated cable"},
+        {"letter": "C", "text": "1mm2 Double insulated flexible cable"},
+        {"letter": "D", "text": "Steel wired armoured cable"},
+        {"letter": "E", "text": "1.5mm2 Double insulated flexible cable"},
+        {"letter": "F", "text": "Sheathed cable protected from electromagnetic interference"},
+        {"letter": "G", "text": "1.5mm2 TPS"},
+        {"letter": "H", "text": "Red TPS or minimal insulated cable"}
+      ],
+      "correct_matches": ["D", "A", "E", "H", "C", "B", "F", "G"]
+    },
+    {
+      "id": 60,
+      "type": "single",
+      "text": "A wiring system is rated as WS 22. This represents a:",
+      "options": [
+        "wiring system that can withstand 30 minutes fire and moderate impact",
+        "wiring system that can withstand 15 minutes fire and light impact",
+        "wiring system that can withstand 60 minutes fire and massive impact",
+        "wiring system that can withstand 120 minutes fire and massive impact"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 61,
+      "type": "single",
+      "text": "What is the minimum bending radius for flexible cable?",
+      "options": [
+        "3D",
+        "4D",
+        "8D",
+        "12D"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 62,
+      "type": "single",
+      "text": "Where cables exit cable trays and ladders, the support surfaces should be:",
+      "options": [
+        "rounded",
+        "blocked",
+        "rigid",
+        "raised"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 63,
+      "type": "single",
+      "text": "To avoid the risk of mechanical and electrical damage through electromagnetic induction, cables should be:",
+      "options": [
+        "installed within the same enclosure",
+        "sheathed",
+        "earthed",
+        "in a separate compartment"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 64,
+      "type": "single",
+      "text": "Controls as set out in the BCA are known as:",
+      "options": [
+        "performance requirements",
+        "separation distances",
+        "barriers",
+        "structural elements"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 65,
+      "type": "single",
+      "text": "To guarantee minimal impact on the building fabric, wiring systems to be installed in heritage buildings should:",
+      "options": [
+        "use TPS wiring installed on building surfaces",
+        "use concealment methods",
+        "use TPI cables installed in conduit",
+        "be extra low voltage"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 66,
+      "type": "single",
+      "text": "Cardiac-protected areas must minimise leakage current values to below:",
+      "options": [
+        "30 mA",
+        "10 mA",
+        "100 μA",
+        "100 mA"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 67,
+      "type": "single",
+      "text": "What is the minimum number of socket outlets that must be available to each patient in cardiac-protected areas?",
+      "options": [
+        "2",
+        "8",
+        "4",
+        "6"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 68,
+      "type": "single",
+      "text": "An LIM sounds an alarm when the total hazard current exceeds:",
+      "options": [
+        "10 mA",
+        "30 mA",
+        "100 μA",
+        "the warning level"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 69,
+      "type": "single",
+      "text": "Equipotential earthing systems in cardiac-protected areas must have a resistance lower than:",
+      "options": [
+        "0.1 Ω",
+        "1 MΩ",
+        "1 Ω",
+        "1 kΩ"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 70,
+      "type": "single",
+      "text": "To ensure compliance with Clause 8.3.6, the required insulation resistance value for a circuit supplying socket outlets is not less than:",
+      "options": [
+        "0.5 Ω",
+        "2 Ω",
+        "0.1 MΩ",
+        "1 MΩ"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 71,
+      "type": "single",
+      "text": "Overhead wiring for a relocatable premises site must be maintained at a minimum height of:",
+      "options": [
+        "10 m",
+        "5 m",
+        "6 m",
+        "2 m"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 72,
+      "type": "single",
+      "text": "All switches for relocatable premises must:",
+      "options": [
+        "switch the active conductor only",
+        "be rated for 15 A",
+        "be mounted at a height 1700 mm above the surface on which an operative would stand",
+        "operate in all live conductors"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 73,
+      "type": "single",
+      "text": "Service pillars mounted on fixed jetties at marinas must be located:",
+      "options": [
+        "at least 500 mm above the high water mark",
+        "at least 750 mm above the high water mark",
+        "at least 1000 mm above the high water mark",
+        "within arm's reach of a moored vessel"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 74,
+      "type": "single",
+      "text": "How many residential allotments can connect to a single service pillar?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 75,
+      "type": "single",
+      "text": "From the wiring installation below select the correct wiring diagram that shows the switchgear, protective devices and 'links' to be properly wired.",
+      "options": [
+        "Figure 4",
+        "Figure 1",
+        "Figure 2",
+        "Figure 3"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 76,
+      "type": "multiple",
+      "text": "When wiring up an RCD in a switchboard, the protected neutral of the RCD can either be:",
+      "options": [
+        "Connected straight to circuit neutrals that are protected by the same RCD.",
+        "Connect straight to the main neutral bar.",
+        "Connect to the earth bar to operate correctly.",
+        "Connect to its own neutral link and only the circuit neutrals that the RCD protects can connect to it."
+      ],
+      "correct_indices": [0, 3]
+    },
+    {
+      "id": 77,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Service Active Links are to be located so that it is easily accessible and safe to work on.",
+        "Hinged switchboard panel construction may enable the 'link' to be located on the rear of the panel.",
+        "Service Active Links can be of a non-insulated type.",
+        "Service fuse and Service Circuit Breaker are to be clearly identified.",
+        "When a service fuse is installed, a Service circuit breaker should not also be installed in the circuit."
+      ],
+      "correct_answers": [true, true, false, true, false]
+    },
+    {
+      "id": 78,
+      "type": "multiple",
+      "text": "What are 2 important considerations when correctly installing local supply authority equipment in relation to Service and Metering Neutral Links?",
+      "options": [
+        "Service and metering neutral links have an internal resistance greater than the associated incoming conductor",
+        "Service and Metering Neutral Links are to be all insulated type",
+        "Service and Metering Neutral Links are to have a current rating not less than the current carrying capacity of the associated incoming conductor",
+        "Service and metering neutral links are to be all non-insulated type"
+      ],
+      "correct_indices": [1, 2]
+    },
+    {
+      "id": 79,
+      "type": "multiple",
+      "text": "Where would look to obtain correct information regarding correct preparation for fitting and connection of local supply authority equipment when it comes to installing such components on a switchboard?",
+      "options": [
+        "Service and Installation Rules of New South Wales",
+        "Local Council website",
+        "A quick look next door to see how the previous installation was done",
+        "Supply authority website",
+        "AS/NZS 3000:2018"
+      ],
+      "correct_indices": [0, 3, 4]
+    },
+    {
+      "id": 80,
+      "type": "match",
+      "text": "Typically for an 80 to 100 Amp switchboard installation, what would be the most adequate cable sizes used? Match cable size to the intended use.",
+      "left_items": [
+        "Main Earth connection from Earth Bar to Earth Stake",
+        "Power circuit in the kitchen",
+        "Incoming Mains cables",
+        "Outside lighting circuit",
+        "Hot Water System circuit"
+      ],
+      "right_options": [
+        {"letter": "A", "text": "10mm2 – 16mm2"},
+        {"letter": "B", "text": "4mm2 – 6mm2"},
+        {"letter": "C", "text": "6mm2"},
+        {"letter": "D", "text": "2.5mm2"},
+        {"letter": "E", "text": "1mm2 – 1.5mm2"}
+      ],
+      "correct_matches": ["C", "D", "A", "E", "B"]
+    },
+    {
+      "id": 81,
+      "type": "single",
+      "text": "When selecting adequately sized cables for the correct current carrying capacity of Three-Core thermoplastic cables, which table and standard would you refer to:",
+      "options": [
+        "Table 13 AS/NZS 3000:2018",
+        "Table 23 AS/NZS 3001:2001",
+        "Table 23 AS/NZS 3100:2015",
+        "Table 13 AS/NZS 3008.1.1:2017"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 82,
+      "type": "single",
+      "text": "From the labelled Load Centres (switchboards) below select the one most appropriately marked. Hint – be observant of current ratings of breakers.",
+      "options": [
+        "Figure 4 / Figure 8",
+        "Figure 1 / Figure 5",
+        "Figure 2 / Figure 6",
+        "Figure 3 / Figure 7"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 83,
+      "type": "match",
+      "text": "From the following drawing select the correct labelling for the relevant 'link'. Match letters to current answers.",
+      "left_items": [
+        "RCD Protected Neutral link - Power",
+        "RCD Protected Neutral link - Lighting",
+        "Earth Bar",
+        "Consumers Neutral Link"
+      ],
+      "right_options": [
+        {"letter": "A", "text": "A"},
+        {"letter": "B", "text": "B"},
+        {"letter": "C", "text": "C"},
+        {"letter": "D", "text": "D"}
+      ],
+      "correct_matches": ["A", "B", "D", "C"]
+    },
+    {
+      "id": 84,
+      "type": "single",
+      "text": "From the following picture choose which 'link' is called the Service Neutral Link.",
+      "options": [
+        "Label C",
+        "Label B",
+        "Label A",
+        "Label D"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 85,
+      "type": "match",
+      "text": "From the images provided, match the correct 'Number' to its corresponding description to show satisfactory identification that would be placed on circuit neutral conductors.",
+      "left_items": [
+        "AC (air conditioner neutral)",
+        "Main N (main neutral)",
+        "L2 N (protected neutral link – lighting circuit 2)",
+        "P1 N (protected neutral link – power circuit 1)",
+        "Stove N (stove neutral)",
+        "RCD Pwr N (RCD power neutral)",
+        "M.E.N link",
+        "P2 N (protected neutral link – power circuit 2)",
+        "RCD Lts N (RCD lighting neutral)",
+        "HWS N (hot water system neutral)",
+        "Spare",
+        "RCD Lts PN (RCD lighting protected neutral)",
+        "L1 N (protected neutral link – lighting circuit 1)",
+        "P3 N (protected neutral link – power circuit 3)",
+        "RCD Pwr PN (RCD power protected neutral)",
+        "L3 N (protected neutral link – lighting circuit 3)"
+      ],
+      "right_options": [{"letter": "1", "text": "1"}, {"letter": "2", "text": "2"}, {"letter": "3", "text": "3"}, {"letter": "4", "text": "4"}, {"letter": "5", "text": "5"}, {"letter": "6", "text": "6"}, {"letter": "7", "text": "7"}, {"letter": "8", "text": "8"}, {"letter": "9", "text": "9"}, {"letter": "10", "text": "10"}, {"letter": "11", "text": "11"}, {"letter": "12", "text": "12"}, {"letter": "13", "text": "13"}, {"letter": "14", "text": "14"}, {"letter": "15", "text": "15"}, {"letter": "16", "text": "16"}],
+      "correct_matches": ["9", "15", "6", "1", "10", "11", "16", "2", "12", "13", "14", "8", "5", "3", "4", "7"]
+    },
+    {
+      "id": 86,
+      "type": "multiple",
+      "text": "Select 2 correct reasons why testing for correct polarity is essential with switchboard wiring installations.",
+      "options": [
+        "To ensure switches or protective devices do not operate independently in the active conductors.",
+        "To ensure there is no transposition of conductors that could result in the electrical equipment becoming unsafe when it is connected to supply.",
+        "To ensure all fixed socket-outlets for multiphase supples are connected so the phase sequence is the same throughout the installation.",
+        "To ensure switches or protective devices operate independently in the neutral conductors."
+      ],
+      "correct_indices": [1, 2]
+    },
+    {
+      "id": 87,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Testing for correct Polarity is not possible in an AC circuit.",
+        "Testing for correct Polarity of a low voltage electrical installation such as wiring up a switchboard is part of a Mandatory Test as specified by Clause 8.3.3.1 in AS/NZS 3000:2018.",
+        "Testing for correct Polarity is only required for high voltage electrical installation such as mains connections which form part of a Mandatory Test as specified by Clause 8.3.3.1 in AS/NZS 3000:2018."
+      ],
+      "correct_answers": [false, true, false]
+    },
+    {
+      "id": 88,
+      "type": "multiple",
+      "text": "What would be some safe practices you can employ while removing equipment from a switchboard?",
+      "options": [
+        "Treat everything as 'Live' even after checking for dead.",
+        "If in doubt, bridge it out.",
+        "Never work on 'Live' equipment, make sure power has been isolated and tagged (locked) out unless testing for resistance.",
+        "Make sure your hand tools are in good working order, ensure insulation integrity.",
+        "Always check your tester (multimeter) on a known source."
+      ],
+      "correct_indices": [0, 2, 3, 4]
+    },
+    {
+      "id": 89,
+      "type": "multiple",
+      "text": "If the equipment was removed from a switchboard, what would need to happen to its wiring?",
+      "options": [
+        "Remove all used wiring if not required",
+        "Ensure that the space has been covered or filled in from where the equipment was removed, especially on a front panel of a switchboard",
+        "Remaining bare connectors should be danger tagged and left floating",
+        "Leave wiring uninsulated and ready for reconnection",
+        "If wiring was to remain, then insulate and make it safe with connectors and insulation tape."
+      ],
+      "correct_indices": [0, 1, 4]
+    },
+    {
+      "id": 90,
+      "type": "single",
+      "text": "To minimise damage to wiring systems installed underground during manual or mechanical excavation works, the location of underground wiring shall be marked or recorded as follows:",
+      "options": [
+        "Cable entry signs must be provided where the position of underground cable entry into the ground is clear.",
+        "Marking underground wiring is required within the confines of a building.",
+        "Permanent cable marker signs shall be provided to indicate the point at where the cable enters or leaves a structure.",
+        "Permanent cable marker signs shall be provided to indicate the point at where the cable enters a structure ONLY."
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 91,
+      "type": "single",
+      "text": "According to clause 1.5.21 of AS/NZS 3003, what is classified as the patient environment?",
+      "options": [
+        "The patient environment extends laterally 1.5m around the patient location (but not through walls) and to a height of 2.5m above the floor.",
+        "The patient area extends laterally 1 m around the patient location (but not through walls) and to a height of 2 m above the floor.",
+        "The patient location extends laterally 2.5m around the patient (but not through walls) and to a height of 2.5m above the floor.",
+        "The patient environment extends laterally to the walls enclosing the patient location(s)."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 92,
+      "type": "multiple",
+      "text": "Which of the following areas shall be wired as cardiac-protected electrical areas if cardiac-type procedures are undertaken there?",
+      "options": [
+        "Neo-natal ICU",
+        "CCIU",
+        "Radiotherapy",
+        "Cardiac ICU"
+      ],
+      "correct_indices": [0, 1, 3]
+    },
+    {
+      "id": 93,
+      "type": "single",
+      "text": "According to AS/NZS 3002, show, carnival or event light shall be located and supported so that:",
+      "options": [
+        "No lamp part of ELV LED is located within arm's reach of the ground",
+        "No lamp holder associated with event lighting is within 1.5 m of the ground",
+        "No lamp associated with event lighting is within 150mm of flammable material",
+        "No part of the event lighting system is less than 4 m above any area subject to vehicular traffic"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 94,
+      "type": "single",
+      "text": "According to AS/NZS 3004, what are the acceptable wiring systems in marinas?",
+      "options": [
+        "Mineral insulated, copper-sheathed cables protected by a serving of PVC or polyethylene.",
+        "Elastomer insulated and aluminium clad sheathed cables with a flexible non-metallic conduit.",
+        "Armoured and sheathed copper cables protected by low galvanized tube.",
+        "Thermoplastic insulated and sheathed copper cables enclosed in a heavy-duty metallic conduit."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 95,
+      "type": "single",
+      "text": "According to AS/NZS 3004, on a marina, a maximum of _____ socket-outlets shall be grouped in one service pillar.",
+      "options": [
+        "Five",
+        "Four",
+        "Six",
+        "Three"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 96,
+      "type": "single",
+      "text": "According to AS/NZS 3004, on a boat, what is the nominal D.C. voltage tolerance at the battery terminals over which all D.C. equipment shall operate?",
+      "options": [
+        "+5%, -15%",
+        "+25%, -12.5%",
+        "+15%, -5%",
+        "+12.5%, -25%"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 97,
+      "type": "single",
+      "text": "According to AS/NZS 3004, inverters and inverter/chargers installed on a boat shall:",
+      "options": [
+        "Be rotating power inverters supplying the required A.C. voltage and frequency",
+        "Be used in series with other power sources",
+        "Be manually controlled",
+        "Be designed to operate up to an ambient temperature of 50⁰C and withstand an ambient temperature of 70⁰C without any damage"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 98,
+      "type": "single",
+      "text": "According to AS/NZS 3001, when multiple transportable structures are occupying the site, how many outlet box/es shall be used?",
+      "options": [
+        "4",
+        "3",
+        "1",
+        "2"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 99,
+      "type": "single",
+      "text": "According to AS/NZS 3001, what shall be the minimum rating of a round pin socket outlet used within caravans?",
+      "options": [
+        "25 A",
+        "16 A",
+        "20 A",
+        "15 A"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 100,
+      "type": "single",
+      "text": "According to AS/NZS 3001, what shall be the minimum length of any supply lead used in caravan parks?",
+      "options": [
+        "15 m",
+        "10 m",
+        "5 m",
+        "16 m"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 101,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "At a show or carnival, all electrical equipment within a switchboard shall be located not more than 2.5m above the relevant ground, floor, or platform level.",
+        "According to Clause 2.7.4 of AS/NZS 3002, underground wiring within a show, carnival or event site shall be installed inside of the area of all concessions.",
+        "At a show or carnival, all connection facilities shall be provided with an enclosure to a minimum degree of protection of IP23.",
+        "According to Clause 2.7.5.3 of AS/NZS 3002, the minimum size of aerial conductors shall be not less than seven strands."
+      ],
+      "correct_answers": [false, false, true, true]
+    },
+    {
+      "id": 102,
+      "type": "single",
+      "text": "According to AS/NZS 3002, electrical equipment at a show or carnival shall not be located within how many metres horizontally and vertically from a gas cylinder?",
+      "options": [
+        "0.5 metres horizontally and 0.5 metres vertically from a gas cylinder.",
+        "2.5 metres horizontally and 1.5 metres vertically from a gas cylinder.",
+        "1.5 metres horizontally and 0.5 metres vertically from a gas cylinder.",
+        "5 metres horizontally and 5 metres vertically from a gas cylinder."
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 103,
+      "type": "single",
+      "text": "According to Clause 7.3.3 of AS/NZS 3000, an electricity generation system shall be controlled by:",
+      "options": [
+        "An electricity converter.",
+        "A control switch to which the connection of the electricity generation is made.",
+        "A main switch to control the voltage of electricity at all times.",
+        "A main switch or switches at the installation switchboard to which the connection of the electricity generation system is made."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 104,
+      "type": "single",
+      "text": "According to Clause 4.3.1.1 of AS/NZS 5033, photovoltaic (PV) modules selected shall be classified as:",
+      "options": [
+        "Safety Class II",
+        "Safety Class I",
+        "Safety Class III",
+        "Safety Class IV"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 105,
+      "type": "match",
+      "text": "Match the different installations to their supply requirements at construction sites under Australian standards and work, health, and safety regulation.",
+      "left_items": [
+        "Commando socket",
+        "Luminaires",
+        "Connection devices",
+        "Auxiliary socket-outlet box"
+      ],
+      "right_options": [
+        {"letter": "A", "text": "A stand-alone power source, provided, where necessary."},
+        {"letter": "B", "text": "Devices for interconnection of sub-mains shall be designed to prevent inadvertent disconnection under load."},
+        {"letter": "C", "text": "One or more separate circuits shall be provided with protection from an RCD."},
+        {"letter": "D", "text": "Single phase and multiphase connections shall be the same."}
+      ],
+      "correct_matches": ["D", "A", "B", "C"]
+    },
+    {
+      "id": 106,
+      "type": "single",
+      "text": "When you are modifying and testing electrical installations and equipment at a construction/demolition site, what is required to ensure effective testing under Australian standards and WHS regulations?",
+      "options": [
+        "Testing can be carried out using an ammeter.",
+        "Equipment circuits are isolated and de-energised from the power supply prior to commencing work.",
+        "Circuits do not require mechanical protection by an alternative containment device.",
+        "Equipment circuits can be modified and tested while connected to the power supply."
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 107,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "When you're installing a switchboard on a construction/ demolition site, you should mark the switchboard with numbers, letters, or both.",
+        "When you're installing a switchboard on a construction/demolition site, you should ensure that the switchboard enclosure shall have a degree of protection appropriate for the environment in which it is installed subject to the minimum degree of protection of IP25.",
+        "In order to energize the electrical equipment, it is advised to provide each installed switchboard with one isolating switch."
+      ],
+      "correct_answers": [true, false, false]
+    },
+    {
+      "id": 108,
+      "type": "multiple",
+      "text": "Which of the following statements is true in regards replacement of switchboards?",
+      "options": [
+        "Where all circuit protection on a switchboard is replaced, additional protection must be provided by RCDs for the initial subcircuits supplied from that switchboard.",
+        "Where socket-outlets are added to an existing circuit and RCD protection is required, the RCD protection needs to be modified for the entire circuit.",
+        "AS/NZS 3000 Clause 2.6.3 does not apply if the switchboard that is not RCD protected is replaced with the equivalent item in the same location.",
+        "When replacing a switchboard, RCDs are required for final subcircuits."
+      ],
+      "correct_indices": [0, 1, 2, 3]
+    },
+    {
+      "id": 109,
+      "type": "single",
+      "text": "How often should the switchboards be inspected and tested?",
+      "options": [
+        "Once every month",
+        "Twice in 5 months",
+        "Once in 2 months",
+        "Once in 6 months"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 110,
+      "type": "single",
+      "text": "When installing a circuit at a construction/demolition site, what is a suitable method to help ensure mechanical protection under Australian standards?",
+      "options": [
+        "Using an electroneutral screened cable",
+        "Using an intermediate metal conduit",
+        "Using a steel wire armoured cable",
+        "Using conductive metal sheet encasing"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 111,
+      "type": "multiple",
+      "text": "You wish to modify an electrical circuit at a construction/demolition site to protect it against overloads and electric shock, what would you install under Australian standards to offer reasonable protection?",
+      "options": [
+        "RCDs",
+        "Metal Oxide Varistor",
+        "Neutral bars",
+        "MCBs"
+      ],
+      "correct_indices": [0, 3]
+    },
+    {
+      "id": 112,
+      "type": "single",
+      "text": "During the installation phase, construction wiring shall be supplied from a/an:",
+      "options": [
+        "low voltage set generating set complying with and installed in accordance with AS/NZS 3008",
+        "generator complying with the requirements of AS/NZS 5013",
+        "existing secondary switchboard",
+        "electricity distributor's main"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 113,
+      "type": "single",
+      "text": "How often should the construction wiring be inspected and tested?",
+      "options": [
+        "Twice in 3 months",
+        "Once in 3 months",
+        "Once in 6 months",
+        "Twice in 4 months"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 114,
+      "type": "single",
+      "text": "You are modifying construction wiring and you find that it's been exposed to mechanical damage and cannot be relocated. Under AS/NZS 3012 workplace safety legislation, you should:",
+      "options": [
+        "ensure that no other cables are within 50mm of the damaged cable and leave as is",
+        "protect the wiring with a suitable enclosure or barrier",
+        "replace the entire cable with heavy-duty rigid insulating cable",
+        "mark the cable so that it is easily distinguishable and leave it as is"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 115,
+      "type": "single",
+      "text": "You are installing different lighting devices at a construction/demolition site. Which of the following AS/NZS 3012 requirements apply for different lighting equipment?",
+      "options": [
+        "Festoon lamp holder shall be temporarily moulded to their supply cable and shall be provided with a non-conductive mechanical guard.",
+        "Emergency lighting shall be installed at 900mm above floor level.",
+        "Maximum permitted operating voltages for festoon lighting is 230V A.C..",
+        "Where a neutral conductor is required for the connection of the Edison screw lamp holder, the conductor shall be connected to the inner contact."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 116,
+      "type": "single",
+      "text": "According to AS/NZS 2293.2 standard, all emergency luminaires and exit signs need to be inspected regularly. During that inspection, each device will undergo a discharge test in which a technician will turn the battery charger off and simulate a power outage for a certain amount of time. How often do these inspections need to take place and how long will the technician turn the battery charger off and simulate a power outage?",
+      "options": [
+        "Every month and for 30 minutes",
+        "Every two years and for 10 minutes",
+        "Every year and for 30 minutes",
+        "Every 6 months and for 60 minutes"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 117,
+      "type": "single",
+      "text": "You are inspecting and verifying different lighting devices at a construction/ demolition site. Select the device that is used to measure light levels.",
+      "options": [
+        "Luminance meter",
+        "Spectrometer",
+        "Light meter",
+        "Integrating sphere"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 118,
+      "type": "single",
+      "text": "At a construction site, festoon lighting has been installed 1.8 m above the floor. You are required to modify this setup in accordance with AS/NZS 3012 standards. What is the minimum height at which the lighting should be altered to?",
+      "options": [
+        "10 m",
+        "2.5 m",
+        "2.25 m",
+        "2 m"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 119,
+      "type": "single",
+      "text": "According to AS/NZS 3012 standards, what should be the rating of socket outlets that are provided on switchboards for the connection of portable appliances at a construction/demolition site?",
+      "options": [
+        "No less than 12A",
+        "No less than 8A",
+        "No less than 10A",
+        "No less than 14A"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 120,
+      "type": "single",
+      "text": "When you are replacing or modifying a socket outlet on a switchboard at a construction/demolition site, you must ensure that all socket outlets being replaced shall be:",
+      "options": [
+        "protected by an RCD with a residual current rating greater than 30 mA.",
+        "protected by an RCD with a residual current rating less than 30 mA.",
+        "protected by an RCD with a residual current rating greater than or equal to 30 mA.",
+        "protected by an RCD with a residual current rating equal to 30 mA."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 121,
+      "type": "multiple",
+      "text": "According to AS/NZS 3012 standards, which 2 personnel are authorised to test and inspect socket outlets every three months?",
+      "options": [
+        "Trained maintenance electricians",
+        "Trained electrical instrumentation technician",
+        "Trained portable appliance tester",
+        "Competent person trained in the use of RCDs"
+      ],
+      "correct_indices": [0, 3]
+    },
+    {
+      "id": 122,
+      "type": "multiple",
+      "text": "You are required to install a lift shaft at the construction/demolition site. Which of the following AS/NZS 3012 requirements must be satisfied to ensure safe installation?",
+      "options": [
+        "False cars (guided work platforms) must be supplied from a minimum 230V, 20A socket outlet on a final sub-circuit protected by a 30mA RCD.",
+        "Circuit breakers must be locked and tagged.",
+        "False cars (guided work platforms) must be supplied from a minimum 230V, 30A socket outlet on a final sub-circuit protected by a 30 mA RCD.",
+        "Supply cable must be installed in a way to minimize chemical damage."
+      ],
+      "correct_indices": [1, 2, 3]
+    },
+    {
+      "id": 123,
+      "type": "single",
+      "text": "You are required to replace the supply cable in a lift shaft at a construction /demolition site. What type of cable shall be used and what should be its minimum conductor size?",
+      "options": [
+        "Medium duty; 5 mm2",
+        "Heavy-duty; 4 mm2",
+        "Heavy duty; 5 mm2",
+        "Heavy-duty; 3 mm2"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 124,
+      "type": "multiple",
+      "text": "When you are conducting periodic testing of a lift at a construction/demolition site, it is a requirement that the construction wiring dedicated to the safe working of the lift is:",
+      "options": [
+        "fed from the same sub-circuit",
+        "fed from a separate final sub-circuit",
+        "free from abrasions",
+        "protected by 50 mA RCD"
+      ],
+      "correct_indices": [1, 2, 3]
+    },
+    {
+      "id": 125,
+      "type": "single",
+      "text": "You are required to calibrate a digital multimeter at a construction/demolition site. How would this be calibrated?",
+      "options": [
+        "Manual calibration",
+        "Calibration shall be done by a specialist",
+        "Connected to 240V supply",
+        "Testing against an ohmmeter with known resistance"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 126,
+      "type": "ranking",
+      "text": "Rank in order the steps to carry out when calibrating an analogue multimeter with a multiplier of x1.",
+      "items": [
+        "Select the selector knob to multiplier x1",
+        "Locate the zero-ohm adjuster and rotate the knob until it points to zero",
+        "Set the multimeter to its ohmmeter function",
+        "Short the test probes of the multimeter. The pointer must point to zero scales"
+      ],
+      "correct_order": [2, 4, 1, 3]
+    },
+    {
+      "id": 127,
+      "type": "single",
+      "text": "Which of the following statements is true in regards to the testing and inspection methods used at construction/demolition sites?",
+      "options": [
+        "Functional test with RCD test button shall be repeated 6-7 times.",
+        "Protective earthing continuity test is performed for all class I electrical equipment in accordance with AS/NZS 3012.",
+        "When a bonding test is performed for RCD protected inverters, the value of resistance shall not exceed 1Ω.",
+        "When arc welders are incorporated into generating sets, the minimum insulation resistance of the input circuit to the welding circuit shall be 1 MΩ."
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 128,
+      "type": "multiple",
+      "text": "According to AS/NZS 3012:2019 Appendix E, when testing and inspecting RCDs with regards to generators on construction sites. Which 2 conditions should be met?",
+      "options": [
+        "When the test button is pushed the RCD shall trip with at least a 5-second emergency delay",
+        "When the Test Button is pushed the RCD shall trip with undue delay",
+        "When tested at 30mA, the RCD shall trip within 3s",
+        "When tested at 30mA, the RCD shall trip within 300ms"
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 129,
+      "type": "single",
+      "text": "When using new equipment, it must be inspected for obvious damage before being placed into service. All other electrical equipment including power tools, flexible cords and cord extension sets (extension leads) must be tested and inspected according to the methods in AS/NZS 3760 and in a period not exceeding:",
+      "options": [
+        "1 month",
+        "4 months",
+        "3 months",
+        "2 months"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 130,
+      "type": "match",
+      "text": "Match the following devices to their required periodic verification intervals.",
+      "left_items": [
+        "Transportable structures",
+        "Portable equipment",
+        "Portable RCD (pushbutton test)",
+        "Non-portable RCD (pushbutton test)"
+      ],
+      "right_options": [
+        {"letter": "A", "text": "At least once every day in use"},
+        {"letter": "B", "text": "6 months"},
+        {"letter": "C", "text": "1 month"},
+        {"letter": "D", "text": "3 months"}
+      ],
+      "correct_matches": ["B", "D", "A", "C"]
+    },
+    {
+      "id": 131,
+      "type": "single",
+      "text": "Which of the following additional training you are required to complete in order to work competently with electrical equipment for hazardous areas?",
+      "options": [
+        "ASP refresher, level 1, and level 2 trainings",
+        "EEHA (Electrical Equipment in Hazardous Areas) training",
+        "Cert III Electrotechnology",
+        "Restricted Electrical License training"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 132,
+      "type": "single",
+      "text": "What does AS/NZS 60079 standard identify as the nature of a hazardous area?",
+      "options": [
+        "Areas where there are leaking water and sewage pipes.",
+        "Areas in which abrasive, cables and cords are present and there is potential for injury.",
+        "Areas in which there is live current in use and there is a potential for electrocution.",
+        "Areas in which flammable or combustible gases, vapours and mists, liquids, dusts powders and flying may be present."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 133,
+      "type": "multiple",
+      "text": "Which 2 types of personnel are responsible for the classification of a hazardous area?",
+      "options": [
+        "Operatives/technicians",
+        "Electricians",
+        "Building contractors",
+        "Designers"
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 134,
+      "type": "multiple",
+      "text": "What type of protection is required under AS/NZS 60079 standards when you are required to select and install electrical equipment in a hazardous area?",
+      "options": [
+        "Non-pressurized enclosures",
+        "Flameproof enclosures",
+        "Fieldbus non-combustible concept (FNICO)",
+        "Optical radiation"
+      ],
+      "correct_indices": [0, 1, 2, 3]
+    },
+    {
+      "id": 135,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "According to AS/NZS 60079.17 standard, there are three types of inspections: Initial inspections, Sample inspections, Periodic inspections.",
+        "You are required to perform a detailed inspection in a hazardous area. According to AS/NZS 60079 standard, a detailed inspection can be performed with energized equipment.",
+        "Periodic inspections shall be conducted by personnel who are deemed competent and shall have sufficient knowledge of EPL and understand the requirements of different grades of inspection."
+      ],
+      "correct_answers": [false, false, true]
+    },
+    {
+      "id": 136,
+      "type": "multiple",
+      "text": "When you are inspecting hazardous areas of the site, you discovered that multiple electrical types of equipment were damaged. What remedial measures shall be taken to prevent any injuries?",
+      "options": [
+        "Use self-adhesive tape to insulate",
+        "Shall be treated with an appropriate protective coating to protect against corrosion",
+        "Shall be earthed only on one end",
+        "Isolate it from all sources of power supply and insulate"
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 137,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "A switchboard can be installed within or above zones classified as a swimming pool or spa pool in accordance with Clause 6.3.2 of AS/NZS3000.",
+        "Areas in proximity to a shower or bath are deemed unsuitable for switchboards because of the prevalence of high humidity and condensation.",
+        "Live parts of SELV and PELV circuits shall be electrically separated from each other and from other higher voltage circuits."
+      ],
+      "correct_answers": [false, true, true]
+    },
+    {
+      "id": 138,
+      "type": "multiple",
+      "text": "Electrical equipment installed in damp situations must:",
+      "options": [
+        "be protected by specific damp equipment outlined in AS/NZS 3000:2018.",
+        "meet environmental standards.",
+        "operate safely near or within a damp or wet environment.",
+        "provide additional protection against electric shock in locations where the presence of water or high humidity presents an increased risk."
+      ],
+      "correct_indices": [0, 1, 2, 3]
+    },
+    {
+      "id": 139,
+      "type": "single",
+      "text": "What is the stated voltage range for Extra-Low Voltage?",
+      "options": [
+        "Not exceeding 50 V A.C. or 120 V ripple-free D.C.",
+        "Not exceeding 50 V A.C. or 100 V ripple-free D.C.",
+        "Not exceeding 50 V A.C. or 150 V ripple-free D.C.",
+        "Not exceeding 20 V A.C. or 120 V ripple-free D.C."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 140,
+      "type": "single",
+      "text": "What should be installed for additional protection where electrical equipment is installed in damp situations?",
+      "options": [
+        "RCD (Residual Current Device)",
+        "PELV (Protected Extra Low Voltage)",
+        "Bonding",
+        "SELV (Separated Extra Low Voltage)"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 141,
+      "type": "single",
+      "text": "Where a socket outlet is installed in Zone 3 damp area it must be supplied as a:",
+      "options": [
+        "PELV system.",
+        "ELV system.",
+        "SELV system.",
+        "SELV or PELV system."
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 142,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018 SELV circuits shall not be connected to which of the following?",
+      "options": [
+        "Lighting circuits",
+        "Extraneous conductive parts",
+        "Any appliance with a rated output above 450w",
+        "Double insulated appliances"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 143,
+      "type": "multiple",
+      "text": "The equipotential bonding conductors required to connect conductive parts of a shower, bathroom, swimming, or spa pool shall have a cross-sectional area not less than:",
+      "options": [
+        "2mm2",
+        "4mm2",
+        "12mm2",
+        "8mm2"
+      ],
+      "correct_indices": [1]
+    },
+    {
+      "id": 144,
+      "type": "multiple",
+      "text": "You are working on an extra-low voltage electrical installation SELV system. When arranging the SELV circuit, what should you ensure it is not connected to?",
+      "options": [
+        "Other circuits",
+        "High voltage conductive parts",
+        "Earth",
+        "Other low voltage systems",
+        "Earthing conductors or exposed conductive parts of another system"
+      ],
+      "correct_indices": [0, 1, 2, 3, 4]
+    },
+    {
+      "id": 145,
+      "type": "multiple",
+      "text": "According to AS/NZS 3000:2018, what are the requirements surrounding the installation of socket-outlets in a bath or shower area classified as Zone 2?",
+      "options": [
+        "A SELV outlet",
+        "A shaver outlet",
+        "Must be at least 10mm above ground",
+        "An outlet that is RCD protected, and in a cupboard"
+      ],
+      "correct_indices": [0, 1]
+    },
+    {
+      "id": 146,
+      "type": "single",
+      "text": "Electrical equipment permitted to be installed in classified Zone 0 must have at least the following degree of protection:",
+      "options": [
+        "IPX4",
+        "IPX4 and IPX5",
+        "IPX7 and IPX5",
+        "IPX7"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 147,
+      "type": "single",
+      "text": "Socket outlets installed in a damp situation classified as zone 3 shall be protected by an RCD with:",
+      "options": [
+        "a fixed rated residual current not exceeding 30mA",
+        "a current not exceeding 10mA",
+        "a fixed rated residual current exceeding 30mA",
+        "a fixed rated residual current not exceeding 20mA that is enclosed in a cupboard that maintains the enclosure of the socket-outlet during normal operation of the connected equipment"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 148,
+      "type": "multiple",
+      "text": "Regardless of the degree of protection provided by the equipment, the following luminaries may be installed in Zone 2:",
+      "options": [
+        "Luminaries supplied from a source located outside of Zone 2 as a SELV or a PELV system, in accordance with Clause 7.5 of AS/NZS 3000:2018",
+        "Luminaries of Class I construction",
+        "Luminaries supplied at a nominal voltage not exceeding 12 V A.C.",
+        "Luminaries supplied from a source located outside of Zone 1, in accordance with Clause 7.2 of AS/NZS 3000:2018"
+      ],
+      "correct_indices": [0, 2, 3]
+    },
+    {
+      "id": 149,
+      "type": "multiple",
+      "text": "The equipotential bonding conductors required to connect conductive parts of a shower, bathroom, swimming, or spa pool shall have a cross-sectional area not less than:",
+      "options": [
+        "12mm2",
+        "2mm2",
+        "4mm2",
+        "8mm2"
+      ],
+      "correct_indices": [2]
+    },
+    {
+      "id": 150,
+      "type": "single",
+      "text": "Types of underground wiring systems are classified as one of three categories according to AS/NZS 3000:2018. What category is a system where cables are enclosed in a heavy-duty insulating conduit without further mechanical protection?",
+      "options": [
+        "Category A",
+        "Category B",
+        "Category C",
+        "Not permitted"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 151,
+      "type": "multiple",
+      "text": "What are the 2 main types of copper aerial conductors used in the electrical industry?",
+      "options": [
+        "Bare",
+        "Sheathed",
+        "Uncovered",
+        "Covered"
+      ],
+      "correct_indices": [0, 3]
+    },
+    {
+      "id": 152,
+      "type": "single",
+      "text": "According to AS/NZS 3000: 2018, neutral-screened cable has to be how many metres from telecommunications lines?",
+      "options": [
+        "3.9",
+        "12",
+        "1.5",
+        "0.6"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 153,
+      "type": "multiple",
+      "text": "According to AS/NZS 3000:2018 3.12.6, the selection of aerial supporting poles/post and struts for a given application should consider:",
+      "options": [
+        "Length",
+        "Size of poles",
+        "Width",
+        "Depth"
+      ],
+      "correct_indices": [0, 1, 2, 3]
+    },
+    {
+      "id": 154,
+      "type": "multiple",
+      "text": "A catenary shall:",
+      "options": [
+        "consist of material equally resistant to corrosion or deterioration",
+        "be capable of withstanding mechanical stress",
+        "provide uniform support",
+        "be effectively open at each end"
+      ],
+      "correct_indices": [0, 1, 2]
+    },
+    {
+      "id": 155,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "It is classified as a Category B system when the wiring is suitable for installation below ground only with additional mechanical protection provided for the cable or cable enclosure.",
+        "A strip armoured cable with PVC sheath protected by a heavy-duty fibre cement conduit would be classified as under Category A.",
+        "A served MMS cable buried directly in the ground with no enclosure would be classified under Category B."
+      ],
+      "correct_answers": [true, true, false]
+    },
+    {
+      "id": 156,
+      "type": "single",
+      "text": "What is the minimum allowable depth when laying a Category B Consumers Mains underground wiring system that is not installed under concrete?",
+      "options": [
+        "375mm",
+        "500mm",
+        "150mm",
+        "250mm"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 157,
+      "type": "true_false",
+      "text": "Consider the statement/s carefully and indicate True or False.",
+      "statements": [
+        "Where conductors of dissimilar metals are joined, means shall be taken to prevent galvanic action by the use of appropriate connecting devices.",
+        "As per Clause 3.11.5 of AS/NZS 3000:2018, all underground wiring systems shall be spaced not less the 200mm from other underground services.",
+        "Connections to aerial conductors shall be reliable and adequately protected against the effects of movement, exposure to direct sunlight and entry of moisture, and shall be as short as practicable.",
+        "For an underground installation, a minimum separation of 50mm is required between a low voltage electrical service and telecommunications.",
+        "It is allowable to join Aerial Conductors in tension by soldering them together.",
+        "A catenary wire used to carry aerial cables should be terminated to an earth connection.",
+        "Aerial cables are always terminated into a terminal block."
+      ],
+      "correct_answers": [true, false, true, false, false, true, false]
+    },
+    {
+      "id": 158,
+      "type": "multiple",
+      "text": "Which of the 2 following wiring systems are deemed to reduce the risk of short-circuiting when the installed consumer mains are unprotected?",
+      "options": [
+        "Aerial conductors consisting of XBPE cables type X-90UV",
+        "Insulated and sheathed cables enclosed in heavy-duty insulating conduit",
+        "Insulated cables and wires in underground wiring enclosures",
+        "Category A wiring systems"
+      ],
+      "correct_indices": [1, 2]
+    },
+    {
+      "id": 159,
+      "type": "multiple",
+      "text": "Which of the 2 following are the requirements of a catenary support system under AS/NZS 3000: 2018?",
+      "options": [
+        "Consist of malleable material that easily deteriorates over time",
+        "Be mounted at a sufficient height above the ground to prevent danger to persons or livestock, or damage to the cable being supported",
+        "Be fixed at one end",
+        "Be capable of withstanding mechanical stresses likely to occur, for instance, due to wind or ice"
+      ],
+      "correct_indices": [1, 3]
+    },
+    {
+      "id": 160,
+      "type": "single",
+      "text": "According to AS/NZS 7000, when testing aerial A.C Resistance of Aerial conductors which International Electrical Commission Technical Report guidelines should be followed:",
+      "options": [
+        "IEC TR 62351",
+        "IEC TR 50341",
+        "IEC TR 61597",
+        "IEC TR 30166"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 161,
+      "type": "multiple",
+      "text": "According to AS/NZS 7000, which of the following are tests that should be conducted in relation to aerial conductors:",
+      "options": [
+        "steady-state thermal rating test",
+        "photovoltaic degradation test",
+        "A.C. resistance test",
+        "short circuit thermal current rating test",
+        "multimeter tests"
+      ],
+      "correct_indices": [0, 2, 3]
+    },
+    {
+      "id": 162,
+      "type": "multiple",
+      "text": "What are 2 hazards when performing fault finding or testing on or near exposed energised conductors or live conductive parts according to AS/NZS 4836?",
+      "options": [
+        "Arc, blast, and flashes",
+        "Voltage increase",
+        "Electrocution",
+        "Body temperature increase"
+      ],
+      "correct_indices": [0, 2]
+    },
+    {
+      "id": 163,
+      "type": "multiple",
+      "text": "When performing energised fault-finding or testing on electrical equipment that plugs into a 3-pin flat-pin socket-outlet rated at up to 20A, what 2 pieces of equipment should be used for protection?",
+      "options": [
+        "Residual current device (RCD)",
+        "Fault Detection devices",
+        "Isolating transformer",
+        "415v isolation transformer"
+      ],
+      "correct_indices": [0, 2]
+    },
+    {
+      "id": 164,
+      "type": "single",
+      "text": "What is the minimum cross-sectional area of electrically unprotected consumer mains?",
+      "options": [
+        "10 mm2 Cu or 25 mm2 AI, XLPE insulated",
+        "25 mm2 Cu or 30 mm2 AI, PVC insulated",
+        "16mm2 Cu or 25mm2 AI, XLPE insulated",
+        "2 mm2 Cu or 12 mm2 AI, PVC insulated"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 165,
+      "type": "multiple",
+      "text": "According to clause 5.5.3.5 of AS/NZS 3000, exposed conductive parts associated with consumer mains that are not provided with short-circuit protection on the supply side, require what?",
+      "options": [
+        "Use flexible cords and cables for greater protection",
+        "To be earthed by a conductor",
+        "To be connected to the main earth bar",
+        "Be directly connected to an earth bar"
+      ],
+      "correct_indices": [1, 2, 3]
+    },
+    {
+      "id": 166,
+      "type": "multiple",
+      "text": "When installing electrically unprotected aerial consumers mains in an area, what are 2 things you should consider?",
+      "options": [
+        "How long it has been since the last installation in the area",
+        "Whether the area is defined as a bush fire area by the rural fire service",
+        "The electricity distributor's Safety Management System and procedures and ensure it is in accordance with AS/NZS 3000",
+        "Whether the area is at risk of excessive wiring causing visual pollution"
+      ],
+      "correct_indices": [1, 2]
+    },
+    {
+      "id": 167,
+      "type": "multiple",
+      "text": "Select 2 things that should be tested following the installation of cables in compliance with Australian Standards.",
+      "options": [
+        "Fault loop impedance",
+        "Polarity",
+        "Whether the cables can reach the required maximum voltage using a multimeter",
+        "The durability of the cables and resistance"
+      ],
+      "correct_indices": [0, 1]
+    },
+    {
+      "id": 168,
+      "type": "multiple",
+      "text": "According to AS/NZS 3017 after installing cables, you should conduct a visual check to ensure the relevant requirements are satisfied. What should you look out for?",
+      "options": [
+        "Protecting against external influences e.g., enclosure",
+        "Adequate support and fixing",
+        "The temperature of the cable",
+        "Conductor size e.g., current-carrying capacity and voltage drop",
+        "Sufficient cable coverage for the area"
+      ],
+      "correct_indices": [0, 1, 3, 4]
+    },
+    {
+      "id": 169,
+      "type": "multiple",
+      "text": "What techniques could you use to test the earth resistance of an installed cable?",
+      "options": [
+        "Single earth rod method",
+        "Clamp-on test method",
+        "Fall-of-potential method (Three terminal tests)",
+        "Four-point test"
+      ],
+      "correct_indices": [0, 1, 2, 3]
+    },
+    {
+      "id": 170,
+      "type": "single",
+      "text": "According to AS/NZS 3000, if an underground Category A wiring system is within the confines of a building with no surface covering, what is the minimum depth of cover required?",
+      "options": [
+        "300mm",
+        "30mm",
+        "50mm",
+        "500mm"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 171,
+      "type": "single",
+      "text": "According to AS/NZS 3000, if an underground Category C wiring system is external to a building and covered by poured concrete, what is the minimum depth of cover?",
+      "options": [
+        "30mm",
+        "40mm",
+        "100mm",
+        "50mm"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 172,
+      "type": "single",
+      "text": "What system supports cables and relieves excessive mechanical stress?",
+      "options": [
+        "Aerial and underground support system",
+        "Adequate conductor support system",
+        "Catenary supports system",
+        "Cable protection"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 173,
+      "type": "single",
+      "text": "You have been asked to erect an aerial line with a hard-drawn insulated copper cable over an area used by vehicles, what do you need to determine to figure out the pole/post or strut size to use?",
+      "options": [
+        "The minimum height of the conductors above ground, the minimum allowable sag, and the minimum depth of the pole/post that needs to be supported in the ground.",
+        "The minimum height of the strut above ground, the minimum allowable sag, and the maximum depth of bed below the ground.",
+        "The maximum height of the conductors above ground, the maximum allowable length of pole/post, and the minimum depth of the pole/post that needs to be placed in the ground.",
+        "The minimum height of the conductors above ground, the maximum allowable sag, and the minimum depth of the pole/post that needs to be supported in the ground."
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 174,
+      "type": "single",
+      "text": "What is the strength rating of a 200mm x 200mm square hardwood strut that is 3m away from the lowest conductor support?",
+      "options": [
+        "S40",
+        "S38",
+        "S32",
+        "S34"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 175,
+      "type": "single",
+      "text": "Under AS/NZS 3000:2018, if you are installing a 6mm2 insulated hard-drawn copper conductor, what maximum aerial span are you limited to?",
+      "options": [
+        "40m",
+        "60m",
+        "20m",
+        "50m"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 176,
+      "type": "multiple",
+      "text": "Which of the following conductors can be used as aerial conductors?",
+      "options": [
+        "Hard-Drawn Bare Conductors",
+        "Twisted Copper Cables",
+        "Neutral-Screened Cables",
+        "Polymeric Insulated Cables",
+        "Bundled-Screened Cables"
+      ],
+      "correct_indices": [0, 1, 2, 3, 4]
+    },
+    {
+      "id": 177,
+      "type": "multiple",
+      "text": "Which of the following situations require an aerial conductor?",
+      "options": [
+        "For any conductor span within proximity to a road or highway",
+        "In areas declared by the responsible fire authority as being subject to bushfires",
+        "Above areas where sailing craft or irrigation pipes are used",
+        "In areas declared to be heritage protected",
+        "For any conductor span within arm's reach of any building, building opening or structure"
+      ],
+      "correct_indices": [0, 1, 2, 3, 4]
+    },
+    {
+      "id": 178,
+      "type": "single",
+      "text": "You are working with a Category A wiring system that comprises cables that will not be installed in a wiring enclosure and will be laid on a bed of sand. What is the minimum depth of this bed of sand according to the AS/NZS 3000:2018 requirements?",
+      "options": [
+        "150mm",
+        "50mm",
+        "40mm",
+        "75mm"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 179,
+      "type": "single",
+      "text": "Wiring systems installed underground should be identified by coloured marker tape to comply with AS/NZS 2648.1. What colour should the tape be?",
+      "options": [
+        "Blue",
+        "Red",
+        "Orange",
+        "Yellow"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 180,
+      "type": "single",
+      "text": "What is the minimum separation between a sanitary drainage service and low voltage electrical earthing electrodes according to AS/NZS 3000:2018?",
+      "options": [
+        "50mm",
+        "200mm",
+        "500mm",
+        "300mm"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 181,
+      "type": "single",
+      "text": "What is the minimum separation between a stormwater drainage system and low voltage electrical earthing electrodes according to AS/NZS 3000:2018?",
+      "options": [
+        "100mm",
+        "500mm",
+        "50mm",
+        "600mm"
+      ],
+      "correct_index": 1
+    }
+  ]
+}

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Free study quiz for AS/NZS 3000:2018, Building Code of Australia and NCC. 181 electrical installation questions with instant feedback." />
+  <title>Electrical Installation &amp; Standards Quiz — AS/NZS 3000</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #21262d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #238636;
+      --accent-hover: #2ea043;
+      --accent-dim: #388bfd;
+      --correct: #3fb950;
+      --wrong: #f85149;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(1rem, 4vw, 2rem);
+      line-height: 1.5;
+    }
+    .container { max-width: 680px; margin: 0 auto; }
+    h1 { font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
+    .meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.25rem; }
+    .progress-wrap { margin-bottom: 1.5rem; }
+    .progress {
+      height: 8px;
+      background: var(--surface-2);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+      border-radius: 4px;
+      transition: width 0.25s ease;
+    }
+    .progress-text { font-size: 0.8rem; color: var(--muted); margin-top: 0.35rem; }
+    .q-block {
+      background: var(--surface);
+      border: 1px solid var(--surface-2);
+      border-radius: var(--radius);
+      padding: clamp(1.25rem, 4vw, 1.75rem);
+      margin-bottom: 1.25rem;
+    }
+    .q-num { color: var(--muted); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .q-text { font-weight: 500; font-size: 1.05rem; margin-bottom: 1.25rem; line-height: 1.5; color: var(--text); }
+    .opts { list-style: none; padding: 0; margin: 0; }
+    .opts li {
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.5rem;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .opts li:hover { border-color: var(--muted); background: var(--surface-2); }
+    .opts li.selected { border-color: var(--accent-dim); background: rgba(56,139,253,0.08); }
+    .opts li.correct { border-color: var(--correct); background: rgba(63,185,80,0.1); }
+    .opts li.wrong { border-color: var(--wrong); background: rgba(248,81,73,0.08); }
+    .opts input[type="checkbox"] { margin-right: 0.6rem; accent-color: var(--accent); }
+    .tf-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
+    .tf-row label { flex: 1; font-size: 0.95rem; }
+    .tf-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--bg); color: var(--text); border: 1px solid var(--surface-2); font-size: 0.95rem; min-width: 100px; }
+    .rank-row { margin-bottom: 0.5rem; }
+    .rank-row select { margin-left: 0.5rem; padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); background: var(--bg); color: var(--text); border: 1px solid var(--surface-2); }
+    .match-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .match-row label { min-width: 140px; font-size: 0.95rem; }
+    .match-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--bg); color: var(--text); border: 1px solid var(--surface-2); }
+    .btn-row { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; align-items: center; }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.35rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: var(--accent-hover); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-secondary { background: var(--surface-2); color: var(--text); border: 1px solid var(--muted); }
+    .btn-secondary:hover { background: var(--muted); color: var(--bg); border-color: var(--muted); }
+    .feedback { margin-top: 1rem; padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; }
+    .feedback.correct { background: rgba(63,185,80,0.12); color: var(--correct); border: 1px solid rgba(63,185,80,0.3); }
+    .feedback.wrong { background: rgba(248,81,73,0.1); color: var(--wrong); border: 1px solid rgba(248,81,73,0.25); }
+    .result {
+      text-align: center;
+      padding: 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--surface-2);
+      border-radius: var(--radius);
+    }
+    .result h2 { margin-bottom: 0.5rem; font-size: 1.25rem; }
+    .result .score { font-size: 2rem; font-weight: 700; color: var(--accent); margin: 0.5rem 0; }
+    .result .score-desc { color: var(--muted); margin-bottom: 1.5rem; }
+    .result .btn-row { justify-content: center; margin-top: 1.5rem; }
+    .shuffle-wrap { margin-bottom: 1rem; display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .shuffle-wrap label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem; }
+    .reset-btn { background: var(--surface-2); color: var(--text); border: 1px solid var(--muted); padding: 0.5rem 1rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9rem; font-weight: 500; }
+    .reset-btn:hover { background: var(--muted); color: var(--bg); }
+    .result .reset-btn { background: var(--accent); color: #fff; border: none; padding: 0.65rem 1.25rem; }
+    .result .reset-btn:hover { background: var(--accent-hover); }
+    .result .reset-btn.btn-secondary { background: var(--surface-2); color: var(--text); border: 1px solid var(--muted); }
+    .result .reset-btn.btn-secondary:hover { background: var(--muted); color: var(--bg); }
+    .result-breakdown { margin-top: 1.5rem; text-align: left; }
+    .result-breakdown h3 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--muted); }
+    .breakdown-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .breakdown-table th, .breakdown-table td { padding: 0.4rem 0.6rem; border: 1px solid var(--surface-2); text-align: left; }
+    .breakdown-table th { background: var(--surface-2); color: var(--muted); }
+    .breakdown-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+    @media print {
+      body { background: #fff; color: #111; }
+      .shuffle-wrap, .reset-btn, #sectionPicker, #quizWrap .progress-wrap, .btn-row button { display: none !important; }
+      .result { border: 1px solid #ccc; box-shadow: none; }
+      .result-breakdown, .breakdown-table { display: block; }
+      .breakdown-table { font-size: 10pt; }
+      .breakdown-table th, .breakdown-table td { border-color: #999; color: #111; }
+    }
+    .section-picker code { background: var(--surface-2); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+.section-picker { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--surface-2); border-radius: var(--radius); }
+    .section-label { margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem; }
+    .section-btns { display: flex; flex-direction: column; gap: 0.5rem; }
+    .section-btn { width: 100%; max-width: 300px; text-align: left; padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">Electrical Installation &amp; Standards Quiz</h1>
+    <div class="meta" id="meta"></div>
+    <div id="sectionPicker" class="section-picker">
+      <p class="section-label">Choose a section (50 questions each; last section has 31):</p>
+      <div class="section-btns">
+        <button type="button" class="section-btn" data-section="1">Section 1 (Q1–50)</button>
+        <button type="button" class="section-btn" data-section="2">Section 2 (Q51–100)</button>
+        <button type="button" class="section-btn" data-section="3">Section 3 (Q101–150)</button>
+        <button type="button" class="section-btn" data-section="4">Section 4 (Q151–181)</button>
+        <button type="button" class="section-btn" data-section="0">All (181 questions)</button>
+      </div>
+    </div>
+    <div id="quizWrap" style="display:none;">
+      <div class="shuffle-wrap">
+        <label><input type="checkbox" id="shuffle" /> Shuffle questions</label>
+        <button type="button" id="resetBtn" class="reset-btn">Reset exam</button>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+        <div class="progress-text" id="progressText"></div>
+      </div>
+      <div id="quiz"></div>
+    </div>
+    <div id="result" class="result" style="display:none"></div>
+  </div>
+  <script>
+    let data = null;
+    let order = [];
+    let currentIndex = 0;
+    let score = 0;
+    let answered = 0;
+    let currentSection = 0;
+    let userAnswers = {};
+
+    async function loadData() {
+      try {
+        const r = await fetch('quiz_data.json?t=' + Date.now());
+        if (!r.ok) throw new Error('Could not load questions');
+        data = await r.json();
+        if (!data || !data.questions || !data.questions.length) throw new Error('No questions in data');
+      } catch (e) {
+        document.getElementById('sectionPicker').innerHTML = '<p class="section-label">Unable to load the quiz. If you opened this as a file, run a local server (e.g. <code>python3 -m http.server 8000</code>) or use GitHub Pages.</p>';
+        return null;
+      }
+      document.getElementById('title').textContent = data.title || 'Quiz';
+      document.getElementById('meta').textContent = data.questions.length + ' questions · ' + (data.source || '');
+      return data;
+    }
+
+    function startSection(section) {
+      currentSection = section;
+      const total = data.questions.length;
+      if (section === 0) {
+        order = data.questions.map((_, i) => i);
+      } else {
+        const start = (section - 1) * 50;
+        const end = Math.min(start + 50, total);
+        order = [];
+        for (let i = start; i < end; i++) order.push(i);
+      }
+      if (document.getElementById('shuffle').checked) {
+        for (let i = order.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [order[i], order[j]] = [order[j], order[i]];
+        }
+      }
+      currentIndex = 0;
+      score = 0;
+      answered = 0;
+      userAnswers = {};
+      document.getElementById('sectionPicker').style.display = 'none';
+      document.getElementById('quizWrap').style.display = 'block';
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('result').innerHTML = '';
+      renderQuestion();
+    }
+
+    async function loadQuiz() {
+      if (!data) await loadData();
+      document.getElementById('sectionPicker').style.display = 'block';
+      document.getElementById('quizWrap').style.display = 'none';
+      document.getElementById('result').style.display = 'none';
+    }
+
+    function getQuestion() {
+      return data.questions[order[currentIndex]];
+    }
+
+    function renderQuestion() {
+      const q = getQuestion();
+      if (!q) {
+        showResult();
+        return;
+      }
+      const qKey = order[currentIndex];
+      const num = currentIndex + 1;
+      const total = order.length;
+      const saved = userAnswers[qKey];
+      document.getElementById('progressBar').style.width = (100 * num / total) + '%';
+      document.getElementById('progressText').textContent = 'Question ' + num + ' of ' + total;
+
+      let html = '<div class="q-block"><div class="q-num">Question ' + num + ' of ' + total + '</div><div class="q-text">' + escapeHtml(q.text) + '</div>';
+
+      if (q.type === 'single') {
+        html += '<ul class="opts">';
+        q.options.forEach((opt, i) => {
+          const v = i + 1;
+          let cls = '';
+          if (saved) {
+            if (v === q.correct_index + 1) cls = ' correct';
+            else if (saved.choice === v) cls = ' wrong';
+          }
+          html += '<li data-value="' + v + '" class="' + cls.trim() + '">' + escapeHtml(opt) + '</li>';
+        });
+        html += '</ul>';
+      } else if (q.type === 'multiple') {
+        html += '<ul class="opts">';
+        q.options.forEach((opt, i) => {
+          let cls = '';
+          if (saved) {
+            if ((q.correct_indices || []).includes(i)) cls = ' correct';
+            else if (saved.chosen && saved.chosen.includes(i)) cls = ' wrong';
+          }
+          const checked = saved && saved.chosen && saved.chosen.indexOf(i) !== -1 ? ' checked' : '';
+          html += '<li class="' + cls.trim() + '"><label><input type="checkbox" data-value="' + i + '"' + checked + ' /> ' + escapeHtml(opt) + '</label></li>';
+        });
+        html += '</ul>';
+      } else if (q.type === 'true_false') {
+        (q.statements || []).forEach((stmt, i) => {
+          const sv = saved && saved.tf && saved.tf[i];
+          const tSel = (sv === true ? ' selected' : '');
+          const fSel = (sv === false ? ' selected' : '');
+          html += '<div class="tf-row"><label>' + escapeHtml(stmt) + '</label><select data-index="' + i + '"><option value="">—</option><option value="true"' + tSel + '>True</option><option value="false"' + fSel + '>False</option></select></div>';
+        });
+      } else if (q.type === 'ranking') {
+        const n = q.items.length;
+        q.items.forEach((item, i) => {
+          let opts = '<option value="">—</option>';
+          for (let s = 1; s <= n; s++) opts += '<option value="' + s + '"' + (saved && saved.rank && saved.rank[i] === s ? ' selected' : '') + '>' + s + '</option>';
+          html += '<div class="rank-row">' + (i + 1) + '. ' + escapeHtml(item) + ' <select data-index="' + i + '">' + opts + '</select></div>';
+        });
+      } else if (q.type === 'match') {
+        const letters = q.right_options.map(ro => ro.letter);
+        q.left_items.forEach((item, i) => {
+          let opts = '<option value="">—</option>';
+          const sel = saved && saved.match && saved.match[i];
+          letters.forEach(l => { opts += '<option value="' + l + '"' + (sel === l ? ' selected' : '') + '>' + l + '</option>'; });
+          html += '<div class="match-row"><label>' + escapeHtml(item) + '</label><select data-index="' + i + '">' + opts + '</select></div>';
+        });
+      }
+
+      let btnRow = '<div class="btn-row">';
+      if (currentIndex > 0) btnRow += '<button type="button" id="prevBtn" class="btn-secondary">← Previous</button>';
+      if (saved) {
+        btnRow += '<button type="button" id="nextBtn">' + (currentIndex + 1 < order.length ? 'Next →' : 'Finish') + '</button>';
+      } else {
+        btnRow += '<button type="button" id="submitBtn">Submit</button>';
+      }
+      btnRow += '</div><div id="feedback"></div></div>';
+      if (saved) {
+        const fb = document.createElement('div');
+        fb.id = 'feedback';
+        fb.className = 'feedback ' + (saved.correct ? 'correct' : 'wrong');
+        fb.textContent = saved.correct ? 'Correct!' : (saved.feedbackText || 'Incorrect. See correct answer(s) above.');
+        html = html + btnRow.replace('<div id="feedback"></div>', fb.outerHTML);
+      } else {
+        html += btnRow;
+      }
+      document.getElementById('quiz').innerHTML = html;
+
+      if (q.type === 'single' && !saved) {
+        document.querySelectorAll('.q-block .opts li[data-value]').forEach(li => {
+          li.addEventListener('click', () => {
+            document.querySelectorAll('.q-block .opts li[data-value]').forEach(el => el.classList.remove('selected'));
+            li.classList.add('selected');
+          });
+        });
+      }
+      if (document.getElementById('prevBtn')) document.getElementById('prevBtn').addEventListener('click', goPrev);
+      if (document.getElementById('nextBtn')) document.getElementById('nextBtn').addEventListener('click', nextOrFinish);
+      if (document.getElementById('submitBtn')) document.getElementById('submitBtn').addEventListener('click', submitAnswer);
+    }
+
+    function goPrev() {
+      currentIndex--;
+      renderQuestion();
+    }
+
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    function submitAnswer() {
+      const q = getQuestion();
+      const qKey = order[currentIndex];
+      const fb = document.getElementById('feedback');
+      let correct = false;
+
+      if (q.type === 'single') {
+        const sel = document.querySelector('.q-block .opts li.selected');
+        if (!sel) { fb.textContent = 'Select an option.'; fb.className = 'feedback wrong'; return; }
+        const choice = parseInt(sel.dataset.value, 10);
+        correct = choice === q.correct_index + 1;
+        document.querySelectorAll('.q-block .opts li').forEach(li => {
+          li.classList.remove('selected');
+          const v = parseInt(li.dataset.value, 10);
+          if (v === q.correct_index + 1) li.classList.add('correct');
+          else if (v === choice && !correct) li.classList.add('wrong');
+        });
+      } else if (q.type === 'multiple') {
+        const chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
+        const correctSet = [...(q.correct_indices || [])].sort((a,b)=>a-b);
+        if (chosen.length === 0) { fb.textContent = 'Select at least one option.'; fb.className = 'feedback wrong'; return; }
+        correct = chosen.length === correctSet.length && chosen.every((v,i)=>v===correctSet[i]);
+        document.querySelectorAll('.q-block .opts li').forEach((li, i) => {
+          const inp = li.querySelector('input');
+          if (!inp) return;
+          if (q.correct_indices.includes(i)) li.classList.add('correct');
+          else if (inp.checked) li.classList.add('wrong');
+        });
+      } else if (q.type === 'true_false') {
+        const correctAnswers = q.correct_answers || [];
+        const selects = document.querySelectorAll('.q-block select[data-index]');
+        const allFilled = Array.from(selects).every(sel => sel.value !== '');
+        if (!allFilled) { fb.textContent = 'Answer all parts (True or False).'; fb.className = 'feedback wrong'; return; }
+        let allCorrect = true;
+        selects.forEach(sel => {
+          const i = parseInt(sel.dataset.index, 10);
+          const val = sel.value === 'true';
+          if (val !== correctAnswers[i]) allCorrect = false;
+        });
+        correct = allCorrect;
+        document.querySelectorAll('.q-block .tf-row').forEach((row, i) => {
+          const sel = row.querySelector('select');
+          const val = sel.value === 'true';
+          row.classList.add(val === correctAnswers[i] ? 'correct' : 'wrong');
+        });
+      } else if (q.type === 'ranking') {
+        const selects = document.querySelectorAll('.q-block select[data-index]');
+        const user = Array.from(selects).map(sel => parseInt(sel.value, 10) || 0);
+        const correctOrder = q.correct_order || [];
+        const n = correctOrder.length;
+        const allFilled = user.length === n && user.every(v => v >= 1 && v <= n);
+        const uniqueSteps = new Set(user).size === n;
+        if (!allFilled) { fb.textContent = 'Assign a step number (1–' + n + ') to each item.'; fb.className = 'feedback wrong'; return; }
+        if (!uniqueSteps) { fb.textContent = 'Use each step number 1–' + n + ' exactly once.'; fb.className = 'feedback wrong'; return; }
+        correct = user.every((v,i)=>v===correctOrder[i]);
+      } else if (q.type === 'match') {
+        const selects = document.querySelectorAll('.q-block .match-row select');
+        const user = Array.from(selects).map(s => s.value);
+        const correctMatches = q.correct_matches || [];
+        if (user.some(v => !v) || user.length !== correctMatches.length) { fb.textContent = 'Select a match for every item.'; fb.className = 'feedback wrong'; return; }
+        correct = user.every((v,i)=>String(v)===String(correctMatches[i]));
+      }
+
+      if (correct && !userAnswers[qKey]) score++;
+      answered++;
+      let feedbackText = correct ? 'Correct!' : 'Incorrect. See correct answer(s) above.';
+      if (!correct && q.type === 'ranking' && q.correct_order) feedbackText = 'Incorrect. Correct order (step per item): ' + (q.correct_order.join(', ')) + '.';
+      if (!correct && q.type === 'match' && q.correct_matches) feedbackText = 'Incorrect. Correct: ' + (q.correct_matches.join(', ')) + '.';
+      if (!correct && q.type === 'true_false' && (q.correct_answers || []).length) {
+        const parts = (q.correct_answers || []).map((ans, i) => (i + 1) + '. ' + (ans ? 'True' : 'False'));
+        feedbackText = 'Incorrect. Correct answers: ' + parts.join(', ') + '.';
+      }
+      const save = { correct: correct, feedbackText: feedbackText };
+      if (q.type === 'single') save.choice = parseInt(document.querySelector('.q-block .opts li.selected').dataset.value, 10);
+      else if (q.type === 'multiple') save.chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
+      else if (q.type === 'true_false') save.tf = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => sel.value === 'true');
+      else if (q.type === 'ranking') save.rank = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => parseInt(sel.value, 10));
+      else if (q.type === 'match') save.match = Array.from(document.querySelectorAll('.q-block .match-row select')).map(s => s.value);
+      userAnswers[qKey] = save;
+      fb.className = 'feedback ' + (correct ? 'correct' : 'wrong');
+      fb.textContent = feedbackText;
+      fb.style.display = 'block';
+      document.getElementById('submitBtn').textContent = currentIndex + 1 < order.length ? 'Next →' : 'Finish';
+      document.getElementById('submitBtn').onclick = nextOrFinish;
+    }
+
+    function nextOrFinish() {
+      currentIndex++;
+      if (currentIndex >= order.length) showResult();
+      else renderQuestion();
+    }
+
+    function showResult() {
+      document.getElementById('progressBar').style.width = '100%';
+      const total = order.length;
+      document.getElementById('quiz').innerHTML = '';
+      const res = document.getElementById('result');
+      res.style.display = 'block';
+      const scoreCount = order.filter(i => userAnswers[i] && userAnswers[i].correct).length;
+      const pct = total ? (100 * scoreCount / total).toFixed(1) : '0';
+      let html = '<h2>Result</h2><p class="score">' + scoreCount + ' / ' + total + '</p><p class="score-desc">' + pct + '% correct (1 mark per question)</p>';
+      html += '<div class="result-breakdown"><h3>Question breakdown</h3><table class="breakdown-table"><thead><tr><th>#</th><th>Question</th><th>Mark</th></tr></thead><tbody>';
+      order.forEach((qKey, idx) => {
+        const q = data.questions[qKey];
+        const saved = userAnswers[qKey];
+        const mark = saved && saved.correct ? '1' : '0';
+        const shortText = (q && q.text) ? q.text.replace(/<[^>]+>/g, '').slice(0, 80) + (q.text.length > 80 ? '…' : '') : '';
+        html += '<tr><td>' + (idx + 1) + '</td><td>' + escapeHtml(shortText) + '</td><td>' + mark + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
+      html += '<div class="btn-row"><button type="button" class="reset-btn" id="resultResetBtn">Try again</button><button type="button" class="reset-btn btn-secondary" id="sectionBackBtn">Choose section</button><button type="button" class="reset-btn" id="printResultBtn">Print summary</button></div>';
+      res.innerHTML = html;
+      document.getElementById('resultResetBtn').addEventListener('click', () => startSection(currentSection));
+      document.getElementById('sectionBackBtn').addEventListener('click', backToSections);
+      document.getElementById('printResultBtn').addEventListener('click', () => window.print());
+    }
+
+    function backToSections() {
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('result').innerHTML = '';
+      document.getElementById('quizWrap').style.display = 'none';
+      document.getElementById('sectionPicker').style.display = 'block';
+    }
+
+    function resetExam() {
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('result').innerHTML = '';
+      backToSections();
+    }
+
+    document.getElementById('shuffle').addEventListener('change', () => {});
+    document.getElementById('resetBtn').addEventListener('click', resetExam);
+    (async function init() {
+      const loaded = await loadData();
+      if (!loaded) return;
+      document.querySelectorAll('.section-btn').forEach(btn => {
+        btn.addEventListener('click', () => startSection(parseInt(btn.dataset.section, 10)));
+      });
+      document.getElementById('sectionPicker').style.display = 'block';
+    })();
+  </script>
+</body>
+</html>
