@@ -243,13 +243,20 @@
     .section-card[data-section="0"] .section-card__num { background: #e8eef5; color: #57606a; }
     .section-card__body { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.2rem; min-width: 0; }
     .section-card__title { font-weight: 600; margin: 0; flex: 1; min-width: 0; }
-    .section-card__count { font-size: 0.8rem; color: #57606a; margin: 0; flex-shrink: 0; }
+    .section-card__meta { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
+    .section-card__count { font-size: 0.8rem; color: #57606a; margin: 0; }
+    .section-card__score.none { font-size: 0.75rem; }
     .section-card__arrow { font-size: 1.1rem; color: #0969da; margin-left: 0.25rem; flex-shrink: 0; }
     .section-picker { margin-bottom: 0; padding: 0; }
     .section-label { margin: 0 0 0.75rem 0; color: #57606a; font-size: 0.9rem; }
     .section-btns { display: flex; flex-direction: column; gap: 0.5rem; }
     .section-btn { width: 100%; max-width: 340px; text-align: left; padding: 0.85rem 1.1rem; border-radius: var(--radius-sm); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.35rem; }
     .section-btn .count { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+    .loading-msg { color: #57606a; font-size: 0.95rem; margin: 0 0 1rem 0; }
+    .section-card__score { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-top: 0.2rem; }
+    .section-card__score.none { color: #57606a; font-weight: 500; }
+    .review-toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 1rem; }
+    .review-toolbar .btn-secondary { padding: 0.5rem 0.85rem; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -279,13 +286,14 @@
       <div class="card">
         <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong>. Each section has 50 questions (or 31 in the last). Tick <strong>Shuffle questions</strong> before you start for a random order.</p>
         <p class="total-questions" id="totalQuestions">181 questions total</p>
+        <p id="loadingMsg" class="loading-msg" style="display:none;">Loading questions…</p>
         <h2 class="unit-lessons-heading">Unit lessons</h2>
         <div id="sectionPicker" class="section-cards">
           <button type="button" class="section-card" data-section="1">
             <span class="section-card__num" aria-hidden="true">1</span>
             <span class="section-card__body">
               <span class="section-card__title">Assessment event 1: Knowledge Part 1</span>
-              <span class="section-card__count">50 questions</span>
+              <span class="section-card__meta"><span class="section-card__count">50 questions</span><span class="section-card__score none" id="sectionScore1" aria-hidden="true"></span></span>
               <span class="section-card__arrow" aria-hidden="true">→</span>
             </span>
           </button>
@@ -293,7 +301,7 @@
             <span class="section-card__num" aria-hidden="true">2</span>
             <span class="section-card__body">
               <span class="section-card__title">Assessment event 1: Knowledge Part 2</span>
-              <span class="section-card__count">50 questions</span>
+              <span class="section-card__meta"><span class="section-card__count">50 questions</span><span class="section-card__score none" id="sectionScore2" aria-hidden="true"></span></span>
               <span class="section-card__arrow" aria-hidden="true">→</span>
             </span>
           </button>
@@ -301,7 +309,7 @@
             <span class="section-card__num" aria-hidden="true">3</span>
             <span class="section-card__body">
               <span class="section-card__title">Assessment event 1: Knowledge Part 3</span>
-              <span class="section-card__count">50 questions</span>
+              <span class="section-card__meta"><span class="section-card__count">50 questions</span><span class="section-card__score none" id="sectionScore3" aria-hidden="true"></span></span>
               <span class="section-card__arrow" aria-hidden="true">→</span>
             </span>
           </button>
@@ -309,7 +317,7 @@
             <span class="section-card__num" aria-hidden="true">4</span>
             <span class="section-card__body">
               <span class="section-card__title">Assessment event 1: Knowledge Part 4</span>
-              <span class="section-card__count">31 questions</span>
+              <span class="section-card__meta"><span class="section-card__count">31 questions</span><span class="section-card__score none" id="sectionScore4" aria-hidden="true"></span></span>
               <span class="section-card__arrow" aria-hidden="true">→</span>
             </span>
           </button>
@@ -317,7 +325,7 @@
             <span class="section-card__num" aria-hidden="true">All</span>
             <span class="section-card__body">
               <span class="section-card__title">All sections</span>
-              <span class="section-card__count">181 questions</span>
+              <span class="section-card__meta"><span class="section-card__count">181 questions</span><span class="section-card__score none" id="sectionScore0" aria-hidden="true"></span></span>
               <span class="section-card__arrow" aria-hidden="true">→</span>
             </span>
           </button>
@@ -351,6 +359,9 @@
     <div id="result" class="result card" style="display:none"></div>
     <div id="reviewWrap" class="card" style="display:none;">
       <h2 id="reviewTitle" class="sr-only">Review attempt</h2>
+      <div class="review-toolbar" id="reviewToolbar" style="display:none;">
+        <button type="button" class="btn-secondary" id="reviewJumpWrongBtn">Jump to first wrong</button>
+      </div>
       <div class="quiz-main">
         <div class="quiz-content"><div id="reviewQuiz"></div></div>
         <div class="question-sidebar" id="reviewSidebar"></div>
@@ -408,6 +419,23 @@
       return data;
     }
 
+    function updateSectionScores() {
+      const attempts = getAttempts();
+      for (let sec = 0; sec <= 4; sec++) {
+        const el = document.getElementById('sectionScore' + sec);
+        if (!el) continue;
+        const forSection = attempts.filter(a => a.section === sec);
+        if (forSection.length === 0) {
+          el.textContent = '';
+          el.className = 'section-card__score none';
+        } else {
+          const best = forSection.reduce((b, a) => (a.score > b.score ? a : b), forSection[0]);
+          el.textContent = 'Best: ' + best.score + '/' + best.total;
+          el.className = 'section-card__score';
+        }
+      }
+    }
+
     function updateHomeProgress() {
       const pctEl = document.getElementById('homeProgressPct');
       const suffixEl = document.getElementById('homeProgressSuffix');
@@ -425,6 +453,7 @@
           suffixEl.textContent = 'Practice quiz · Not an official assessment';
           if (barFill) barFill.style.width = Math.min(100, n * 25) + '%';
         }
+        updateSectionScores();
       } catch (_) {
         pctEl.textContent = '—';
         suffixEl.textContent = 'Choose a section to start';
@@ -462,6 +491,7 @@
       document.getElementById('headerUnitTitle').textContent = 'UEEEL0012 | Install low voltage wiring, appliances, switchgear and associated accessories';
       document.getElementById('headerAssessmentTitle').textContent = section === 0 ? 'Assessment: Knowledge — All questions' : 'Assessment event 1: Knowledge Part ' + section;
       document.getElementById('headerAssessmentTitle').style.display = 'block';
+      document.addEventListener('keydown', onQuizKeydown);
       renderQuestion();
     }
 
@@ -546,17 +576,25 @@
       } else {
         btnRow += '<button type="button" id="submitBtn">Submit</button>';
       }
-      btnRow += '</div><div id="feedback"></div></div>';
+      btnRow += '</div><div id="feedback" role="status" aria-live="polite" aria-atomic="true"></div></div>';
       if (saved) {
         const fb = document.createElement('div');
         fb.id = 'feedback';
         fb.className = 'feedback ' + (saved.correct ? 'correct' : 'wrong');
+        fb.setAttribute('role', 'status');
+        fb.setAttribute('aria-live', 'polite');
+        fb.setAttribute('aria-atomic', 'true');
         fb.textContent = saved.correct ? 'Correct!' : (saved.feedbackText || 'Incorrect. See correct answer(s) above.');
-        html = html + btnRow.replace('<div id="feedback"></div>', fb.outerHTML);
+        html = html + btnRow.replace('<div id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>', fb.outerHTML);
       } else {
         html += btnRow;
       }
       document.getElementById('quiz').innerHTML = html;
+
+      var qBlock = document.querySelector('.q-block');
+      if (qBlock) qBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      var focusTarget = document.getElementById('submitBtn') || document.getElementById('nextBtn') || document.getElementById('prevBtn');
+      if (focusTarget && typeof focusTarget.focus === 'function') focusTarget.focus();
 
       if (q.type === 'single' && !saved) {
         document.querySelectorAll('.q-block .opts li[data-value]').forEach(li => {
@@ -570,6 +608,19 @@
       if (document.getElementById('nextBtn')) document.getElementById('nextBtn').addEventListener('click', nextOrFinish);
       if (document.getElementById('submitBtn')) document.getElementById('submitBtn').addEventListener('click', submitAnswer);
       renderQuestionSidebar();
+    }
+
+    function onQuizKeydown(e) {
+      if (document.getElementById('quizWrap').style.display !== 'block') return;
+      var tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : '';
+      if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (currentIndex > 0) goPrev();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        if (userAnswers[order[currentIndex]]) nextOrFinish();
+      }
     }
 
     function renderQuestionSidebar() {
@@ -774,6 +825,13 @@
       document.getElementById('headerAssessmentTitle').textContent = 'Review: Attempt from ' + new Date(attempt.date).toLocaleDateString('en-AU') + ' — ' + attempt.sectionLabel;
       document.getElementById('headerAssessmentTitle').style.display = 'block';
       document.getElementById('reviewTitle').textContent = 'Review: Attempt from ' + new Date(attempt.date).toLocaleDateString('en-AU') + ' — ' + attempt.sectionLabel;
+      var toolbar = document.getElementById('reviewToolbar');
+      var jumpBtn = document.getElementById('reviewJumpWrongBtn');
+      var firstWrong = reviewOrder.findIndex(function(k) { return reviewAnswers[k] && !reviewAnswers[k].correct; });
+      if (toolbar && jumpBtn && firstWrong >= 0) {
+        toolbar.style.display = 'flex';
+        jumpBtn.onclick = function() { reviewIndex = firstWrong; renderReviewQuestion(); };
+      } else if (toolbar) toolbar.style.display = 'none';
       renderReviewQuestion();
     }
 
@@ -848,6 +906,7 @@
     }
 
     function backToSections() {
+      document.removeEventListener('keydown', onQuizKeydown);
       document.getElementById('result').style.display = 'none';
       document.getElementById('result').innerHTML = '';
       document.getElementById('quizWrap').style.display = 'none';
@@ -869,6 +928,8 @@
       if (document.getElementById('reviewWrap').style.display === 'block') {
         document.getElementById('reviewWrap').style.display = 'none';
         document.getElementById('result').style.display = 'block';
+      } else if (document.getElementById('quizWrap').style.display === 'block') {
+        if (confirm('Leave quiz? Your answers for this attempt won\'t be saved.')) backToSections();
       } else backToSections();
     });
     document.getElementById('reviewBackBtn').addEventListener('click', () => {
@@ -877,7 +938,13 @@
     });
     document.getElementById('reviewNewAttemptBtn').addEventListener('click', backToSections);
     (async function init() {
+      const loadingMsg = document.getElementById('loadingMsg');
+      const sectionPicker = document.getElementById('sectionPicker');
+      if (loadingMsg) loadingMsg.style.display = 'block';
+      if (sectionPicker) sectionPicker.style.visibility = 'hidden';
       const loaded = await loadData();
+      if (loadingMsg) loadingMsg.style.display = 'none';
+      if (sectionPicker) sectionPicker.style.visibility = 'visible';
       if (!loaded) return;
       document.querySelectorAll('.section-card').forEach(btn => {
         btn.addEventListener('click', () => startSection(parseInt(btn.dataset.section, 10)));
