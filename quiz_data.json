@@ -2003,10 +2003,7 @@
         "Building contractors",
         "Designers"
       ],
-      "correct_indices": [
-        1,
-        3
-      ]
+      "correct_indices": [0, 3]
     },
     {
       "id": 135,
@@ -2018,12 +2015,7 @@
         "Fieldbus non-combustible concept (FNICO)",
         "Optical radiation"
       ],
-      "correct_indices": [
-        0,
-        1,
-        2,
-        3
-      ]
+      "correct_indices": [1, 3]
     },
     {
       "id": 136,
