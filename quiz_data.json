@@ -2072,12 +2072,7 @@
         "operate safely near or within a damp or wet environment.",
         "provide additional protection against electric shock in locations where the presence of water or high humidity presents an increased risk."
       ],
-      "correct_indices": [
-        0,
-        1,
-        2,
-        3
-      ]
+      "correct_indices": [2, 3]
     },
     {
       "id": 140,
