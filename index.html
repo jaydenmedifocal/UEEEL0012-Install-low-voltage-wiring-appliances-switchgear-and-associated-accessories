@@ -520,6 +520,7 @@
     let currentAttemptId = null;
     let questionOptionOrder = {};
     let questionStatementOrder = {};
+    let isPracticeWrongOnly = false;
 
     function shuffledOptionIndices(n) {
       const arr = Array.from({ length: n }, (_, i) => i);
@@ -609,6 +610,7 @@
     }
 
     function startSection(section) {
+      isPracticeWrongOnly = false;
       combinedSectionIds = null;
       currentSection = section;
       const total = data.questions.length;
@@ -641,6 +643,7 @@
     }
 
     function startWithSelectedSections() {
+      isPracticeWrongOnly = false;
       const ids = [1, 2, 3, 4].filter(s => document.getElementById('combine' + s).checked);
       if (!ids.length) return;
       combinedSectionIds = ids.slice();
@@ -690,6 +693,31 @@
         btn.textContent = 'Start quiz — ' + n + ' questions';
         if (countEl) countEl.textContent = n + ' questions from sections ' + ids.join(', ') + ' (mixed).';
       }
+    }
+
+    function startWrongOnlyQuiz(wrongIndices) {
+      if (!wrongIndices || wrongIndices.length === 0) return;
+      isPracticeWrongOnly = true;
+      order = wrongIndices.slice();
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      currentIndex = 0;
+      score = 0;
+      answered = 0;
+      userAnswers = {};
+      questionOptionOrder = {};
+      questionStatementOrder = {};
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('quizWrap').style.display = 'block';
+      document.getElementById('reviewWrap').style.display = 'none';
+      document.getElementById('pageHeader').style.display = 'flex';
+      document.getElementById('headerUnitTitle').textContent = 'UEEEL0012 | Install low voltage wiring, appliances, switchgear and associated accessories';
+      document.getElementById('headerAssessmentTitle').textContent = 'Practice: wrong answers only (' + order.length + ' questions)';
+      document.getElementById('headerAssessmentTitle').style.display = 'block';
+      document.addEventListener('keydown', onQuizKeydown);
+      renderQuestion();
     }
 
     async function loadQuiz() {
@@ -985,21 +1013,24 @@
       document.getElementById('progressBar').style.width = '100%';
       const total = order.length;
       const scoreCount = order.filter(i => userAnswers[i] && userAnswers[i].correct).length;
+      const wrongIndices = order.filter(i => !userAnswers[i] || !userAnswers[i].correct);
       document.getElementById('quiz').innerHTML = '';
       document.getElementById('quizWrap').style.display = 'none';
 
-      const attempt = {
-        id: Date.now(),
-        date: new Date().toISOString(),
-        section: currentSection,
-        sectionLabel: getSectionLabel(currentSection),
-        total: total,
-        score: scoreCount,
-        order: order.slice(),
-        userAnswers: JSON.parse(JSON.stringify(userAnswers))
-      };
-      saveAttempt(attempt);
-      currentAttemptId = attempt.id;
+      if (!isPracticeWrongOnly) {
+        const attempt = {
+          id: Date.now(),
+          date: new Date().toISOString(),
+          section: currentSection,
+          sectionLabel: getSectionLabel(currentSection),
+          total: total,
+          score: scoreCount,
+          order: order.slice(),
+          userAnswers: JSON.parse(JSON.stringify(userAnswers))
+        };
+        saveAttempt(attempt);
+        currentAttemptId = attempt.id;
+      }
 
       const res = document.getElementById('result');
       res.style.display = 'block';
@@ -1007,22 +1038,28 @@
 
       const pct = total ? (100 * scoreCount / total).toFixed(1) : '0';
       const satisfactory = scoreCount === total;
-      let html = '<h2>Assessment event: Knowledge</h2>';
+      let html = '<h2>' + (isPracticeWrongOnly ? 'Practice round complete' : 'Assessment event: Knowledge') + '</h2>';
       html += '<p class="score">Your final grade for this quiz is ' + scoreCount + ' / ' + total + '.</p>';
       html += '<p class="score-desc">' + pct + '% correct (1 mark per question)</p>';
       html += '<p class="grading-note"><strong>Grading:</strong> ' + (satisfactory ? 'Satisfactory — all questions correct.' : 'Not satisfactory — one or more incorrect.') + '</p>';
 
-      const attempts = getAttempts();
-      if (attempts.length > 0) {
-        html += '<h3 style="font-size:1rem; margin-top:1.5rem;">Summary of your previous attempts</h3>';
-        html += '<table class="attempts-table"><thead><tr><th>Attempt</th><th>State</th><th>Grade</th><th>Review</th></tr></thead><tbody>';
-        const rev = attempts.slice().reverse();
-        rev.forEach((a, idx) => {
-          const isLatest = a.id === currentAttemptId;
-          const dateStr = new Date(a.date).toLocaleString('en-AU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-          html += '<tr' + (isLatest ? ' class="latest"' : '') + '><td>' + (attempts.length - idx) + '</td><td>Submitted ' + dateStr + '</td><td>' + a.score + ' / ' + a.total + '</td><td><button type="button" class="review-btn" data-id="' + a.id + '">Review</button></td></tr>';
-        });
-        html += '</tbody></table>';
+      if (wrongIndices.length > 0) {
+        html += '<p class="grading-note" style="margin-top:0.5rem;">You got ' + wrongIndices.length + ' question' + (wrongIndices.length === 1 ? '' : 's') + ' wrong. Practice them until you remember.</p>';
+      }
+
+      if (!isPracticeWrongOnly) {
+        const attempts = getAttempts();
+        if (attempts.length > 0) {
+          html += '<h3 style="font-size:1rem; margin-top:1.5rem;">Summary of your previous attempts</h3>';
+          html += '<table class="attempts-table"><thead><tr><th>Attempt</th><th>State</th><th>Grade</th><th>Review</th></tr></thead><tbody>';
+          const rev = attempts.slice().reverse();
+          rev.forEach((a, idx) => {
+            const isLatest = a.id === currentAttemptId;
+            const dateStr = new Date(a.date).toLocaleString('en-AU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+            html += '<tr' + (isLatest ? ' class="latest"' : '') + '><td>' + (attempts.length - idx) + '</td><td>Submitted ' + dateStr + '</td><td>' + a.score + ' / ' + a.total + '</td><td><button type="button" class="review-btn" data-id="' + a.id + '">Review</button></td></tr>';
+          });
+          html += '</tbody></table>';
+        }
       }
 
       html += '<div class="result-breakdown" style="margin-top:1.5rem;"><h3>Question breakdown (this attempt)</h3><table class="breakdown-table"><thead><tr><th>#</th><th>Question</th><th>Mark</th></tr></thead><tbody>';
@@ -1035,11 +1072,24 @@
       });
       html += '</tbody></table></div>';
 
-      html += '<div class="btn-row" style="margin-top:1.5rem;"><button type="button" class="reset-btn btn-secondary" id="sectionBackBtn">Back to course</button><button type="button" class="reset-btn" id="resultResetBtn">Try again (same section)</button><button type="button" class="reset-btn btn-secondary" id="printResultBtn">Print summary</button></div>';
+      html += '<div class="btn-row" style="margin-top:1.5rem;">';
+      html += '<button type="button" class="reset-btn btn-secondary" id="sectionBackBtn">Back to course</button>';
+      if (wrongIndices.length > 0) {
+        html += '<button type="button" class="reset-btn" id="practiceWrongBtn" style="background:#0969da;">Practice wrong answers only (' + wrongIndices.length + ')</button>';
+      }
+      if (!isPracticeWrongOnly) {
+        html += '<button type="button" class="reset-btn" id="resultResetBtn">Try again (same section)</button>';
+      }
+      html += '<button type="button" class="reset-btn btn-secondary" id="printResultBtn">Print summary</button></div>';
       res.innerHTML = html;
 
       document.getElementById('sectionBackBtn').addEventListener('click', backToSections);
-      document.getElementById('resultResetBtn').addEventListener('click', () => startSection(currentSection));
+      if (document.getElementById('resultResetBtn')) {
+        document.getElementById('resultResetBtn').addEventListener('click', () => startSection(currentSection));
+      }
+      if (document.getElementById('practiceWrongBtn')) {
+        document.getElementById('practiceWrongBtn').addEventListener('click', () => startWrongOnlyQuiz(wrongIndices));
+      }
       document.getElementById('printResultBtn').addEventListener('click', () => window.print());
       res.querySelectorAll('.review-btn').forEach(btn => {
         btn.addEventListener('click', () => showReview(parseInt(btn.dataset.id, 10)));
