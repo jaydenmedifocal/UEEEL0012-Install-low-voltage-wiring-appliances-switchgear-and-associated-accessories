@@ -1244,6 +1244,10 @@
       "id": 86,
       "type": "match",
       "text": "From the images provided, match the correct 'Number' to its corresponding description to show satisfactory identification that would be placed on circuit neutral conductors.",
+      "images": [
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/questiontext/5752962/12/1366336/P3%20q11%20a.png",
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/questiontext/5752962/12/1366336/P3%20q11%20b.png"
+      ],
       "left_items": [
         "AC (air conditioner neutral)",
         "Main N (main neutral)",

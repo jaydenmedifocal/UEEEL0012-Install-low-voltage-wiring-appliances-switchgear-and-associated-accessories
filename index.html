@@ -613,7 +613,8 @@
       document.getElementById('progressText').textContent = 'Question ' + num + ' of ' + total;
 
       let html = '<div class="q-block"><div class="q-num">Question ' + num + ' of ' + total + '</div><div class="q-text">' + escapeHtml(q.text) + '</div>';
-      if (q.image) html += '<img src="' + escapeHtml(q.image) + '" alt="Question diagram" class="q-img" loading="lazy">';
+      if (q.images && q.images.length) { q.images.forEach(function(src) { html += '<img src="' + escapeHtml(src) + '" alt="Question diagram" class="q-img" loading="lazy">'; }); }
+      else if (q.image) html += '<img src="' + escapeHtml(q.image) + '" alt="Question diagram" class="q-img" loading="lazy">';
 
       if (q.type === 'single') {
         if (!questionOptionOrder[qKey]) questionOptionOrder[qKey] = shuffledOptionIndices(q.options.length);
@@ -959,7 +960,8 @@
       const total = reviewOrder.length;
 
       let html = '<div class="q-block"><div class="q-num">Question ' + num + ' of ' + total + '</div><div class="q-text">' + escapeHtml(q.text) + '</div>';
-      if (q.image) html += '<img src="' + escapeHtml(q.image) + '" alt="Question diagram" class="q-img" loading="lazy">';
+      if (q.images && q.images.length) { q.images.forEach(function(src) { html += '<img src="' + escapeHtml(src) + '" alt="Question diagram" class="q-img" loading="lazy">'; }); }
+      else if (q.image) html += '<img src="' + escapeHtml(q.image) + '" alt="Question diagram" class="q-img" loading="lazy">';
       if (q.type === 'single') {
         html += '<ul class="opts">';
         q.options.forEach((opt, i) => {
