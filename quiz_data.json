@@ -2585,13 +2585,7 @@
         "In areas declared to be heritage protected",
         "For any conductor span within arm's reach of any building, building opening or structure"
       ],
-      "correct_indices": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
+      "correct_indices": [1, 2, 4]
     },
     {
       "id": 179,
@@ -2627,7 +2621,7 @@
         "500mm",
         "300mm"
       ],
-      "correct_index": 1
+      "correct_index": 2
     },
     {
       "id": 182,
@@ -2639,7 +2633,7 @@
         "50mm",
         "600mm"
       ],
-      "correct_index": 1
+      "correct_index": 3
     }
   ]
 }
