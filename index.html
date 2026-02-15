@@ -260,6 +260,15 @@
     .loading-msg { color: #57606a; font-size: 0.95rem; margin: 0 0 1rem 0; }
     .section-card__score { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-top: 0.2rem; }
     .section-card__score.none { color: #57606a; font-weight: 500; }
+    .combine-sections { background: #f0f4f8; border: 1px solid var(--q-block-border); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+    .combine-sections .unit-lessons-heading { font-size: 1rem; font-weight: 600; color: #1f2328; margin: 0; }
+    .combine-checkboxes { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-bottom: 1rem; }
+    .combine-cb { display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.95rem; color: #1f2328; }
+    .combine-cb input { accent-color: #0969da; width: 1.1em; height: 1.1em; }
+    .combine-start-btn { padding: 0.6rem 1.2rem; font-size: 0.95rem; font-weight: 600; background: #0969da; color: #fff; border: none; border-radius: var(--radius-sm); cursor: pointer; }
+    .combine-start-btn:hover:not(:disabled) { background: #0550ae; }
+    .combine-start-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .combine-count { font-size: 0.85rem; color: #57606a; margin: 0.35rem 0 0 0; }
     .review-toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 1rem; }
     .review-toolbar .btn-secondary { padding: 0.5rem 0.85rem; font-size: 0.9rem; }
   </style>
@@ -289,7 +298,7 @@
         </div>
       </div>
       <div class="card">
-        <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong>. Each section has 50 questions (or 31 in the last). Tick <strong>Shuffle questions</strong> before you start for a random order.</p>
+        <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong>. Each section has 50 questions (or 31 in the last). <strong>Questions and answer order are shuffled every time</strong> you start or redo a quiz for better recall.</p>
         <p class="total-questions" id="totalQuestions">181 questions total</p>
         <p id="loadingMsg" class="loading-msg" style="display:none;">Loading questions…</p>
         <h2 class="unit-lessons-heading">Unit lessons</h2>
@@ -335,18 +344,29 @@
             </span>
           </button>
         </div>
+        <div class="combine-sections" style="margin-top:1.5rem;">
+          <h3 class="unit-lessons-heading" style="margin-bottom:0.75rem;">Combine sections (mixed)</h3>
+          <p class="intro" style="margin-bottom:0.75rem;">Select two or more sections to get all their questions in one quiz, mixed together. Question and answer order are shuffled every time.</p>
+          <div class="combine-checkboxes">
+            <label class="combine-cb"><input type="checkbox" id="combine1" value="1"> Section 1 (50)</label>
+            <label class="combine-cb"><input type="checkbox" id="combine2" value="2"> Section 2 (50)</label>
+            <label class="combine-cb"><input type="checkbox" id="combine3" value="3"> Section 3 (50)</label>
+            <label class="combine-cb"><input type="checkbox" id="combine4" value="4"> Section 4 (31)</label>
+          </div>
+          <button type="button" id="startCombinedBtn" class="combine-start-btn" disabled>Start quiz with selected sections</button>
+          <p id="combineCount" class="combine-count" aria-live="polite"></p>
+        </div>
         <details class="goal-card" style="margin-top:1rem;">
           <summary style="cursor:pointer; font-weight:600;">Goal &amp; tips</summary>
           <p style="margin:0.5rem 0 0 0;"><strong>Remember 50 questions at a time.</strong> The quiz randomises order so you can’t rely on position—that helps you remember the content better.</p>
-          <p class="tip" style="margin:0.25rem 0 0 0;">Tick <strong>Shuffle questions</strong> before you start to get a random order every time.</p>
+          <p class="tip" style="margin:0.25rem 0 0 0;">Question order and answer order (A/B/C/D) are shuffled automatically each time you start or redo a quiz.</p>
         </details>
       </div>
     </div>
     <div id="quizWrap" style="display:none;">
       <div class="card">
-        <div class="shuffle-wrap">
-          <label><input type="checkbox" id="shuffle" /> Shuffle questions</label>
-          <span class="shuffle-hint">Random order = harder, better recall</span>
+        <p class="shuffle-hint" style="margin-bottom:1rem;">Questions and answer options are shuffled every time you start or redo—no need to tick anything.</p>
+        <div class="shuffle-wrap" style="display:flex;align-items:center;gap:0.75rem;">
           <button type="button" id="resetBtn" class="reset-btn">Reset exam</button>
         </div>
         <div class="progress-wrap">
@@ -386,13 +406,28 @@
     let score = 0;
     let answered = 0;
     let currentSection = 0;
+    let combinedSectionIds = null;
     let userAnswers = {};
     let reviewOrder = [];
     let reviewAnswers = {};
     let reviewIndex = 0;
     let currentAttemptId = null;
+    let questionOptionOrder = {};
+
+    function shuffledOptionIndices(n) {
+      const arr = Array.from({ length: n }, (_, i) => i);
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
 
     function getSectionLabel(section) {
+      if (combinedSectionIds && combinedSectionIds.length) {
+        const n = order.length;
+        return 'Sections ' + combinedSectionIds.join('+') + ' (' + n + ' questions)';
+      }
       if (section === 0) return 'All (181 questions)';
       const start = (section - 1) * 50 + 1;
       const end = section === 4 ? 181 : section * 50;
@@ -467,6 +502,7 @@
     }
 
     function startSection(section) {
+      combinedSectionIds = null;
       currentSection = section;
       const total = data.questions.length;
       if (section === 0) {
@@ -477,16 +513,15 @@
         order = [];
         for (let i = start; i < end; i++) order.push(i);
       }
-      if (document.getElementById('shuffle').checked) {
-        for (let i = order.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [order[i], order[j]] = [order[j], order[i]];
-        }
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
       }
       currentIndex = 0;
       score = 0;
       answered = 0;
       userAnswers = {};
+      questionOptionOrder = {};
       document.getElementById('homeView').style.display = 'none';
       document.getElementById('quizWrap').style.display = 'block';
       document.getElementById('result').style.display = 'none';
@@ -498,6 +533,57 @@
       document.getElementById('headerAssessmentTitle').style.display = 'block';
       document.addEventListener('keydown', onQuizKeydown);
       renderQuestion();
+    }
+
+    function startWithSelectedSections() {
+      const ids = [1, 2, 3, 4].filter(s => document.getElementById('combine' + s).checked);
+      if (!ids.length) return;
+      combinedSectionIds = ids.slice();
+      currentSection = 0;
+      const total = data.questions.length;
+      order = [];
+      ids.forEach(s => {
+        const start = (s - 1) * 50;
+        const end = s === 4 ? total : Math.min(s * 50, total);
+        for (let i = start; i < end; i++) order.push(i);
+      });
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      currentIndex = 0;
+      score = 0;
+      answered = 0;
+      userAnswers = {};
+      questionOptionOrder = {};
+      document.getElementById('homeView').style.display = 'none';
+      document.getElementById('quizWrap').style.display = 'block';
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('result').innerHTML = '';
+      document.getElementById('reviewWrap').style.display = 'none';
+      document.getElementById('pageHeader').style.display = 'flex';
+      document.getElementById('headerUnitTitle').textContent = 'UEEEL0012 | Install low voltage wiring, appliances, switchgear and associated accessories';
+      document.getElementById('headerAssessmentTitle').textContent = 'Assessment: Knowledge — Sections ' + ids.join('+') + ' (' + order.length + ' questions)';
+      document.getElementById('headerAssessmentTitle').style.display = 'block';
+      document.addEventListener('keydown', onQuizKeydown);
+      renderQuestion();
+    }
+
+    function updateCombineUI() {
+      const ids = [1, 2, 3, 4].filter(s => document.getElementById('combine' + s).checked);
+      const btn = document.getElementById('startCombinedBtn');
+      const countEl = document.getElementById('combineCount');
+      if (ids.length === 0) {
+        btn.disabled = true;
+        btn.textContent = 'Start quiz with selected sections';
+        if (countEl) countEl.textContent = 'Select one or more sections above.';
+      } else {
+        const total = (data && data.questions) ? data.questions.length : 181;
+        const n = ids.reduce((acc, s) => acc + (s === 4 ? Math.max(0, total - 150) : 50), 0);
+        btn.disabled = false;
+        btn.textContent = 'Start quiz — ' + n + ' questions';
+        if (countEl) countEl.textContent = n + ' questions from sections ' + ids.join(', ') + ' (mixed).';
+      }
     }
 
     async function loadQuiz() {
@@ -527,28 +613,33 @@
       let html = '<div class="q-block"><div class="q-num">Question ' + num + ' of ' + total + '</div><div class="q-text">' + escapeHtml(q.text) + '</div>';
 
       if (q.type === 'single') {
+        if (!questionOptionOrder[qKey]) questionOptionOrder[qKey] = shuffledOptionIndices(q.options.length);
+        const orderIdx = questionOptionOrder[qKey];
         html += '<ul class="opts">';
-        q.options.forEach((opt, i) => {
-          const v = i + 1;
+        orderIdx.forEach((origIdx) => {
+          const opt = q.options[origIdx];
           let cls = '';
           if (saved) {
-            if (v === q.correct_index + 1) cls = ' correct';
-            else if (saved.choice === v) cls = ' wrong';
+            if (origIdx === q.correct_index) cls = ' correct';
+            else if (saved.choice === origIdx) cls = ' wrong';
           }
-          var imgHtml = (q.optionImages && q.optionImages[i]) ? '<img src="' + escapeHtml(q.optionImages[i]) + '" alt="Option ' + v + '" class="opt-img" loading="lazy">' : '';
-          html += '<li data-value="' + v + '" class="' + cls.trim() + '">' + imgHtml + escapeHtml(opt) + '</li>';
+          var imgHtml = (q.optionImages && q.optionImages[origIdx]) ? '<img src="' + escapeHtml(q.optionImages[origIdx]) + '" alt="Option" class="opt-img" loading="lazy">' : '';
+          html += '<li data-original-index="' + origIdx + '" class="' + cls.trim() + '">' + imgHtml + escapeHtml(opt) + '</li>';
         });
         html += '</ul>';
       } else if (q.type === 'multiple') {
+        if (!questionOptionOrder[qKey]) questionOptionOrder[qKey] = shuffledOptionIndices(q.options.length);
+        const orderIdx = questionOptionOrder[qKey];
         html += '<ul class="opts">';
-        q.options.forEach((opt, i) => {
+        orderIdx.forEach((origIdx) => {
+          const opt = q.options[origIdx];
           let cls = '';
           if (saved) {
-            if ((q.correct_indices || []).includes(i)) cls = ' correct';
-            else if (saved.chosen && saved.chosen.includes(i)) cls = ' wrong';
+            if ((q.correct_indices || []).includes(origIdx)) cls = ' correct';
+            else if (saved.chosen && saved.chosen.includes(origIdx)) cls = ' wrong';
           }
-          const checked = saved && saved.chosen && saved.chosen.indexOf(i) !== -1 ? ' checked' : '';
-          html += '<li class="' + cls.trim() + '"><label><input type="checkbox" data-value="' + i + '"' + checked + ' /> ' + escapeHtml(opt) + '</label></li>';
+          const checked = saved && saved.chosen && saved.chosen.indexOf(origIdx) !== -1 ? ' checked' : '';
+          html += '<li class="' + cls.trim() + '"><label><input type="checkbox" data-value="' + origIdx + '"' + checked + ' /> ' + escapeHtml(opt) + '</label></li>';
         });
         html += '</ul>';
       } else if (q.type === 'true_false') {
@@ -606,9 +697,9 @@
       if (focusTarget && typeof focusTarget.focus === 'function') focusTarget.focus();
 
       if (q.type === 'single' && !saved) {
-        document.querySelectorAll('.q-block .opts li[data-value]').forEach(li => {
+        document.querySelectorAll('.q-block .opts li[data-original-index]').forEach(li => {
           li.addEventListener('click', () => {
-            document.querySelectorAll('.q-block .opts li[data-value]').forEach(el => el.classList.remove('selected'));
+            document.querySelectorAll('.q-block .opts li[data-original-index]').forEach(el => el.classList.remove('selected'));
             li.classList.add('selected');
           });
         });
@@ -671,25 +762,26 @@
       let savedChoice = null;
 
       if (q.type === 'single') {
-        const sel = document.querySelector('.q-block .opts li[data-value].selected');
+        const sel = document.querySelector('.q-block .opts li[data-original-index].selected');
         if (!sel) { fb.textContent = 'Select an option.'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
-        savedChoice = parseInt(sel.dataset.value, 10);
-        correct = savedChoice === q.correct_index + 1;
-        document.querySelectorAll('.q-block .opts li[data-value]').forEach(li => {
+        savedChoice = parseInt(sel.dataset.originalIndex, 10);
+        correct = savedChoice === q.correct_index;
+        document.querySelectorAll('.q-block .opts li[data-original-index]').forEach(li => {
           li.classList.remove('selected');
-          const v = parseInt(li.dataset.value, 10);
-          if (v === q.correct_index + 1) li.classList.add('correct');
-          else if (v === savedChoice && !correct) li.classList.add('wrong');
+          const origIdx = parseInt(li.dataset.originalIndex, 10);
+          if (origIdx === q.correct_index) li.classList.add('correct');
+          else if (origIdx === savedChoice && !correct) li.classList.add('wrong');
         });
       } else if (q.type === 'multiple') {
         const chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
         const correctSet = [...(q.correct_indices || [])].sort((a,b)=>a-b);
         if (chosen.length === 0) { fb.textContent = 'Select at least one option.'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
         correct = chosen.length === correctSet.length && chosen.every((v,i)=>v===correctSet[i]);
-        document.querySelectorAll('.q-block .opts li').forEach((li, i) => {
+        document.querySelectorAll('.q-block .opts li').forEach((li) => {
           const inp = li.querySelector('input');
           if (!inp) return;
-          if (q.correct_indices.includes(i)) li.classList.add('correct');
+          const origIdx = parseInt(inp.dataset.value, 10);
+          if (q.correct_indices.includes(origIdx)) li.classList.add('correct');
           else if (inp.checked) li.classList.add('wrong');
         });
       } else if (q.type === 'true_false') {
@@ -737,7 +829,7 @@
         feedbackText = 'Incorrect. Correct answers: ' + parts.join(', ') + '.';
       }
       const save = { correct: correct, feedbackText: feedbackText };
-      if (q.type === 'single') save.choice = savedChoice;
+      if (q.type === 'single') save.choice = savedChoice; // 0-based original index
       else if (q.type === 'multiple') save.chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
       else if (q.type === 'true_false') save.tf = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => sel.value === 'true');
       else if (q.type === 'ranking') save.rank = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => parseInt(sel.value, 10));
@@ -856,9 +948,8 @@
       if (q.type === 'single') {
         html += '<ul class="opts">';
         q.options.forEach((opt, i) => {
-          const v = i + 1;
-          let cls = (v === q.correct_index + 1) ? ' correct' : (saved && saved.choice === v ? ' wrong' : '');
-          var imgHtml = (q.optionImages && q.optionImages[i]) ? '<img src="' + escapeHtml(q.optionImages[i]) + '" alt="Option ' + v + '" class="opt-img" loading="lazy">' : '';
+          let cls = (i === q.correct_index) ? ' correct' : (saved && saved.choice === i ? ' wrong' : '');
+          var imgHtml = (q.optionImages && q.optionImages[i]) ? '<img src="' + escapeHtml(q.optionImages[i]) + '" alt="Option" class="opt-img" loading="lazy">' : '';
           html += '<li class="' + cls.trim() + '">' + imgHtml + escapeHtml(opt) + '</li>';
         });
         html += '</ul>';
@@ -934,7 +1025,6 @@
       backToSections();
     }
 
-    document.getElementById('shuffle').addEventListener('change', () => {});
     document.getElementById('resetBtn').addEventListener('click', () => { if (confirm('Leave this attempt and go back?')) backToSections(); });
     document.getElementById('headerBackBtn').addEventListener('click', () => {
       if (document.getElementById('reviewWrap').style.display === 'block') {
@@ -961,6 +1051,13 @@
       document.querySelectorAll('.section-card').forEach(btn => {
         btn.addEventListener('click', () => startSection(parseInt(btn.dataset.section, 10)));
       });
+      [1, 2, 3, 4].forEach(s => {
+        const el = document.getElementById('combine' + s);
+        if (el) el.addEventListener('change', updateCombineUI);
+      });
+      const startCombinedBtn = document.getElementById('startCombinedBtn');
+      if (startCombinedBtn) startCombinedBtn.addEventListener('click', startWithSelectedSections);
+      updateCombineUI();
       document.getElementById('homeView').style.display = 'block';
       updateHomeProgress();
     })();
