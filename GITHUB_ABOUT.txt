@@ -1,0 +1,11 @@
+Copy this into your repo's "About" description (click the gear next to About on the repo page):
+
+---
+
+TAFE NSW Electrotechnology Cert III — UEEEL0012: Install low voltage wiring, appliances, switchgear and associated accessories. If you remember all these questions and answers you will be perfectly fine in the exam and it will help with capstone. Capstone quiz coming soon.
+
+---
+
+Optional "Website" URL for About (so the link appears on the repo):
+
+https://jaydenmedifocal.github.io/UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-accessories/
