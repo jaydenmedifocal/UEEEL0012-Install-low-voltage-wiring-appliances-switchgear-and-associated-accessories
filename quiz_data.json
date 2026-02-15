@@ -1675,12 +1675,7 @@
         "AS/NZS 3000 Clause 2.6.3 does not apply if the switchboard that is not RCD protected is replaced with the equivalent item in the same location.",
         "When replacing a switchboard, RCDs are required for final subcircuits."
       ],
-      "correct_indices": [
-        0,
-        1,
-        2,
-        3
-      ]
+      "correct_indices": [1, 2]
     },
     {
       "id": 110,
