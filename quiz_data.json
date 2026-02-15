@@ -1178,10 +1178,16 @@
       "type": "single",
       "text": "From the labelled Load Centres (switchboards) below select the one most appropriately marked. Hint – be observant of current ratings of breakers.",
       "options": [
-        "Figure 4 / Figure 8",
-        "Figure 1 / Figure 5",
-        "Figure 2 / Figure 6",
-        "Figure 3 / Figure 7"
+        "Figure 4 / Figure 8 (D)",
+        "Figure 1 / Figure 5 (A)",
+        "Figure 2 / Figure 6 (B)",
+        "Figure 3 / Figure 7 (C)"
+      ],
+      "optionImages": [
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/9/2338934/P3%20Q8d.png",
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/9/2338931/P3%20Q8a.png",
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/9/2338932/P3%20Q8b.png",
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/9/2338933/P3%20Q8c.png"
       ],
       "correct_index": 0
     },
@@ -1224,13 +1230,14 @@
       "id": 85,
       "type": "single",
       "text": "From the following picture choose which 'link' is called the Service Neutral Link.",
+      "image": "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/questiontext/5752962/11/1366335/P3%20q10.png",
       "options": [
         "Label C",
         "Label B",
         "Label A",
         "Label D"
       ],
-      "correct_index": 0
+      "correct_index": 2
     },
     {
       "id": 86,

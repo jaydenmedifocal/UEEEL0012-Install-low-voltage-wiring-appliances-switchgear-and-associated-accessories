@@ -95,6 +95,7 @@
     }
     .q-num { color: #57606a; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
     .q-text { font-weight: 500; font-size: 1.05rem; margin-bottom: 1.25rem; line-height: 1.5; color: #1f2328; }
+    .q-img { display: block; max-width: 100%; height: auto; margin-bottom: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--card-border); }
     .opts { list-style: none; padding: 0; margin: 0; }
     .opts li {
       padding: 0.85rem 1rem;
@@ -611,6 +612,7 @@
       document.getElementById('progressText').textContent = 'Question ' + num + ' of ' + total;
 
       let html = '<div class="q-block"><div class="q-num">Question ' + num + ' of ' + total + '</div><div class="q-text">' + escapeHtml(q.text) + '</div>';
+      if (q.image) html += '<img src="' + escapeHtml(q.image) + '" alt="Question diagram" class="q-img" loading="lazy">';
 
       if (q.type === 'single') {
         if (!questionOptionOrder[qKey]) questionOptionOrder[qKey] = shuffledOptionIndices(q.options.length);
@@ -945,6 +947,7 @@
       const total = reviewOrder.length;
 
       let html = '<div class="q-block"><div class="q-num">Question ' + num + ' of ' + total + '</div><div class="q-text">' + escapeHtml(q.text) + '</div>';
+      if (q.image) html += '<img src="' + escapeHtml(q.image) + '" alt="Question diagram" class="q-img" loading="lazy">';
       if (q.type === 'single') {
         html += '<ul class="opts">';
         q.options.forEach((opt, i) => {
