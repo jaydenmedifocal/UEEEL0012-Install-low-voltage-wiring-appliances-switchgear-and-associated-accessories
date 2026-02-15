@@ -68,6 +68,8 @@
     .intro { color: #57606a; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; max-width: 600px; }
     .total-questions { font-size: 1rem; font-weight: 600; color: var(--accent-dim); margin-bottom: 1rem; }
     .goal-card { background: var(--q-block-bg); border: 1px solid var(--q-block-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+    .goal-card summary { font-size: 0.95rem; color: #1f2328; list-style: none; }
+    .goal-card summary::-webkit-details-marker { display: none; }
     .goal-card h2 { font-size: 0.9rem; font-weight: 600; color: var(--accent-dim); margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.04em; }
     .goal-card p { margin: 0; font-size: 0.95rem; line-height: 1.55; color: #1f2328; }
     .goal-card .tip { margin-top: 0.6rem; font-size: 0.85rem; color: #57606a; }
@@ -181,7 +183,69 @@
       .attempts-table .review-btn { display: none; }
     }
     .section-picker code { background: var(--surface-2); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
-.section-picker { margin-bottom: 0; padding: 0; }
+    .home-hero {
+      background: linear-gradient(160deg, #cce0ff 0%, #e0ebff 45%, #e8f0ff 100%);
+      border: 1px solid #b6d4fe;
+      border-radius: var(--radius);
+      padding: 1.75rem clamp(1rem, 4vw, 2rem);
+      margin-bottom: 1.5rem;
+    }
+    .home-hero h1 { margin: 0 0 0.35rem 0; font-size: clamp(1.1rem, 2.5vw, 1.35rem); font-weight: 600; color: #0d1117; letter-spacing: -0.01em; line-height: 1.35; }
+    .home-hero .meta { margin: 0; font-size: 0.85rem; color: #0969da; font-weight: 500; }
+    .home-row { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; justify-content: space-between; }
+    .home-progress {
+      flex-shrink: 0;
+      min-width: 200px;
+      padding: 1.1rem 1.35rem;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(9,105,218,0.2);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .home-progress__title { font-size: 0.7rem; font-weight: 700; color: #57606a; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.5rem 0; }
+    .home-progress__bar { height: 6px; background: #eaeef2; border-radius: 3px; overflow: hidden; margin: 0.5rem 0 0.35rem; }
+    .home-progress__bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-dim), #0969da); border-radius: 3px; width: 0%; transition: width 0.3s ease; }
+    .home-progress__pct { font-size: 1.6rem; font-weight: 700; color: #0969da; margin: 0; line-height: 1.2; }
+    .home-progress__suffix { font-size: 0.8rem; color: #57606a; margin: 0.2rem 0 0 0; line-height: 1.35; }
+    .unit-lessons-heading { font-size: 1.05rem; font-weight: 600; color: #1f2328; margin: 0 0 1rem 0; padding-bottom: 0.35rem; border-bottom: 1px solid var(--card-border); }
+    .section-cards { display: grid; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .section-card {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+      text-align: left;
+      padding: 0;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.98rem;
+      color: #1f2328;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+      overflow: hidden;
+    }
+    .section-card:hover { border-color: #0969da; background: #f8faff; box-shadow: 0 2px 8px rgba(9,105,218,0.08); }
+    .section-card:focus { outline: none; border-color: #0969da; box-shadow: 0 0 0 3px rgba(9,105,218,0.2); }
+    .section-card__num {
+      flex-shrink: 0;
+      width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f5ff;
+      color: #0969da;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .section-card[data-section="0"] .section-card__num { background: #e8eef5; color: #57606a; }
+    .section-card__body { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.2rem; min-width: 0; }
+    .section-card__title { font-weight: 600; margin: 0; flex: 1; min-width: 0; }
+    .section-card__count { font-size: 0.8rem; color: #57606a; margin: 0; flex-shrink: 0; }
+    .section-card__arrow { font-size: 1.1rem; color: #0969da; margin-left: 0.25rem; flex-shrink: 0; }
+    .section-picker { margin-bottom: 0; padding: 0; }
     .section-label { margin: 0 0 0.75rem 0; color: #57606a; font-size: 0.9rem; }
     .section-btns { display: flex; flex-direction: column; gap: 0.5rem; }
     .section-btn { width: 100%; max-width: 340px; text-align: left; padding: 0.85rem 1.1rem; border-radius: var(--radius-sm); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.35rem; }
@@ -198,26 +262,71 @@
   </header>
   <div class="container">
     <div id="homeView">
-      <div class="card">
-        <h1 id="title">Electrical Installation &amp; Standards Quiz</h1>
-        <div class="meta" id="meta"></div>
-        <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong> — unit <strong>UEEEL0012</strong>: Install low voltage wiring, appliances, switchgear and associated accessories. Learn these and you’ll be set for the exam and capstone.</p>
-        <p class="total-questions" id="totalQuestions">181 questions total</p>
-        <div class="goal-card">
-          <h2>Goal</h2>
-          <p><strong>Remember 50 questions at a time.</strong> Each section has 50 questions (or 31 in the last section). The quiz randomises the question order so you can’t rely on position—that makes it harder and helps you remember the content better.</p>
-          <p class="tip">Tick <strong>Shuffle questions</strong> before you start to get a random order every time.</p>
-        </div>
-        <div id="sectionPicker" class="section-picker">
-          <p class="section-label">Choose a section:</p>
-          <div class="section-btns">
-            <button type="button" class="section-btn" data-section="1"><span>Section 1 (Q1–50)</span><span class="count">50 questions</span></button>
-            <button type="button" class="section-btn" data-section="2"><span>Section 2 (Q51–100)</span><span class="count">50 questions</span></button>
-            <button type="button" class="section-btn" data-section="3"><span>Section 3 (Q101–150)</span><span class="count">50 questions</span></button>
-            <button type="button" class="section-btn" data-section="4"><span>Section 4 (Q151–181)</span><span class="count">31 questions</span></button>
-            <button type="button" class="section-btn" data-section="0"><span>All</span><span class="count">181 questions</span></button>
+      <div class="home-hero">
+        <div class="home-row">
+          <div>
+            <h1 id="title">UEEEL0012 | Install low voltage wiring, appliances, switchgear and associated accessories</h1>
+            <p class="meta" id="meta">Practice: Knowledge</p>
+          </div>
+          <div class="home-progress" id="homeProgress">
+            <p class="home-progress__title">Unit progress</p>
+            <p class="home-progress__pct" id="homeProgressPct">—</p>
+            <div class="home-progress__bar" aria-hidden="true"><div class="home-progress__bar-fill" id="homeProgressBarFill"></div></div>
+            <p class="home-progress__suffix" id="homeProgressSuffix">Choose a section to start</p>
           </div>
         </div>
+      </div>
+      <div class="card">
+        <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong>. Each section has 50 questions (or 31 in the last). Tick <strong>Shuffle questions</strong> before you start for a random order.</p>
+        <p class="total-questions" id="totalQuestions">181 questions total</p>
+        <h2 class="unit-lessons-heading">Unit lessons</h2>
+        <div id="sectionPicker" class="section-cards">
+          <button type="button" class="section-card" data-section="1">
+            <span class="section-card__num" aria-hidden="true">1</span>
+            <span class="section-card__body">
+              <span class="section-card__title">Assessment event 1: Knowledge Part 1</span>
+              <span class="section-card__count">50 questions</span>
+              <span class="section-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+          <button type="button" class="section-card" data-section="2">
+            <span class="section-card__num" aria-hidden="true">2</span>
+            <span class="section-card__body">
+              <span class="section-card__title">Assessment event 1: Knowledge Part 2</span>
+              <span class="section-card__count">50 questions</span>
+              <span class="section-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+          <button type="button" class="section-card" data-section="3">
+            <span class="section-card__num" aria-hidden="true">3</span>
+            <span class="section-card__body">
+              <span class="section-card__title">Assessment event 1: Knowledge Part 3</span>
+              <span class="section-card__count">50 questions</span>
+              <span class="section-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+          <button type="button" class="section-card" data-section="4">
+            <span class="section-card__num" aria-hidden="true">4</span>
+            <span class="section-card__body">
+              <span class="section-card__title">Assessment event 1: Knowledge Part 4</span>
+              <span class="section-card__count">31 questions</span>
+              <span class="section-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+          <button type="button" class="section-card" data-section="0">
+            <span class="section-card__num" aria-hidden="true">All</span>
+            <span class="section-card__body">
+              <span class="section-card__title">All sections</span>
+              <span class="section-card__count">181 questions</span>
+              <span class="section-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+        </div>
+        <details class="goal-card" style="margin-top:1rem;">
+          <summary style="cursor:pointer; font-weight:600;">Goal &amp; tips</summary>
+          <p style="margin:0.5rem 0 0 0;"><strong>Remember 50 questions at a time.</strong> The quiz randomises order so you can’t rely on position—that helps you remember the content better.</p>
+          <p class="tip" style="margin:0.25rem 0 0 0;">Tick <strong>Shuffle questions</strong> before you start to get a random order every time.</p>
+        </details>
       </div>
     </div>
     <div id="quizWrap" style="display:none;">
@@ -293,11 +402,34 @@
         document.getElementById('sectionPicker').innerHTML = '<p class="section-label">Unable to load the quiz. If you opened this as a file, run a local server (e.g. <code>python3 -m http.server 8000</code>) or use GitHub Pages.</p>';
         return null;
       }
-      document.getElementById('title').textContent = data.title || 'Quiz';
-      document.getElementById('meta').textContent = data.questions.length + ' questions · ' + (data.source || '');
+      document.getElementById('meta').textContent = data.questions.length + ' questions · Practice: Knowledge';
       const totalEl = document.getElementById('totalQuestions');
       if (totalEl) totalEl.textContent = data.questions.length + ' questions total';
       return data;
+    }
+
+    function updateHomeProgress() {
+      const pctEl = document.getElementById('homeProgressPct');
+      const suffixEl = document.getElementById('homeProgressSuffix');
+      const barFill = document.getElementById('homeProgressBarFill');
+      if (!pctEl || !suffixEl) return;
+      try {
+        const list = JSON.parse(localStorage.getItem(ATTEMPTS_KEY) || '[]');
+        const n = list.length;
+        if (n === 0) {
+          pctEl.textContent = '—';
+          suffixEl.textContent = 'Choose a section to start';
+          if (barFill) barFill.style.width = '0%';
+        } else {
+          pctEl.textContent = n + ' attempt' + (n !== 1 ? 's' : '');
+          suffixEl.textContent = 'Practice quiz · Not an official assessment';
+          if (barFill) barFill.style.width = Math.min(100, n * 25) + '%';
+        }
+      } catch (_) {
+        pctEl.textContent = '—';
+        suffixEl.textContent = 'Choose a section to start';
+        if (barFill) barFill.style.width = '0%';
+      }
     }
 
     function startSection(section) {
@@ -722,6 +854,7 @@
       document.getElementById('reviewWrap').style.display = 'none';
       document.getElementById('homeView').style.display = 'block';
       document.getElementById('pageHeader').style.display = 'none';
+      updateHomeProgress();
     }
 
     function resetExam() {
@@ -746,10 +879,11 @@
     (async function init() {
       const loaded = await loadData();
       if (!loaded) return;
-      document.querySelectorAll('.section-btn').forEach(btn => {
+      document.querySelectorAll('.section-card').forEach(btn => {
         btn.addEventListener('click', () => startSection(parseInt(btn.dataset.section, 10)));
       });
       document.getElementById('homeView').style.display = 'block';
+      updateHomeProgress();
     })();
   </script>
 </body>
