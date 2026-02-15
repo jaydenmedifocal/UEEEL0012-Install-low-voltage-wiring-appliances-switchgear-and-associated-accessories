@@ -6,25 +6,47 @@ If you remember all these questions and answers you will be perfectly fine in th
 
 ---
 
-## Visit the quiz online
+## Live website (HTTPS)
 
-**→ [Open the quiz](https://jaydenmedifocal.github.io/UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-accessories/)**
+The quiz is hosted on GitHub Pages. Anyone can use it in their browser—no install, no sign-in.
 
-181 questions · single choice, multiple choice, true/false, ranking, matching · 1 mark per question · instant feedback, previous/next, print summary.
+**→ [Open the exam](https://jaydenmedifocal.github.io/UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-accessories/)**
 
-*If the link doesn’t load:* In this repo go to **Settings → Pages → Source: Deploy from a branch** → Branch: `main`, Folder: `/ (root)` → Save. The site will appear at the URL above after a minute or two.
-
----
-
-## What it covers
-
-- **AS/NZS 3000:2018**, Building Code of Australia, NCC
-- **Units:** 50 questions per section (1–50, 51–100, 101–150, 151–181) or **All** for the full set
-- For **TAFE NSW Electrotechnology Certificate III**, unit **UEEEL0012**
+**URL:**  
+`https://jaydenmedifocal.github.io/UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-accessories/`
 
 ---
 
-## Run locally
+## How to use the website
+
+1. **Open the link above** in Chrome, Safari, Firefox, or Edge.
+2. **Choose a section** (or “All” for every question):
+   - Section 1: questions 1–50  
+   - Section 2: 51–100  
+   - Section 3: 101–150  
+   - Section 4: 151–181  
+   - All: all 181 questions
+3. **Optional:** tick **Shuffle questions** before starting if you want a random order.
+4. **Answer each question** — single choice, multiple choice, true/false, ranking, or matching. Click **Submit**, then **Next** (or **← Previous** to go back and review).
+5. **At the end** you see your score (e.g. 48/50), a **question breakdown** (which you got right/wrong), and a **Print summary** button if you want a copy.
+6. **Reset exam** — start again; **Choose section** — go back to the section picker.
+
+**Scoring:** 1 mark per question. Get the whole question right = 1 mark. The score is shown as “X / Y” (e.g. 50/50 for a full section).
+
+---
+
+## What the quiz covers
+
+- **Unit:** UEEEL0012 — Install low voltage wiring, appliances, switchgear and associated accessories  
+- **Course:** TAFE NSW Electrotechnology Certificate III  
+- **Standards:** AS/NZS 3000:2018, Building Code of Australia, NCC  
+- **181 questions** in total: single choice, multiple choice, true/false (multi-part), ranking, and matching
+
+---
+
+## Run a copy on your computer (optional)
+
+If you want to run it locally (e.g. offline or your own server):
 
 ```bash
 git clone https://github.com/jaydenmedifocal/UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-accessories.git
@@ -32,33 +54,51 @@ cd UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-acc
 python3 -m http.server 8000
 ```
 
-Open **http://localhost:8000**. Use **Shuffle questions** for a random order.
+Then open **http://localhost:8000** in your browser. Tick **Shuffle questions** for a random order.
 
 ---
 
 ## Printable exam and answer key
 
+For a paper-style exam (questions only) and a separate answer key:
+
 ```bash
 python3 build_exam.py
 ```
 
-Then open **exam-paper.html** and **answer-key.html** in your browser and use **File → Print**.
+Then open **exam-paper.html** and **answer-key.html** in your browser and use **File → Print**. Print the exam first; use the answer key when marking.
 
 ---
 
-## Terminal and AI (Gemini) use
+## Terminal and AI (Gemini)
 
-- **Terminal:** `python3 run_quiz.py` or `python3 run_quiz.py --shuffle`
-- **Gemini:** `python3 run_quiz.py --gemini-prompt` → copy output → paste into Gemini and ask it to quiz you.
+- **Terminal:**  
+  `python3 run_quiz.py` or `python3 run_quiz.py --shuffle`
+- **Gemini:**  
+  Run `python3 run_quiz.py --gemini-prompt`, copy the output, paste it into Gemini, and ask it to quiz you one question at a time.
+
+---
+
+## If the live site doesn’t load
+
+The site is served by **GitHub Pages**. If the link above shows a 404 or doesn’t load:
+
+1. Open the repo: [UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-accessories](https://github.com/jaydenmedifocal/UEEEL0012-Install-low-voltage-wiring-appliances-switchgear-and-associated-accessories)
+2. Go to **Settings → Pages**
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**
+4. **Branch:** `main` · **Folder:** `/ (root)` · **Save**
+5. Wait 1–2 minutes. The site will be available at the HTTPS URL above.
+
+See **PAGES_SETUP.md** in the repo for the same steps.
 
 ---
 
 ## Disclaimer
 
-For **study only**. Based on AS/NZS 3000:2018 and related standards. Not a substitute for the actual standards or formal training. Always confirm against current published standards.
+This quiz is for **study only**. It is based on AS/NZS 3000:2018 and related standards. It is not a substitute for the actual standards or formal training. Always confirm answers against current published standards.
 
 ---
 
 ## Licence
 
-MIT — use, change and share for study. See [LICENSE](LICENSE).
+MIT — you can use, change, and share this for study. See [LICENSE](LICENSE).
