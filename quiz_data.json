@@ -2432,11 +2432,7 @@
         "To be connected to the main earth bar",
         "Be directly connected to an earth bar"
       ],
-      "correct_indices": [
-        1,
-        2,
-        3
-      ]
+      "correct_indices": [1, 3]
     },
     {
       "id": 167,
@@ -2479,12 +2475,7 @@
         "Conductor size e.g., current-carrying capacity and voltage drop",
         "Sufficient cable coverage for the area"
       ],
-      "correct_indices": [
-        0,
-        1,
-        3,
-        4
-      ]
+      "correct_indices": [0, 1, 3]
     },
     {
       "id": 170,
@@ -2496,12 +2487,7 @@
         "Fall-of-potential method (Three terminal tests)",
         "Four-point test"
       ],
-      "correct_indices": [
-        0,
-        1,
-        2,
-        3
-      ]
+      "correct_indices": [1, 2]
     },
     {
       "id": 171,
@@ -2513,17 +2499,17 @@
         "50mm",
         "500mm"
       ],
-      "correct_index": 2
+      "correct_index": 3
     },
     {
       "id": 172,
       "type": "single",
       "text": "According to AS/NZS 3000, if an underground Category C wiring system is external to a building and covered by poured concrete, what is the minimum depth of cover?",
       "options": [
-        "30mm",
-        "40mm",
+        "50mm",
         "100mm",
-        "50mm"
+        "150mm",
+        "300mm"
       ],
       "correct_index": 1
     },
@@ -2586,13 +2572,7 @@
         "Polymeric Insulated Cables",
         "Bundled-Screened Cables"
       ],
-      "correct_indices": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
+      "correct_indices": [0, 2, 3]
     },
     {
       "id": 178,
