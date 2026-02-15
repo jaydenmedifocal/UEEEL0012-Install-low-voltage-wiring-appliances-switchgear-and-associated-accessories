@@ -109,12 +109,17 @@
     .opts li.selected { border-color: var(--accent-dim); background: var(--q-block-bg); }
     .opts li.correct { border-color: var(--correct); background: rgba(63,185,80,0.12); }
     .opts li.wrong { border-color: var(--wrong); background: rgba(248,81,73,0.1); }
+    .opts .opt-img { display: block; max-width: 100%; height: auto; margin-bottom: 0.5rem; border-radius: var(--radius-sm); }
     .opts input[type="checkbox"] { margin-right: 0.6rem; accent-color: var(--accent); }
     .tf-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
     .tf-row label { flex: 1; font-size: 0.95rem; color: #1f2328; }
     .tf-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); font-size: 0.95rem; min-width: 100px; }
     .rank-row { margin-bottom: 0.5rem; color: #1f2328; }
     .rank-row select { margin-left: 0.5rem; padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); }
+    .match-options-list { margin-bottom: 1.25rem; padding: 0.85rem 1rem; background: #f6f8fa; border: 1px solid var(--card-border); border-radius: var(--radius-sm); }
+    .match-options-title { font-size: 0.85rem; font-weight: 600; color: #57606a; margin: 0 0 0.5rem 0; }
+    .match-options-ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #1f2328; line-height: 1.5; }
+    .match-options-ul li { margin-bottom: 0.35rem; }
     .match-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
     .match-row label { min-width: 140px; font-size: 0.95rem; color: #1f2328; }
     .match-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); }
@@ -530,7 +535,8 @@
             if (v === q.correct_index + 1) cls = ' correct';
             else if (saved.choice === v) cls = ' wrong';
           }
-          html += '<li data-value="' + v + '" class="' + cls.trim() + '">' + escapeHtml(opt) + '</li>';
+          var imgHtml = (q.optionImages && q.optionImages[i]) ? '<img src="' + escapeHtml(q.optionImages[i]) + '" alt="Option ' + v + '" class="opt-img" loading="lazy">' : '';
+          html += '<li data-value="' + v + '" class="' + cls.trim() + '">' + imgHtml + escapeHtml(opt) + '</li>';
         });
         html += '</ul>';
       } else if (q.type === 'multiple') {
@@ -560,6 +566,9 @@
           html += '<div class="rank-row">' + (i + 1) + '. ' + escapeHtml(item) + ' <select data-index="' + i + '">' + opts + '</select></div>';
         });
       } else if (q.type === 'match') {
+        html += '<div class="match-options-list"><p class="match-options-title">Options (match each equipment to a letter):</p><ul class="match-options-ul">';
+        (q.right_options || []).forEach(function(ro) { html += '<li><strong>' + escapeHtml(ro.letter) + '.</strong> ' + escapeHtml(ro.text) + '</li>'; });
+        html += '</ul></div>';
         const letters = q.right_options.map(ro => ro.letter);
         q.left_items.forEach((item, i) => {
           let opts = '<option value="">—</option>';
@@ -849,7 +858,8 @@
         q.options.forEach((opt, i) => {
           const v = i + 1;
           let cls = (v === q.correct_index + 1) ? ' correct' : (saved && saved.choice === v ? ' wrong' : '');
-          html += '<li class="' + cls.trim() + '">' + escapeHtml(opt) + '</li>';
+          var imgHtml = (q.optionImages && q.optionImages[i]) ? '<img src="' + escapeHtml(q.optionImages[i]) + '" alt="Option ' + v + '" class="opt-img" loading="lazy">' : '';
+          html += '<li class="' + cls.trim() + '">' + imgHtml + escapeHtml(opt) + '</li>';
         });
         html += '</ul>';
       } else if (q.type === 'multiple') {
@@ -872,7 +882,9 @@
           html += '<div class="rank-row">' + (i + 1) + '. ' + escapeHtml(item) + ' — Correct: ' + correctStep + (saved && saved.rank && saved.rank[i] !== correctStep ? ' <span style="color:var(--wrong);">(You: ' + saved.rank[i] + ')</span>' : '') + '</div>';
         });
       } else if (q.type === 'match') {
-        const letters = (q.right_options || []).map(ro => ro.letter);
+        html += '<div class="match-options-list"><p class="match-options-title">Options:</p><ul class="match-options-ul">';
+        (q.right_options || []).forEach(function(ro) { html += '<li><strong>' + escapeHtml(ro.letter) + '.</strong> ' + escapeHtml(ro.text) + '</li>'; });
+        html += '</ul></div>';
         (q.left_items || []).forEach((item, i) => {
           const correctMatch = (q.correct_matches || [])[i];
           const userMatch = saved && saved.match && saved.match[i];

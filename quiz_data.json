@@ -747,7 +747,7 @@
         "The earthing pin aperture should be connected to the contact that Is radial to the circle embracing the pins.",
         "The earthing pin aperture should be connected to the contact that Is adjacent to the left flat live pin."
       ],
-      "correct_index": 0
+      "correct_index": 2
     },
     {
       "id": 56,
@@ -759,7 +759,7 @@
         "Fit the neutral wire into the top left neutral socket pin (when viewing the socket from the front).",
         "Fit the neutral wire into the top right neutral socket pin (when viewing the socket from the front)."
       ],
-      "correct_index": 1
+      "correct_index": 3
     },
     {
       "id": 57,
@@ -771,7 +771,7 @@
         "Connect the neutral wire from the switchboard to the compressor directly and connect a neutral wire directly from the compressor to the motor fan.",
         "Connect the neutral wire from the switchboard to the compressor and motor fan using a busbar as a common link."
       ],
-      "correct_index": 3
+      "correct_index": 1
     },
     {
       "id": 58,
@@ -1041,12 +1041,18 @@
       "type": "single",
       "text": "From the wiring installation below select the correct wiring diagram that shows the switchgear, protective devices and 'links' to be properly wired.",
       "options": [
-        "Figure 4",
-        "Figure 1",
-        "Figure 2",
-        "Figure 3"
+        "Figure 4 (A)",
+        "Figure 1 (B)",
+        "Figure 2 (C)",
+        "Figure 3 (D)"
       ],
-      "correct_index": 0
+      "optionImages": [
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/2/2338913/P3%20Q1d.png",
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/2/2338910/P3%20Q1a.png",
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/2/2338911/P3%20Q1b.png",
+        "https://www.studytafensw.edu.au/moodle/pluginfile.php/1501724/question/answer/5752962/2/2338912/P3%20Q1c.png"
+      ],
+      "correct_index": 3
     },
     {
       "id": 77,
