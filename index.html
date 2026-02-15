@@ -474,23 +474,25 @@
       const q = getQuestion();
       const qKey = order[currentIndex];
       const fb = document.getElementById('feedback');
+      if (!fb) return;
       let correct = false;
+      let savedChoice = null;
 
       if (q.type === 'single') {
-        const sel = document.querySelector('.q-block .opts li.selected');
-        if (!sel) { fb.textContent = 'Select an option.'; fb.className = 'feedback wrong'; return; }
-        const choice = parseInt(sel.dataset.value, 10);
-        correct = choice === q.correct_index + 1;
-        document.querySelectorAll('.q-block .opts li').forEach(li => {
+        const sel = document.querySelector('.q-block .opts li[data-value].selected');
+        if (!sel) { fb.textContent = 'Select an option.'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
+        savedChoice = parseInt(sel.dataset.value, 10);
+        correct = savedChoice === q.correct_index + 1;
+        document.querySelectorAll('.q-block .opts li[data-value]').forEach(li => {
           li.classList.remove('selected');
           const v = parseInt(li.dataset.value, 10);
           if (v === q.correct_index + 1) li.classList.add('correct');
-          else if (v === choice && !correct) li.classList.add('wrong');
+          else if (v === savedChoice && !correct) li.classList.add('wrong');
         });
       } else if (q.type === 'multiple') {
         const chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
         const correctSet = [...(q.correct_indices || [])].sort((a,b)=>a-b);
-        if (chosen.length === 0) { fb.textContent = 'Select at least one option.'; fb.className = 'feedback wrong'; return; }
+        if (chosen.length === 0) { fb.textContent = 'Select at least one option.'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
         correct = chosen.length === correctSet.length && chosen.every((v,i)=>v===correctSet[i]);
         document.querySelectorAll('.q-block .opts li').forEach((li, i) => {
           const inp = li.querySelector('input');
@@ -502,7 +504,7 @@
         const correctAnswers = q.correct_answers || [];
         const selects = document.querySelectorAll('.q-block select[data-index]');
         const allFilled = Array.from(selects).every(sel => sel.value !== '');
-        if (!allFilled) { fb.textContent = 'Answer all parts (True or False).'; fb.className = 'feedback wrong'; return; }
+        if (!allFilled) { fb.textContent = 'Answer all parts (True or False).'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
         let allCorrect = true;
         selects.forEach(sel => {
           const i = parseInt(sel.dataset.index, 10);
@@ -522,14 +524,14 @@
         const n = correctOrder.length;
         const allFilled = user.length === n && user.every(v => v >= 1 && v <= n);
         const uniqueSteps = new Set(user).size === n;
-        if (!allFilled) { fb.textContent = 'Assign a step number (1–' + n + ') to each item.'; fb.className = 'feedback wrong'; return; }
-        if (!uniqueSteps) { fb.textContent = 'Use each step number 1–' + n + ' exactly once.'; fb.className = 'feedback wrong'; return; }
+        if (!allFilled) { fb.textContent = 'Assign a step number (1–' + n + ') to each item.'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
+        if (!uniqueSteps) { fb.textContent = 'Use each step number 1–' + n + ' exactly once.'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
         correct = user.every((v,i)=>v===correctOrder[i]);
       } else if (q.type === 'match') {
         const selects = document.querySelectorAll('.q-block .match-row select');
         const user = Array.from(selects).map(s => s.value);
         const correctMatches = q.correct_matches || [];
-        if (user.some(v => !v) || user.length !== correctMatches.length) { fb.textContent = 'Select a match for every item.'; fb.className = 'feedback wrong'; return; }
+        if (user.some(v => !v) || user.length !== correctMatches.length) { fb.textContent = 'Select a match for every item.'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
         correct = user.every((v,i)=>String(v)===String(correctMatches[i]));
       }
 
@@ -543,7 +545,7 @@
         feedbackText = 'Incorrect. Correct answers: ' + parts.join(', ') + '.';
       }
       const save = { correct: correct, feedbackText: feedbackText };
-      if (q.type === 'single') save.choice = parseInt(document.querySelector('.q-block .opts li.selected').dataset.value, 10);
+      if (q.type === 'single') save.choice = savedChoice;
       else if (q.type === 'multiple') save.chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
       else if (q.type === 'true_false') save.tf = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => sel.value === 'true');
       else if (q.type === 'ranking') save.rank = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => parseInt(sel.value, 10));
