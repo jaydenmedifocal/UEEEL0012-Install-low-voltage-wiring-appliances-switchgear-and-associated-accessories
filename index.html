@@ -19,67 +19,103 @@
       --wrong: #f85149;
       --radius: 12px;
       --radius-sm: 8px;
+      --page-bg: #e8eef5;
+      --card-bg: #fff;
+      --card-border: #d0d7de;
+      --q-block-bg: #e6f0ff;
+      --q-block-border: #b6d4fe;
     }
     * { box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--page-bg);
+      color: #1f2328;
       margin: 0;
       min-height: 100vh;
-      padding: clamp(1rem, 4vw, 2rem);
+      padding: 0;
       line-height: 1.5;
     }
-    .container { max-width: 680px; margin: 0 auto; }
+    .page-header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem clamp(1rem, 4vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .page-header .header-row { display: flex; align-items: center; gap: 1rem; width: 100%; flex-wrap: wrap; }
+    .page-header .back-btn {
+      background: #0969da;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .page-header .back-btn:hover { background: #0550ae; color: #fff; }
+    .page-header .unit-title { font-size: 0.95rem; color: #57606a; margin: 0; }
+    .page-header .assessment-title { font-size: 1.25rem; font-weight: 600; color: #1f2328; margin: 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: clamp(1rem, 4vw, 2rem); }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: clamp(1.25rem, 4vw, 2rem); margin-bottom: 1.5rem; }
     h1 { font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; margin-bottom: 0.25rem; letter-spacing: -0.02em; }
-    .meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 0.5rem; }
-    .intro { color: var(--muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem; max-width: 600px; }
+    .meta { color: #57606a; font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .intro { color: #57606a; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; max-width: 600px; }
+    .total-questions { font-size: 1rem; font-weight: 600; color: var(--accent-dim); margin-bottom: 1rem; }
+    .goal-card { background: var(--q-block-bg); border: 1px solid var(--q-block-border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+    .goal-card h2 { font-size: 0.9rem; font-weight: 600; color: var(--accent-dim); margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.04em; }
+    .goal-card p { margin: 0; font-size: 0.95rem; line-height: 1.55; color: #1f2328; }
+    .goal-card .tip { margin-top: 0.6rem; font-size: 0.85rem; color: #57606a; }
     .progress-wrap { margin-bottom: 1.5rem; }
-    .progress {
-      height: 8px;
-      background: var(--surface-2);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-dim));
-      border-radius: 4px;
-      transition: width 0.25s ease;
-    }
-    .progress-text { font-size: 0.8rem; color: var(--muted); margin-top: 0.35rem; }
+    .progress { height: 8px; background: #eaeef2; border-radius: 4px; overflow: hidden; }
+    .progress-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-dim)); border-radius: 4px; transition: width 0.25s ease; }
+    .progress-text { font-size: 0.8rem; color: #57606a; margin-top: 0.35rem; }
+    .quiz-main { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .quiz-content { flex: 1; min-width: 0; }
+    .question-sidebar { flex-shrink: 0; width: 56px; display: flex; flex-direction: column; gap: 0.25rem; max-height: 60vh; overflow-y: auto; }
+    .question-sidebar .dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 600; cursor: pointer; background: var(--card-border); color: #57606a; border: 2px solid transparent; }
+    .question-sidebar .dot:hover { background: var(--q-block-bg); }
+    .question-sidebar .dot.current { background: var(--accent-dim); color: #fff; border-color: var(--accent-dim); }
+    .question-sidebar .dot.answered { background: var(--correct); color: #fff; }
+    .question-sidebar .dot.answered.wrong { background: var(--wrong); }
+    #reviewQuiz .opts li { cursor: default; }
     .q-block {
-      background: var(--surface);
-      border: 1px solid var(--surface-2);
+      background: var(--q-block-bg);
+      border: 1px solid var(--q-block-border);
       border-radius: var(--radius);
       padding: clamp(1.25rem, 4vw, 1.75rem);
       margin-bottom: 1.25rem;
     }
-    .q-num { color: var(--muted); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
-    .q-text { font-weight: 500; font-size: 1.05rem; margin-bottom: 1.25rem; line-height: 1.5; color: var(--text); }
+    .q-num { color: #57606a; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .q-text { font-weight: 500; font-size: 1.05rem; margin-bottom: 1.25rem; line-height: 1.5; color: #1f2328; }
     .opts { list-style: none; padding: 0; margin: 0; }
     .opts li {
       padding: 0.85rem 1rem;
       margin-bottom: 0.5rem;
-      background: var(--bg);
+      background: var(--card-bg);
       border-radius: var(--radius-sm);
       cursor: pointer;
-      border: 2px solid transparent;
+      border: 2px solid var(--card-border);
       transition: border-color 0.15s, background 0.15s;
     }
-    .opts li:hover { border-color: var(--muted); background: var(--surface-2); }
-    .opts li.selected { border-color: var(--accent-dim); background: rgba(56,139,253,0.08); }
-    .opts li.correct { border-color: var(--correct); background: rgba(63,185,80,0.1); }
-    .opts li.wrong { border-color: var(--wrong); background: rgba(248,81,73,0.08); }
+    .opts li:hover { border-color: #8b949e; background: #f6f8fa; }
+    .opts li.selected { border-color: var(--accent-dim); background: var(--q-block-bg); }
+    .opts li.correct { border-color: var(--correct); background: rgba(63,185,80,0.12); }
+    .opts li.wrong { border-color: var(--wrong); background: rgba(248,81,73,0.1); }
     .opts input[type="checkbox"] { margin-right: 0.6rem; accent-color: var(--accent); }
     .tf-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
-    .tf-row label { flex: 1; font-size: 0.95rem; }
-    .tf-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--bg); color: var(--text); border: 1px solid var(--surface-2); font-size: 0.95rem; min-width: 100px; }
-    .rank-row { margin-bottom: 0.5rem; }
-    .rank-row select { margin-left: 0.5rem; padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); background: var(--bg); color: var(--text); border: 1px solid var(--surface-2); }
+    .tf-row label { flex: 1; font-size: 0.95rem; color: #1f2328; }
+    .tf-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); font-size: 0.95rem; min-width: 100px; }
+    .rank-row { margin-bottom: 0.5rem; color: #1f2328; }
+    .rank-row select { margin-left: 0.5rem; padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); }
     .match-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
-    .match-row label { min-width: 140px; font-size: 0.95rem; }
-    .match-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--bg); color: var(--text); border: 1px solid var(--surface-2); }
+    .match-row label { min-width: 140px; font-size: 0.95rem; color: #1f2328; }
+    .match-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); }
     .btn-row { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; align-items: center; }
     button {
       background: var(--accent);
@@ -100,17 +136,28 @@
     .feedback.correct { background: rgba(63,185,80,0.12); color: var(--correct); border: 1px solid rgba(63,185,80,0.3); }
     .feedback.wrong { background: rgba(248,81,73,0.1); color: var(--wrong); border: 1px solid rgba(248,81,73,0.25); }
     .result {
-      text-align: center;
-      padding: 2.5rem;
-      background: var(--surface);
-      border: 1px solid var(--surface-2);
+      text-align: left;
+      padding: 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius);
     }
-    .result h2 { margin-bottom: 0.5rem; font-size: 1.25rem; }
-    .result .score { font-size: 2rem; font-weight: 700; color: var(--accent); margin: 0.5rem 0; }
-    .result .score-desc { color: var(--muted); margin-bottom: 1.5rem; }
+    .result h2 { margin-bottom: 0.5rem; font-size: 1.25rem; color: #1f2328; }
+    .result .score { font-size: 1.75rem; font-weight: 700; color: var(--accent); margin: 0.5rem 0; }
+    .result .score-desc { color: #57606a; margin-bottom: 1rem; }
+    .result .grading-note { font-size: 0.9rem; color: #57606a; margin-bottom: 1.5rem; }
+    .attempts-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 1rem; }
+    .attempts-table th, .attempts-table td { padding: 0.6rem 0.75rem; border: 1px solid var(--card-border); text-align: left; }
+    .attempts-table th { background: #f6f8fa; color: #57606a; font-weight: 600; }
+    .attempts-table tbody tr:hover { background: #f6f8fa; }
+    .attempts-table tbody tr.latest { background: var(--q-block-bg); }
+    .attempts-table .review-btn { background: var(--accent-dim); color: #fff; border: none; padding: 0.35rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .attempts-table .review-btn:hover { opacity: 0.9; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .page-footer { text-align: center; font-size: 0.8rem; color: #57606a; margin-top: 2rem; padding-bottom: 1.5rem; }
     .result .btn-row { justify-content: center; margin-top: 1.5rem; }
     .shuffle-wrap { margin-bottom: 1rem; display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .shuffle-hint { font-size: 0.8rem; color: #57606a; }
     .shuffle-wrap label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem; }
     .reset-btn { background: var(--surface-2); color: var(--text); border: 1px solid var(--muted); padding: 0.5rem 1rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9rem; font-weight: 500; }
     .reset-btn:hover { background: var(--muted); color: var(--bg); }
@@ -122,52 +169,92 @@
     .result-breakdown h3 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--muted); }
     .breakdown-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
     .breakdown-table th, .breakdown-table td { padding: 0.4rem 0.6rem; border: 1px solid var(--surface-2); text-align: left; }
-    .breakdown-table th { background: var(--surface-2); color: var(--muted); }
-    .breakdown-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+    .breakdown-table th { background: #f6f8fa; color: #57606a; }
+    .breakdown-table tbody tr:nth-child(even) { background: #f6f8fa; }
     @media print {
       body { background: #fff; color: #111; }
-      .shuffle-wrap, .reset-btn, #sectionPicker, #quizWrap .progress-wrap, .btn-row button { display: none !important; }
+      .page-header, .shuffle-wrap, .reset-btn, #sectionPicker, #quizWrap .progress-wrap, .btn-row button, .question-sidebar, #reviewSidebar { display: none !important; }
       .result { border: 1px solid #ccc; box-shadow: none; }
       .result-breakdown, .breakdown-table { display: block; }
       .breakdown-table { font-size: 10pt; }
       .breakdown-table th, .breakdown-table td { border-color: #999; color: #111; }
+      .attempts-table .review-btn { display: none; }
     }
     .section-picker code { background: var(--surface-2); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
-.section-picker { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--surface-2); border-radius: var(--radius); }
-    .section-label { margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem; }
+.section-picker { margin-bottom: 0; padding: 0; }
+    .section-label { margin: 0 0 0.75rem 0; color: #57606a; font-size: 0.9rem; }
     .section-btns { display: flex; flex-direction: column; gap: 0.5rem; }
-    .section-btn { width: 100%; max-width: 300px; text-align: left; padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem; }
+    .section-btn { width: 100%; max-width: 340px; text-align: left; padding: 0.85rem 1.1rem; border-radius: var(--radius-sm); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.35rem; }
+    .section-btn .count { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
   </style>
 </head>
 <body>
+  <header class="page-header" id="pageHeader" style="display:none;">
+    <div class="header-row">
+      <button type="button" class="back-btn" id="headerBackBtn"><span aria-hidden="true">←</span> Back</button>
+    </div>
+    <p class="unit-title" id="headerUnitTitle">UEEEL0012 | Install low voltage wiring, appliances, switchgear and associated accessories</p>
+    <h1 class="assessment-title" id="headerAssessmentTitle">Assessment event 1: Knowledge</h1>
+  </header>
   <div class="container">
-    <h1 id="title">Electrical Installation &amp; Standards Quiz</h1>
-    <div class="meta" id="meta"></div>
-    <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong> — unit <strong>UEEEL0012</strong>: Install low voltage wiring, appliances, switchgear and associated accessories. Learn these and you’ll be set for the exam and capstone.</p>
-    <div id="sectionPicker" class="section-picker">
-      <p class="section-label">Choose a section (50 questions each; last section has 31):</p>
-      <div class="section-btns">
-        <button type="button" class="section-btn" data-section="1">Section 1 (Q1–50)</button>
-        <button type="button" class="section-btn" data-section="2">Section 2 (Q51–100)</button>
-        <button type="button" class="section-btn" data-section="3">Section 3 (Q101–150)</button>
-        <button type="button" class="section-btn" data-section="4">Section 4 (Q151–181)</button>
-        <button type="button" class="section-btn" data-section="0">All (181 questions)</button>
+    <div id="homeView">
+      <div class="card">
+        <h1 id="title">Electrical Installation &amp; Standards Quiz</h1>
+        <div class="meta" id="meta"></div>
+        <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong> — unit <strong>UEEEL0012</strong>: Install low voltage wiring, appliances, switchgear and associated accessories. Learn these and you’ll be set for the exam and capstone.</p>
+        <p class="total-questions" id="totalQuestions">181 questions total</p>
+        <div class="goal-card">
+          <h2>Goal</h2>
+          <p><strong>Remember 50 questions at a time.</strong> Each section has 50 questions (or 31 in the last section). The quiz randomises the question order so you can’t rely on position—that makes it harder and helps you remember the content better.</p>
+          <p class="tip">Tick <strong>Shuffle questions</strong> before you start to get a random order every time.</p>
+        </div>
+        <div id="sectionPicker" class="section-picker">
+          <p class="section-label">Choose a section:</p>
+          <div class="section-btns">
+            <button type="button" class="section-btn" data-section="1"><span>Section 1 (Q1–50)</span><span class="count">50 questions</span></button>
+            <button type="button" class="section-btn" data-section="2"><span>Section 2 (Q51–100)</span><span class="count">50 questions</span></button>
+            <button type="button" class="section-btn" data-section="3"><span>Section 3 (Q101–150)</span><span class="count">50 questions</span></button>
+            <button type="button" class="section-btn" data-section="4"><span>Section 4 (Q151–181)</span><span class="count">31 questions</span></button>
+            <button type="button" class="section-btn" data-section="0"><span>All</span><span class="count">181 questions</span></button>
+          </div>
+        </div>
       </div>
     </div>
     <div id="quizWrap" style="display:none;">
-      <div class="shuffle-wrap">
-        <label><input type="checkbox" id="shuffle" /> Shuffle questions</label>
-        <button type="button" id="resetBtn" class="reset-btn">Reset exam</button>
+      <div class="card">
+        <div class="shuffle-wrap">
+          <label><input type="checkbox" id="shuffle" /> Shuffle questions</label>
+          <span class="shuffle-hint">Random order = harder, better recall</span>
+          <button type="button" id="resetBtn" class="reset-btn">Reset exam</button>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+          <div class="progress-text" id="progressText"></div>
+        </div>
+        <div class="quiz-main">
+          <div class="quiz-content">
+            <div id="quiz"></div>
+          </div>
+          <div class="question-sidebar" id="questionSidebar"></div>
+        </div>
       </div>
-      <div class="progress-wrap">
-        <div class="progress"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
-        <div class="progress-text" id="progressText"></div>
-      </div>
-      <div id="quiz"></div>
     </div>
-    <div id="result" class="result" style="display:none"></div>
+    <div id="result" class="result card" style="display:none"></div>
+    <div id="reviewWrap" class="card" style="display:none;">
+      <h2 id="reviewTitle" class="sr-only">Review attempt</h2>
+      <div class="quiz-main">
+        <div class="quiz-content"><div id="reviewQuiz"></div></div>
+        <div class="question-sidebar" id="reviewSidebar"></div>
+      </div>
+      <div class="btn-row" style="margin-top:1rem;">
+        <button type="button" class="btn-secondary" id="reviewBackBtn">← Back to history</button>
+        <button type="button" id="reviewNewAttemptBtn">New attempt</button>
+      </div>
+    </div>
+    <p class="page-footer" id="pageFooter">Practice quiz for study. Not an official TAFE NSW assessment.</p>
   </div>
   <script>
+    const ATTEMPTS_KEY = 'ueeel0012_attempts';
     let data = null;
     let order = [];
     let currentIndex = 0;
@@ -175,6 +262,26 @@
     let answered = 0;
     let currentSection = 0;
     let userAnswers = {};
+    let reviewOrder = [];
+    let reviewAnswers = {};
+    let reviewIndex = 0;
+    let currentAttemptId = null;
+
+    function getSectionLabel(section) {
+      if (section === 0) return 'All (181 questions)';
+      const start = (section - 1) * 50 + 1;
+      const end = section === 4 ? 181 : section * 50;
+      return 'Section ' + section + ' (Q' + start + '–' + end + ')';
+    }
+
+    function getAttempts() {
+      try { return JSON.parse(localStorage.getItem(ATTEMPTS_KEY) || '[]'); } catch (e) { return []; }
+    }
+    function saveAttempt(attempt) {
+      const list = getAttempts();
+      list.push(attempt);
+      localStorage.setItem(ATTEMPTS_KEY, JSON.stringify(list));
+    }
 
     async function loadData() {
       try {
@@ -188,6 +295,8 @@
       }
       document.getElementById('title').textContent = data.title || 'Quiz';
       document.getElementById('meta').textContent = data.questions.length + ' questions · ' + (data.source || '');
+      const totalEl = document.getElementById('totalQuestions');
+      if (totalEl) totalEl.textContent = data.questions.length + ' questions total';
       return data;
     }
 
@@ -212,10 +321,15 @@
       score = 0;
       answered = 0;
       userAnswers = {};
-      document.getElementById('sectionPicker').style.display = 'none';
+      document.getElementById('homeView').style.display = 'none';
       document.getElementById('quizWrap').style.display = 'block';
       document.getElementById('result').style.display = 'none';
       document.getElementById('result').innerHTML = '';
+      document.getElementById('reviewWrap').style.display = 'none';
+      document.getElementById('pageHeader').style.display = 'flex';
+      document.getElementById('headerUnitTitle').textContent = 'UEEEL0012 | Install low voltage wiring, appliances, switchgear and associated accessories';
+      document.getElementById('headerAssessmentTitle').textContent = section === 0 ? 'Assessment: Knowledge — All questions' : 'Assessment event 1: Knowledge Part ' + section;
+      document.getElementById('headerAssessmentTitle').style.display = 'block';
       renderQuestion();
     }
 
@@ -323,6 +437,26 @@
       if (document.getElementById('prevBtn')) document.getElementById('prevBtn').addEventListener('click', goPrev);
       if (document.getElementById('nextBtn')) document.getElementById('nextBtn').addEventListener('click', nextOrFinish);
       if (document.getElementById('submitBtn')) document.getElementById('submitBtn').addEventListener('click', submitAnswer);
+      renderQuestionSidebar();
+    }
+
+    function renderQuestionSidebar() {
+      const total = order.length;
+      const sb = document.getElementById('questionSidebar');
+      if (!sb || total === 0) return;
+      let html = '';
+      for (let i = 0; i < total; i++) {
+        const qKey = order[i];
+        const saved = userAnswers[qKey];
+        let cls = 'dot';
+        if (i === currentIndex) cls += ' current';
+        else if (saved) cls += saved.correct ? ' answered' : ' answered wrong';
+        html += '<button type="button" class="' + cls + '" data-index="' + i + '" title="Question ' + (i + 1) + '">' + (i + 1) + '</button>';
+      }
+      sb.innerHTML = html;
+      sb.querySelectorAll('.dot').forEach(btn => {
+        btn.addEventListener('click', () => { currentIndex = parseInt(btn.dataset.index, 10); renderQuestion(); });
+      });
     }
 
     function goPrev() {
@@ -431,13 +565,48 @@
     function showResult() {
       document.getElementById('progressBar').style.width = '100%';
       const total = order.length;
+      const scoreCount = order.filter(i => userAnswers[i] && userAnswers[i].correct).length;
       document.getElementById('quiz').innerHTML = '';
+      document.getElementById('quizWrap').style.display = 'none';
+
+      const attempt = {
+        id: Date.now(),
+        date: new Date().toISOString(),
+        section: currentSection,
+        sectionLabel: getSectionLabel(currentSection),
+        total: total,
+        score: scoreCount,
+        order: order.slice(),
+        userAnswers: JSON.parse(JSON.stringify(userAnswers))
+      };
+      saveAttempt(attempt);
+      currentAttemptId = attempt.id;
+
       const res = document.getElementById('result');
       res.style.display = 'block';
-      const scoreCount = order.filter(i => userAnswers[i] && userAnswers[i].correct).length;
+      document.getElementById('reviewWrap').style.display = 'none';
+
       const pct = total ? (100 * scoreCount / total).toFixed(1) : '0';
-      let html = '<h2>Result</h2><p class="score">' + scoreCount + ' / ' + total + '</p><p class="score-desc">' + pct + '% correct (1 mark per question)</p>';
-      html += '<div class="result-breakdown"><h3>Question breakdown</h3><table class="breakdown-table"><thead><tr><th>#</th><th>Question</th><th>Mark</th></tr></thead><tbody>';
+      const satisfactory = scoreCount === total;
+      let html = '<h2>Assessment event: Knowledge</h2>';
+      html += '<p class="score">Your final grade for this quiz is ' + scoreCount + ' / ' + total + '.</p>';
+      html += '<p class="score-desc">' + pct + '% correct (1 mark per question)</p>';
+      html += '<p class="grading-note"><strong>Grading:</strong> ' + (satisfactory ? 'Satisfactory — all questions correct.' : 'Not satisfactory — one or more incorrect.') + '</p>';
+
+      const attempts = getAttempts();
+      if (attempts.length > 0) {
+        html += '<h3 style="font-size:1rem; margin-top:1.5rem;">Summary of your previous attempts</h3>';
+        html += '<table class="attempts-table"><thead><tr><th>Attempt</th><th>State</th><th>Grade</th><th>Review</th></tr></thead><tbody>';
+        const rev = attempts.slice().reverse();
+        rev.forEach((a, idx) => {
+          const isLatest = a.id === currentAttemptId;
+          const dateStr = new Date(a.date).toLocaleString('en-AU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+          html += '<tr' + (isLatest ? ' class="latest"' : '') + '><td>' + (attempts.length - idx) + '</td><td>Submitted ' + dateStr + '</td><td>' + a.score + ' / ' + a.total + '</td><td><button type="button" class="review-btn" data-id="' + a.id + '">Review</button></td></tr>';
+        });
+        html += '</tbody></table>';
+      }
+
+      html += '<div class="result-breakdown" style="margin-top:1.5rem;"><h3>Question breakdown (this attempt)</h3><table class="breakdown-table"><thead><tr><th>#</th><th>Question</th><th>Mark</th></tr></thead><tbody>';
       order.forEach((qKey, idx) => {
         const q = data.questions[qKey];
         const saved = userAnswers[qKey];
@@ -446,18 +615,111 @@
         html += '<tr><td>' + (idx + 1) + '</td><td>' + escapeHtml(shortText) + '</td><td>' + mark + '</td></tr>';
       });
       html += '</tbody></table></div>';
-      html += '<div class="btn-row"><button type="button" class="reset-btn" id="resultResetBtn">Try again</button><button type="button" class="reset-btn btn-secondary" id="sectionBackBtn">Choose section</button><button type="button" class="reset-btn" id="printResultBtn">Print summary</button></div>';
+
+      html += '<div class="btn-row" style="margin-top:1.5rem;"><button type="button" class="reset-btn btn-secondary" id="sectionBackBtn">Back to course</button><button type="button" class="reset-btn" id="resultResetBtn">Try again (same section)</button><button type="button" class="reset-btn btn-secondary" id="printResultBtn">Print summary</button></div>';
       res.innerHTML = html;
-      document.getElementById('resultResetBtn').addEventListener('click', () => startSection(currentSection));
+
       document.getElementById('sectionBackBtn').addEventListener('click', backToSections);
+      document.getElementById('resultResetBtn').addEventListener('click', () => startSection(currentSection));
       document.getElementById('printResultBtn').addEventListener('click', () => window.print());
+      res.querySelectorAll('.review-btn').forEach(btn => {
+        btn.addEventListener('click', () => showReview(parseInt(btn.dataset.id, 10)));
+      });
+    }
+
+    function showReview(attemptId) {
+      const attempts = getAttempts();
+      const attempt = attempts.find(a => a.id === attemptId);
+      if (!attempt) return;
+      reviewOrder = attempt.order;
+      reviewAnswers = attempt.userAnswers;
+      reviewIndex = 0;
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('reviewWrap').style.display = 'block';
+      document.getElementById('pageHeader').style.display = 'flex';
+      document.getElementById('headerAssessmentTitle').textContent = 'Review: Attempt from ' + new Date(attempt.date).toLocaleDateString('en-AU') + ' — ' + attempt.sectionLabel;
+      document.getElementById('headerAssessmentTitle').style.display = 'block';
+      document.getElementById('reviewTitle').textContent = 'Review: Attempt from ' + new Date(attempt.date).toLocaleDateString('en-AU') + ' — ' + attempt.sectionLabel;
+      renderReviewQuestion();
+    }
+
+    function renderReviewQuestion() {
+      if (reviewOrder.length === 0) return;
+      const qKey = reviewOrder[reviewIndex];
+      const q = data.questions[qKey];
+      const saved = reviewAnswers[qKey];
+      const num = reviewIndex + 1;
+      const total = reviewOrder.length;
+
+      let html = '<div class="q-block"><div class="q-num">Question ' + num + ' of ' + total + '</div><div class="q-text">' + escapeHtml(q.text) + '</div>';
+      if (q.type === 'single') {
+        html += '<ul class="opts">';
+        q.options.forEach((opt, i) => {
+          const v = i + 1;
+          let cls = (v === q.correct_index + 1) ? ' correct' : (saved && saved.choice === v ? ' wrong' : '');
+          html += '<li class="' + cls.trim() + '">' + escapeHtml(opt) + '</li>';
+        });
+        html += '</ul>';
+      } else if (q.type === 'multiple') {
+        html += '<ul class="opts">';
+        q.options.forEach((opt, i) => {
+          let cls = (q.correct_indices || []).includes(i) ? ' correct' : (saved && saved.chosen && saved.chosen.includes(i) ? ' wrong' : '');
+          html += '<li class="' + cls.trim() + '">' + escapeHtml(opt) + '</li>';
+        });
+        html += '</ul>';
+      } else if (q.type === 'true_false') {
+        (q.statements || []).forEach((stmt, i) => {
+          const correct = (q.correct_answers || [])[i];
+          const userVal = saved && saved.tf && saved.tf[i];
+          const right = userVal === correct;
+          html += '<div class="tf-row" style="' + (right ? 'border-left:3px solid var(--correct);' : 'border-left:3px solid var(--wrong);') + ' padding-left:0.5rem;"><label>' + escapeHtml(stmt) + '</label><span style="font-weight:600;">' + (correct ? 'True' : 'False') + '</span>' + (saved && saved.tf && (saved.tf[i] !== correct) ? ' <span style="color:var(--wrong);">(You chose ' + (saved.tf[i] ? 'True' : 'False') + ')</span>' : '') + '</div>';
+        });
+      } else if (q.type === 'ranking') {
+        (q.items || []).forEach((item, i) => {
+          const correctStep = (q.correct_order || [])[i];
+          html += '<div class="rank-row">' + (i + 1) + '. ' + escapeHtml(item) + ' — Correct: ' + correctStep + (saved && saved.rank && saved.rank[i] !== correctStep ? ' <span style="color:var(--wrong);">(You: ' + saved.rank[i] + ')</span>' : '') + '</div>';
+        });
+      } else if (q.type === 'match') {
+        const letters = (q.right_options || []).map(ro => ro.letter);
+        (q.left_items || []).forEach((item, i) => {
+          const correctMatch = (q.correct_matches || [])[i];
+          const userMatch = saved && saved.match && saved.match[i];
+          html += '<div class="match-row"><label>' + escapeHtml(item) + '</label><span>' + correctMatch + (userMatch !== correctMatch ? ' <span style="color:var(--wrong);">(You: ' + (userMatch || '—') + ')</span>' : '') + '</span></div>';
+        });
+      }
+      html += '<div class="feedback ' + (saved && saved.correct ? 'correct' : 'wrong') + '" style="margin-top:1rem;">' + (saved && saved.correct ? 'Correct' : (saved && saved.feedbackText ? escapeHtml(saved.feedbackText) : 'Incorrect')) + '</div>';
+      html += '<div class="btn-row" style="margin-top:1rem;">';
+      if (reviewIndex > 0) html += '<button type="button" class="btn-secondary" id="reviewPrevBtn">← Previous</button>';
+      html += '<button type="button" id="reviewNextBtn">' + (reviewIndex + 1 < reviewOrder.length ? 'Next →' : 'Back to history') + '</button></div></div>';
+
+      document.getElementById('reviewQuiz').innerHTML = html;
+
+      if (document.getElementById('reviewPrevBtn')) document.getElementById('reviewPrevBtn').addEventListener('click', () => { reviewIndex--; renderReviewQuestion(); });
+      const nextBtn = document.getElementById('reviewNextBtn');
+      if (nextBtn) nextBtn.addEventListener('click', () => {
+        if (reviewIndex + 1 < reviewOrder.length) { reviewIndex++; renderReviewQuestion(); }
+        else { document.getElementById('reviewWrap').style.display = 'none'; document.getElementById('result').style.display = 'block'; }
+      });
+
+      const sb = document.getElementById('reviewSidebar');
+      sb.innerHTML = reviewOrder.map((_, i) => {
+        let cls = 'dot';
+        if (i === reviewIndex) cls += ' current';
+        else if (reviewAnswers[reviewOrder[i]]) cls += reviewAnswers[reviewOrder[i]].correct ? ' answered' : ' answered wrong';
+        return '<button type="button" class="' + cls + '" data-index="' + i + '">' + (i + 1) + '</button>';
+      }).join('');
+      sb.querySelectorAll('.dot').forEach(btn => {
+        btn.addEventListener('click', () => { reviewIndex = parseInt(btn.dataset.index, 10); renderReviewQuestion(); });
+      });
     }
 
     function backToSections() {
       document.getElementById('result').style.display = 'none';
       document.getElementById('result').innerHTML = '';
       document.getElementById('quizWrap').style.display = 'none';
-      document.getElementById('sectionPicker').style.display = 'block';
+      document.getElementById('reviewWrap').style.display = 'none';
+      document.getElementById('homeView').style.display = 'block';
+      document.getElementById('pageHeader').style.display = 'none';
     }
 
     function resetExam() {
@@ -467,14 +729,25 @@
     }
 
     document.getElementById('shuffle').addEventListener('change', () => {});
-    document.getElementById('resetBtn').addEventListener('click', resetExam);
+    document.getElementById('resetBtn').addEventListener('click', () => { if (confirm('Leave this attempt and go back?')) backToSections(); });
+    document.getElementById('headerBackBtn').addEventListener('click', () => {
+      if (document.getElementById('reviewWrap').style.display === 'block') {
+        document.getElementById('reviewWrap').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+      } else backToSections();
+    });
+    document.getElementById('reviewBackBtn').addEventListener('click', () => {
+      document.getElementById('reviewWrap').style.display = 'none';
+      document.getElementById('result').style.display = 'block';
+    });
+    document.getElementById('reviewNewAttemptBtn').addEventListener('click', backToSections);
     (async function init() {
       const loaded = await loadData();
       if (!loaded) return;
       document.querySelectorAll('.section-btn').forEach(btn => {
         btn.addEventListener('click', () => startSection(parseInt(btn.dataset.section, 10)));
       });
-      document.getElementById('sectionPicker').style.display = 'block';
+      document.getElementById('homeView').style.display = 'block';
     })();
   </script>
 </body>
