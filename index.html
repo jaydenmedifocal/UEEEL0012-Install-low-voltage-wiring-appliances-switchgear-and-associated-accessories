@@ -116,10 +116,10 @@
     .tf-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); font-size: 0.95rem; min-width: 100px; }
     .rank-row { margin-bottom: 0.5rem; color: #1f2328; }
     .rank-row select { margin-left: 0.5rem; padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); }
-    .match-options-list { margin-bottom: 1.25rem; padding: 0.85rem 1rem; background: #f6f8fa; border: 1px solid var(--card-border); border-radius: var(--radius-sm); }
-    .match-options-title { font-size: 0.85rem; font-weight: 600; color: #57606a; margin: 0 0 0.5rem 0; }
-    .match-options-ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #1f2328; line-height: 1.5; }
-    .match-options-ul li { margin-bottom: 0.35rem; }
+    .match-options-list { margin-bottom: 1.25rem; padding: 1rem 1.15rem; background: #f0f4f8; border: 1px solid var(--q-block-border); border-radius: var(--radius-sm); }
+    .match-options-title { font-size: 0.9rem; font-weight: 700; color: #1f2328; margin: 0 0 0.6rem 0; }
+    .match-options-ul { list-style: none; padding: 0; margin: 0; font-size: 0.95rem; color: #1f2328; line-height: 1.6; }
+    .match-options-ul li { margin-bottom: 0.4rem; }
     .match-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
     .match-row label { min-width: 140px; font-size: 0.95rem; color: #1f2328; }
     .match-row select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: var(--card-bg); color: #1f2328; border: 1px solid var(--card-border); }
@@ -566,7 +566,7 @@
           html += '<div class="rank-row">' + (i + 1) + '. ' + escapeHtml(item) + ' <select data-index="' + i + '">' + opts + '</select></div>';
         });
       } else if (q.type === 'match') {
-        html += '<div class="match-options-list"><p class="match-options-title">Options (match each equipment to a letter):</p><ul class="match-options-ul">';
+        html += '<div class="match-options-list"><p class="match-options-title">Match to one of these options:</p><ul class="match-options-ul">';
         (q.right_options || []).forEach(function(ro) { html += '<li><strong>' + escapeHtml(ro.letter) + '.</strong> ' + escapeHtml(ro.text) + '</li>'; });
         html += '</ul></div>';
         const letters = q.right_options.map(ro => ro.letter);
