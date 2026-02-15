@@ -519,6 +519,7 @@
     let reviewIndex = 0;
     let currentAttemptId = null;
     let questionOptionOrder = {};
+    let questionStatementOrder = {};
 
     function shuffledOptionIndices(n) {
       const arr = Array.from({ length: n }, (_, i) => i);
@@ -625,6 +626,7 @@
       answered = 0;
       userAnswers = {};
       questionOptionOrder = {};
+      questionStatementOrder = {};
       document.getElementById('homeView').style.display = 'none';
       document.getElementById('quizWrap').style.display = 'block';
       document.getElementById('result').style.display = 'none';
@@ -659,6 +661,7 @@
       answered = 0;
       userAnswers = {};
       questionOptionOrder = {};
+      questionStatementOrder = {};
       document.getElementById('homeView').style.display = 'none';
       document.getElementById('quizWrap').style.display = 'block';
       document.getElementById('result').style.display = 'none';
@@ -748,11 +751,15 @@
         });
         html += '</ul>';
       } else if (q.type === 'true_false') {
-        (q.statements || []).forEach((stmt, i) => {
-          const sv = saved && saved.tf && saved.tf[i];
+        const statements = q.statements || [];
+        if (!questionStatementOrder[qKey]) questionStatementOrder[qKey] = shuffledOptionIndices(statements.length);
+        const orderIdx = questionStatementOrder[qKey];
+        orderIdx.forEach((origIdx) => {
+          const stmt = statements[origIdx];
+          const sv = saved && saved.tf && saved.tf[origIdx];
           const tSel = (sv === true ? ' selected' : '');
           const fSel = (sv === false ? ' selected' : '');
-          html += '<div class="tf-row"><label>' + escapeHtml(stmt) + '</label><select data-index="' + i + '"><option value="">—</option><option value="true"' + tSel + '>True</option><option value="false"' + fSel + '>False</option></select></div>';
+          html += '<div class="tf-row"><label>' + escapeHtml(stmt) + '</label><select data-original-index="' + origIdx + '"><option value="">—</option><option value="true"' + tSel + '>True</option><option value="false"' + fSel + '>False</option></select></div>';
         });
       } else if (q.type === 'ranking') {
         const n = q.items.length;
@@ -902,20 +909,21 @@
         });
       } else if (q.type === 'true_false') {
         const correctAnswers = q.correct_answers || [];
-        const selects = document.querySelectorAll('.q-block select[data-index]');
+        const selects = document.querySelectorAll('.q-block .tf-row select[data-original-index]');
         const allFilled = Array.from(selects).every(sel => sel.value !== '');
         if (!allFilled) { fb.textContent = 'Answer all parts (True or False).'; fb.className = 'feedback wrong'; fb.style.display = 'block'; return; }
-        let allCorrect = true;
+        const n = correctAnswers.length;
+        const tf = Array(n);
         selects.forEach(sel => {
-          const i = parseInt(sel.dataset.index, 10);
-          const val = sel.value === 'true';
-          if (val !== correctAnswers[i]) allCorrect = false;
+          const origIdx = parseInt(sel.dataset.originalIndex, 10);
+          tf[origIdx] = sel.value === 'true';
         });
-        correct = allCorrect;
-        document.querySelectorAll('.q-block .tf-row').forEach((row, i) => {
+        correct = tf.every((val, i) => val === correctAnswers[i]);
+        document.querySelectorAll('.q-block .tf-row').forEach((row) => {
           const sel = row.querySelector('select');
+          const origIdx = parseInt(sel.dataset.originalIndex, 10);
           const val = sel.value === 'true';
-          row.classList.add(val === correctAnswers[i] ? 'correct' : 'wrong');
+          row.classList.add(val === correctAnswers[origIdx] ? 'correct' : 'wrong');
         });
       } else if (q.type === 'ranking') {
         const selects = document.querySelectorAll('.q-block select[data-index]');
@@ -947,7 +955,16 @@
       const save = { correct: correct, feedbackText: feedbackText };
       if (q.type === 'single') save.choice = savedChoice; // 0-based original index
       else if (q.type === 'multiple') save.chosen = [...document.querySelectorAll('.q-block .opts input:checked')].map(cb => parseInt(cb.dataset.value, 10)).sort((a,b)=>a-b);
-      else if (q.type === 'true_false') save.tf = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => sel.value === 'true');
+      else if (q.type === 'true_false') {
+        const correctAnswers = q.correct_answers || [];
+        const n = correctAnswers.length;
+        const tf = Array(n);
+        document.querySelectorAll('.q-block .tf-row select[data-original-index]').forEach(sel => {
+          const origIdx = parseInt(sel.dataset.originalIndex, 10);
+          tf[origIdx] = sel.value === 'true';
+        });
+        save.tf = tf;
+      }
       else if (q.type === 'ranking') save.rank = Array.from(document.querySelectorAll('.q-block select[data-index]')).map(sel => parseInt(sel.value, 10));
       else if (q.type === 'match') save.match = Array.from(document.querySelectorAll('.q-block .match-row select')).map(s => s.value);
       userAnswers[qKey] = save;
