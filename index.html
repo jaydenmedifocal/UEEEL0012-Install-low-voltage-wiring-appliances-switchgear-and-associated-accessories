@@ -144,6 +144,8 @@
     .feedback { margin-top: 1rem; padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; }
     .feedback.correct { background: rgba(63,185,80,0.12); color: var(--correct); border: 1px solid rgba(63,185,80,0.3); }
     .feedback.wrong { background: rgba(248,81,73,0.1); color: var(--wrong); border: 1px solid rgba(248,81,73,0.25); }
+    .key-point { margin-top: 0.6rem; padding: 0.65rem 0.9rem; background: rgba(9,105,218,0.08); border-left: 4px solid #0969da; border-radius: var(--radius-sm); font-size: 0.88rem; color: #1f2328; }
+    .key-point strong { color: #0969da; }
     .result {
       text-align: left;
       padding: 2rem;
@@ -404,7 +406,7 @@
         </div>
       </div>
       <div class="card">
-        <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong>. Each section has 50 questions (or 31 in the last). <strong>Questions and answer order are shuffled every time</strong> you start or redo a quiz for better recall.</p>
+        <p class="intro">Practice exam for <strong>TAFE NSW Electrotechnology Certificate III</strong>. Sections 1–3 have 50 questions each, Section 4 has 31, and Section 5 (Underground, IP ratings &amp; water protection) has 19. <strong>Questions and answer order are shuffled every time</strong> you start or redo a quiz for better recall.</p>
         <p class="total-questions" id="totalQuestions">181 questions total</p>
         <p id="loadingMsg" class="loading-msg" style="display:none;">Loading questions…</p>
         <h2 class="unit-lessons-heading">Unit lessons</h2>
@@ -441,11 +443,19 @@
               <span class="section-card__arrow" aria-hidden="true">→</span>
             </span>
           </button>
+          <button type="button" class="section-card" data-section="5">
+            <span class="section-card__num" aria-hidden="true">5</span>
+            <span class="section-card__body">
+              <span class="section-card__title">Underground, IP ratings &amp; water protection</span>
+              <span class="section-card__meta"><span class="section-card__count" id="section5Count">19 questions</span><span class="section-card__score none" id="sectionScore5" aria-hidden="true"></span></span>
+              <span class="section-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
           <button type="button" class="section-card" data-section="0">
             <span class="section-card__num" aria-hidden="true">All</span>
             <span class="section-card__body">
               <span class="section-card__title">All sections</span>
-              <span class="section-card__meta"><span class="section-card__count">181 questions</span><span class="section-card__score none" id="sectionScore0" aria-hidden="true"></span></span>
+              <span class="section-card__meta"><span class="section-card__count" id="allSectionsCount">200 questions</span><span class="section-card__score none" id="sectionScore0" aria-hidden="true"></span></span>
               <span class="section-card__arrow" aria-hidden="true">→</span>
             </span>
           </button>
@@ -458,14 +468,15 @@
             <label class="combine-cb"><input type="checkbox" id="combine2" value="2"> Section 2 (50)</label>
             <label class="combine-cb"><input type="checkbox" id="combine3" value="3"> Section 3 (50)</label>
             <label class="combine-cb"><input type="checkbox" id="combine4" value="4"> Section 4 (31)</label>
+            <label class="combine-cb"><input type="checkbox" id="combine5" value="5"> Section 5 (Underground &amp; IP)</label>
           </div>
           <button type="button" id="startCombinedBtn" class="combine-start-btn" disabled>Start quiz with selected sections</button>
           <p id="combineCount" class="combine-count" aria-live="polite"></p>
         </div>
         <details class="goal-card" style="margin-top:1rem;">
-          <summary style="cursor:pointer; font-weight:600;">Goal &amp; tips</summary>
-          <p style="margin:0.5rem 0 0 0;"><strong>Remember 50 questions at a time.</strong> The quiz randomises order so you can’t rely on position—that helps you remember the content better.</p>
-          <p class="tip" style="margin:0.25rem 0 0 0;">Question order and answer order (A/B/C/D) are shuffled automatically each time you start or redo a quiz.</p>
+          <summary style="cursor:pointer; font-weight:600;">Goal &amp; tips — learn and remember</summary>
+          <p style="margin:0.5rem 0 0 0;"><strong>Learn as you go: When you get one wrong, you see the correct answer and a <strong>Remember</strong> key point. Use <strong>Try again</strong> to redo the same question until you get it right.</p>
+          <p class="tip" style="margin:0.25rem 0 0 0;"><strong>Practice wrong only:</strong> At the end, use <strong>Practice wrong answers only</strong> to repeat just the questions you got wrong. Question and answer order are shuffled each time so you learn the content, not the position.</p>
         </details>
       </div>
     </div>
@@ -536,7 +547,9 @@
         const n = order.length;
         return 'Sections ' + combinedSectionIds.join('+') + ' (' + n + ' questions)';
       }
-      if (section === 0) return 'All (181 questions)';
+      const total = data && data.questions ? data.questions.length : 181;
+      if (section === 0) return 'All (' + total + ' questions)';
+      if (section === 5) return 'Section 5 (Q182–' + total + ')';
       const start = (section - 1) * 50 + 1;
       const end = section === 4 ? 181 : section * 50;
       return 'Section ' + section + ' (Q' + start + '–' + end + ')';
@@ -564,12 +577,16 @@
       document.getElementById('meta').textContent = data.questions.length + ' questions · Practice: Knowledge';
       const totalEl = document.getElementById('totalQuestions');
       if (totalEl) totalEl.textContent = data.questions.length + ' questions total';
+      const section5CountEl = document.getElementById('section5Count');
+      if (section5CountEl) section5CountEl.textContent = Math.max(0, data.questions.length - 181) + ' questions';
+      const allCountEl = document.getElementById('allSectionsCount');
+      if (allCountEl) allCountEl.textContent = data.questions.length + ' questions';
       return data;
     }
 
     function updateSectionScores() {
       const attempts = getAttempts();
-      for (let sec = 0; sec <= 4; sec++) {
+      for (let sec = 0; sec <= 5; sec++) {
         const el = document.getElementById('sectionScore' + sec);
         if (!el) continue;
         const forSection = attempts.filter(a => a.section === sec);
@@ -616,9 +633,12 @@
       const total = data.questions.length;
       if (section === 0) {
         order = data.questions.map((_, i) => i);
+      } else if (section === 5) {
+        order = [];
+        for (let i = 181; i < total; i++) order.push(i);
       } else {
         const start = (section - 1) * 50;
-        const end = Math.min(start + 50, total);
+        const end = section === 4 ? 181 : Math.min(start + 50, total);
         order = [];
         for (let i = start; i < end; i++) order.push(i);
       }
@@ -636,7 +656,7 @@
       document.getElementById('reviewWrap').style.display = 'none';
       document.getElementById('pageHeader').style.display = 'flex';
       document.getElementById('headerUnitTitle').textContent = 'UEEEL0012 | Install low voltage wiring, appliances, switchgear and associated accessories';
-      document.getElementById('headerAssessmentTitle').textContent = section === 0 ? 'Assessment: Knowledge — All questions' : 'Assessment event 1: Knowledge Part ' + section;
+      document.getElementById('headerAssessmentTitle').textContent = section === 0 ? 'Assessment: Knowledge — All questions' : section === 5 ? 'Section 5: Underground, IP ratings & water protection' : 'Assessment event 1: Knowledge Part ' + section;
       document.getElementById('headerAssessmentTitle').style.display = 'block';
       document.addEventListener('keydown', onQuizKeydown);
       renderQuestion();
@@ -644,15 +664,17 @@
 
     function startWithSelectedSections() {
       isPracticeWrongOnly = false;
-      const ids = [1, 2, 3, 4].filter(s => document.getElementById('combine' + s).checked);
+      const ids = [1, 2, 3, 4, 5].filter(s => document.getElementById('combine' + s) && document.getElementById('combine' + s).checked);
       if (!ids.length) return;
       combinedSectionIds = ids.slice();
       currentSection = 0;
       const total = data.questions.length;
       order = [];
       ids.forEach(s => {
-        const start = (s - 1) * 50;
-        const end = s === 4 ? total : Math.min(s * 50, total);
+        let start, end;
+        if (s === 5) { start = 181; end = total; }
+        else if (s === 4) { start = 150; end = 181; }
+        else { start = (s - 1) * 50; end = Math.min(s * 50, total); }
         for (let i = start; i < end; i++) order.push(i);
       });
       for (let i = order.length - 1; i > 0; i--) {
@@ -679,7 +701,7 @@
     }
 
     function updateCombineUI() {
-      const ids = [1, 2, 3, 4].filter(s => document.getElementById('combine' + s).checked);
+      const ids = [1, 2, 3, 4, 5].filter(s => document.getElementById('combine' + s) && document.getElementById('combine' + s).checked);
       const btn = document.getElementById('startCombinedBtn');
       const countEl = document.getElementById('combineCount');
       if (ids.length === 0) {
@@ -688,7 +710,11 @@
         if (countEl) countEl.textContent = 'Select one or more sections above.';
       } else {
         const total = (data && data.questions) ? data.questions.length : 181;
-        const n = ids.reduce((acc, s) => acc + (s === 4 ? Math.max(0, total - 150) : 50), 0);
+        const n = ids.reduce((acc, s) => {
+          if (s === 4) return acc + 31;
+          if (s === 5) return acc + Math.max(0, total - 181);
+          return acc + 50;
+        }, 0);
         btn.disabled = false;
         btn.textContent = 'Start quiz — ' + n + ' questions';
         if (countEl) countEl.textContent = n + ' questions from sections ' + ids.join(', ') + ' (mixed).';
@@ -825,7 +851,8 @@
         fb.setAttribute('aria-live', 'polite');
         fb.setAttribute('aria-atomic', 'true');
         fb.textContent = saved.correct ? 'Correct!' : (saved.feedbackText || 'Incorrect. See correct answer(s) above.');
-        html = html + btnRow.replace('<div id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>', fb.outerHTML);
+        const keyPointHtml = (q.explanation) ? '<div class="key-point" style="margin-top:0.6rem;"><strong>Remember:</strong> ' + escapeHtml(q.explanation) + '</div>' : '';
+        html = html + btnRow.replace('<div id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>', fb.outerHTML + keyPointHtml);
       } else {
         html += btnRow;
       }
@@ -1010,6 +1037,21 @@
       fb.className = 'feedback ' + (correct ? 'correct' : 'wrong');
       fb.textContent = feedbackText;
       fb.style.display = 'block';
+      if (q.explanation) {
+        let kp = document.getElementById('feedbackKeyPoint');
+        if (!kp) {
+          kp = document.createElement('div');
+          kp.id = 'feedbackKeyPoint';
+          kp.className = 'key-point';
+          kp.setAttribute('aria-live', 'polite');
+          fb.parentNode.insertBefore(kp, fb.nextSibling);
+        }
+        kp.innerHTML = '<strong>Remember:</strong> ' + escapeHtml(q.explanation);
+        kp.style.display = 'block';
+      } else {
+        const kp = document.getElementById('feedbackKeyPoint');
+        if (kp) kp.style.display = 'none';
+      }
       const submitBtn = document.getElementById('submitBtn');
       const btnRow = document.querySelector('.q-block .btn-row');
       if (correct) {
@@ -1200,6 +1242,7 @@
         });
       }
       html += '<div class="feedback ' + (saved && saved.correct ? 'correct' : 'wrong') + '" style="margin-top:1rem;">' + (saved && saved.correct ? 'Correct' : (saved && saved.feedbackText ? escapeHtml(saved.feedbackText) : 'Incorrect')) + '</div>';
+      if (q.explanation) html += '<div class="key-point" style="margin-top:0.6rem;"><strong>Remember:</strong> ' + escapeHtml(q.explanation) + '</div>';
       html += '<div class="btn-row" style="margin-top:1rem;">';
       if (reviewIndex > 0) html += '<button type="button" class="btn-secondary" id="reviewPrevBtn">← Previous</button>';
       html += '<button type="button" id="reviewNextBtn">' + (reviewIndex + 1 < reviewOrder.length ? 'Next →' : 'Back to history') + '</button></div></div>';

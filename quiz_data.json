@@ -52,7 +52,8 @@
         "being wrapped around building support beams or poles to prevent the sagging of cables over a distance.",
         "being placed under flooring/carpeting where possible alleviates potential movement."
       ],
-      "correct_index": 1
+      "correct_index": 1,
+      "explanation": "Cables must be fixed with clips, saddles or clamps that don't damage the wiring so they can't sag or be disturbed."
     },
     {
       "id": 5,
@@ -106,7 +107,8 @@
         "On any wall, cupboard, or surface within 150mm of the edge of an open gas or electric cooking surface",
         "Within 2.0m of any access to any space to which a person may gain entry"
       ],
-      "correct_index": 2
+      "correct_index": 2,
+      "explanation": "No cables within 150 mm of the edge of a cooking surface—heat and mechanical damage risk."
     },
     {
       "id": 9,
@@ -2634,6 +2636,762 @@
         "600mm"
       ],
       "correct_index": 3
+    },
+    {
+      "id": 183,
+      "type": "single",
+      "text": "According to AS/NZS 60529 (Ingress Protection), what does the first digit in an IP rating (e.g. IP65) indicate?",
+      "options": [
+        "Protection against water ingress",
+        "Protection against solid objects and accidental contact",
+        "Temperature rating of the enclosure",
+        "Voltage rating of the equipment"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 184,
+      "type": "single",
+      "text": "According to AS/NZS 60529, what does the second digit in an IP rating (e.g. IP65) indicate?",
+      "options": [
+        "Protection against solid objects and dust",
+        "Protection against water ingress",
+        "Fire resistance rating",
+        "Mechanical impact rating"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 185,
+      "type": "single",
+      "text": "What minimum IP rating is required for electrical equipment in Zone 0 (inside a bath or shower) under AS/NZS 3000:2018?",
+      "options": [
+        "IPX4",
+        "IPX5",
+        "IPX6",
+        "IPX7"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 186,
+      "type": "single",
+      "text": "What minimum IP rating is required for electrical equipment in Zone 1 and Zone 2 of a bathroom (residential) under AS/NZS 3000:2018?",
+      "options": [
+        "IPX2",
+        "IPX3",
+        "IPX4",
+        "IPX7"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 187,
+      "type": "single",
+      "text": "For outdoor electrical installations where equipment may be exposed to rain or water spray, what minimum level of ingress protection is generally required under AS/NZS 3000?",
+      "options": [
+        "IPX2 or higher",
+        "IPX4 or higher",
+        "IPX6 or higher",
+        "No specific IP rating required"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 188,
+      "type": "single",
+      "text": "An enclosure rated IP67 provides protection against:",
+      "options": [
+        "High-pressure water jets only",
+        "Temporary immersion in water (e.g. 1 m for 30 minutes) and dust",
+        "Only dust; no water protection",
+        "Continuous submersion at any depth"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 189,
+      "type": "single",
+      "text": "An enclosure rated IP65 provides protection against:",
+      "options": [
+        "Dust-tight and low-pressure water jets from any direction",
+        "Temporary immersion in water",
+        "Only splashing water, not jets",
+        "Continuous submersion"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 190,
+      "type": "true_false",
+      "text": "Consider the following statements about IP ratings and AS/NZS 3000:2018.",
+      "statements": [
+        "A higher IP rating can be used in place of a lower required rating (e.g. IP65 may be used where IP44 is specified).",
+        "Water protection tests for IP ratings are always cumulative (passing IP67 means you automatically pass IP65).",
+        "Outdoor power outlets must be at least 300mm from taps and must not be directly below them."
+      ],
+      "correct_answers": [true, false, true]
+    },
+    {
+      "id": 191,
+      "type": "single",
+      "text": "According to AS/NZS 3000:2018, wiring systems installed underground should be identified by marker tape. Which standard specifies the colour and use of this tape?",
+      "options": [
+        "AS/NZS 3008",
+        "AS/NZS 2648.1",
+        "AS/NZS 60529",
+        "AS/NZS 3012"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 192,
+      "type": "single",
+      "text": "For a Category A underground wiring system (cables not in a wiring enclosure, laid on a bed of sand), what is the minimum depth of the sand bed required by AS/NZS 3000:2018?",
+      "options": [
+        "40mm",
+        "50mm",
+        "75mm",
+        "150mm"
+      ],
+      "correct_index": 1,
+      "explanation": "Category A (direct buried on sand): minimum 50 mm depth of sand bed per AS/NZS 3000."
+    },
+    {
+      "id": 193,
+      "type": "single",
+      "text": "When installing underground cables, why is coloured marker tape (e.g. to AS/NZS 2648.1) used?",
+      "options": [
+        "To indicate the voltage rating of the cable",
+        "To warn persons excavating that electrical cables are present below",
+        "To identify the circuit number",
+        "To meet aesthetic requirements"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 194,
+      "type": "multiple",
+      "text": "Which two of the following are true about ingress protection (IP) ratings for electrical enclosures under AS/NZS 60529?",
+      "options": [
+        "The first digit indicates protection against solid objects; the second indicates protection against water.",
+        "IP68 always implies protection against high-pressure water jets.",
+        "Equipment in damp or wet locations must be suitably enclosed for the environment.",
+        "IP ratings are optional for outdoor switchgear in Australia."
+      ],
+      "correct_indices": [0, 2]
+    },
+    {
+      "id": 195,
+      "type": "single",
+      "text": "Where low voltage cables are installed underground in a trench, separation from other services (e.g. gas, water) must be maintained. This is primarily to:",
+      "options": [
+        "Reduce cable derating",
+        "Prevent mechanical damage and allow safe access for maintenance",
+        "Improve power factor",
+        "Reduce electromagnetic interference only"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 196,
+      "type": "true_false",
+      "text": "Consider the following statements about underground and wet-area electrical installations.",
+      "statements": [
+        "In bathroom Zone 0, only SELV (Safety Extra-Low Voltage) equipment is permitted.",
+        "IPX4 allows equipment to be used in Zone 1 and Zone 2 of a bathroom.",
+        "Underground wiring systems must be installed so that they are not susceptible to damage from expected mechanical and environmental conditions."
+      ],
+      "correct_answers": [true, true, true]
+    },
+    {
+      "id": 197,
+      "type": "single",
+      "text": "What does an IP rating of IP66 indicate for an electrical enclosure?",
+      "options": [
+        "Dust-tight and protected against strong water jets",
+        "Dust-tight and protected against temporary immersion",
+        "Protected against solid objects greater than 1 mm and dripping water",
+        "No dust protection but protected against immersion"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 198,
+      "type": "single",
+      "text": "Selecting electrical equipment and enclosures suitable for damp or wet installations (e.g. outdoor or underground) is part of which competency when installing low voltage wiring?",
+      "options": [
+        "Only testing and tagging",
+        "Planning and installing consumer mains, conduit and LV wiring systems to industry standards",
+        "Only design of HV systems",
+        "Telecommunications cabling only"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 199,
+      "type": "single",
+      "text": "For enclosures in areas that may be hosed down or exposed to water jets (e.g. food processing or agricultural), which IP rating is typically required?",
+      "options": [
+        "IP54",
+        "IP65 or IP66",
+        "IP20",
+        "IP40"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 200,
+      "type": "single",
+      "text": "The standard AS/NZS 60529 applies to:",
+      "options": [
+        "Cable current ratings only",
+        "Degrees of protection provided by enclosures for electrical equipment (IP code)",
+        "Earthing system design only",
+        "RCD trip times only"
+      ],
+      "correct_index": 1,
+      "explanation": "AS/NZS 60529 defines the IP code: first digit = solids/dust, second digit = water."
+    },
+    {
+      "id": 201,
+      "type": "single",
+      "text": "For a standard submerged or sump pump in water (e.g. pond, sump, or general use), what RCD rating is typically required under AS/NZS 3000?",
+      "options": [
+        "10 mA only",
+        "30 mA (standard additional protection)",
+        "100 mA",
+        "10 mA is mandatory for all pumps in water"
+      ],
+      "correct_index": 1,
+      "explanation": "30 mA is standard for pumps; 10 mA is for high-sensitivity areas (e.g. medical) and can nuisance-trip on pumps."
+    },
+    {
+      "id": 202,
+      "type": "true_false",
+      "text": "Consider the following statements about RCDs and submerged or wet-area equipment.",
+      "statements": [
+        "A 10 mA RCD is often used in medical or high-sensitivity areas where risk of shock is extreme.",
+        "Using a 10 mA RCD on a submerged pump can cause nuisance tripping due to normal leakage current.",
+        "For most final sub-circuits and socket outlets, 30 mA RCD additional protection is the standard under AS/NZS 3000."
+      ],
+      "correct_answers": [true, true, true]
+    },
+    {
+      "id": 203,
+      "type": "single",
+      "text": "Under AS/NZS 3000, how are underground wiring systems classified in terms of mechanical protection?",
+      "options": [
+        "Type 1, Type 2, and Type 3 only",
+        "Category A (inherently suitable below ground), Category B (requires additional mechanical protection), and Category C (e.g. in channel in rock)",
+        "Class X, Y, and Z based on voltage only",
+        "There is no category system for underground wiring"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 204,
+      "type": "single",
+      "text": "What is the maximum permissible voltage drop from the point of supply to any point of the installation under AS/NZS 3000?",
+      "options": [
+        "3%",
+        "5%",
+        "10%",
+        "No limit specified"
+      ],
+      "correct_index": 1,
+      "explanation": "From point of supply to any point of the installation, voltage drop must not exceed 5%."
+    },
+    {
+      "id": 205,
+      "type": "single",
+      "text": "For aerial conductors over a road or area subject to vehicle traffic, what minimum height is typically required (as referenced in safe clearances)?",
+      "options": [
+        "3 m",
+        "4.5 m",
+        "5.5 m",
+        "6 m"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 206,
+      "type": "single",
+      "text": "For aerial conductors over an area NOT subject to vehicle traffic, the minimum height clearance is typically:",
+      "options": [
+        "2.5 m",
+        "3 m",
+        "4 m",
+        "5.5 m"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 207,
+      "type": "single",
+      "text": "Which circuits generally require RCD protection under AS/NZS 3000 (additional protection)?",
+      "options": [
+        "Only lighting circuits",
+        "Socket outlets not exceeding 32 A, and certain lighting and other final sub-circuits as specified",
+        "Only three-phase circuits",
+        "Only circuits in bathrooms"
+      ],
+      "correct_index": 1,
+      "explanation": "RCD additional protection is required for socket outlets ≤ 32 A and other circuits as set out in AS/NZS 3000."
+    },
+    {
+      "id": 208,
+      "type": "single",
+      "text": "What is the typical maximum trip time required for an RCD at its rated residual current (IΔn) under AS/NZS 3000?",
+      "options": [
+        "100 ms",
+        "300 ms",
+        "500 ms",
+        "1 s"
+      ],
+      "correct_index": 1,
+      "explanation": "At rated residual current (IΔn), the RCD must trip within 300 ms."
+    },
+    {
+      "id": 209,
+      "type": "single",
+      "text": "For most domestic installations, what is the minimum cross-sectional area for the main earthing conductor (copper) as commonly specified in AS/NZS 3000?",
+      "options": [
+        "2.5 mm²",
+        "4 mm²",
+        "6 mm²",
+        "10 mm²"
+      ],
+      "correct_index": 2,
+      "explanation": "Main earthing conductor (copper) is typically minimum 6 mm² for most domestic installations."
+    },
+    {
+      "id": 210,
+      "type": "multiple",
+      "text": "Which two of the following are typically mandatory tests after completing a low voltage installation under AS/NZS 3000?",
+      "options": [
+        "Earth continuity",
+        "Insulation resistance",
+        "Power factor correction",
+        "Harmonic distortion"
+      ],
+      "correct_indices": [0, 1]
+    },
+    {
+      "id": 211,
+      "type": "single",
+      "text": "When securing cables to a catenary wire (aerial support), the method used must:",
+      "options": [
+        "Allow the cable to hang loose without support",
+        "Use suitable cable ties, clips or other means that do not damage the cable and are appropriate for the environment",
+        "Use only metallic clamps",
+        "Not be used; catenary systems are not permitted"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 212,
+      "type": "single",
+      "text": "Selecting the correct enclosure for a damp situation (e.g. Zone 1 or Zone 2 of a bathroom) requires consideration of:",
+      "options": [
+        "Voltage rating only",
+        "IP (Ingress Protection) rating suitable for the zone",
+        "Colour of the enclosure only",
+        "Brand of switchgear only"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 213,
+      "type": "single",
+      "text": "According to AS/NZS 3000, what is the nominal voltage for single-phase LV supply in Australia?",
+      "options": [
+        "220 V",
+        "230 V",
+        "240 V",
+        "250 V"
+      ],
+      "correct_index": 1,
+      "explanation": "Nominal single-phase LV supply in Australia is 230 V (AS/NZS 3000)."
+    },
+    {
+      "id": 214,
+      "type": "single",
+      "text": "Under AS/NZS 3000, main earthing conductors may be made of:",
+      "options": [
+        "Copper only",
+        "Aluminium only",
+        "Copper or aluminium",
+        "Any conductive material"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 215,
+      "type": "single",
+      "text": "What colour must a protective earthing (earth) conductor be per AS/NZS 3000?",
+      "options": [
+        "Green only",
+        "Yellow only",
+        "Green-and-yellow striped",
+        "Black or blue"
+      ],
+      "correct_index": 2,
+      "explanation": "Protective earthing conductor must be green-and-yellow (striped) for identification."
+    },
+    {
+      "id": 216,
+      "type": "single",
+      "text": "AS/NZS 3000 requires cables in roof spaces to be installed at what minimum height above thermal insulation?",
+      "options": [
+        "25 mm",
+        "50 mm",
+        "75 mm",
+        "100 mm"
+      ],
+      "correct_index": 1,
+      "explanation": "Cables in roof spaces must be at least 50 mm above thermal insulation to avoid overheating."
+    },
+    {
+      "id": 217,
+      "type": "single",
+      "text": "What is the minimum bending radius for cables without metallic sheath when installed in conduit, per AS/NZS 3000?",
+      "options": [
+        "2 times the overall cable diameter",
+        "4 times the overall cable diameter",
+        "6 times the overall cable diameter",
+        "8 times the overall cable diameter"
+      ],
+      "correct_index": 1,
+      "explanation": "Minimum bend radius for cables without metallic sheath is 4 × overall diameter (AS/NZS 3000)."
+    },
+    {
+      "id": 218,
+      "type": "single",
+      "text": "When multiple cables are installed in a single conduit, AS/NZS 3000 limits cable fill to what maximum percentage of the conduit internal cross-sectional area?",
+      "options": [
+        "25%",
+        "40%",
+        "50%",
+        "60%"
+      ],
+      "correct_index": 1,
+      "explanation": "Cable fill must not exceed 40% of conduit internal area; 60% stays empty for heat and pulling."
+    },
+    {
+      "id": 219,
+      "type": "single",
+      "text": "According to AS/NZS 3008, when four circuits are bunched or grouped together (e.g. in conduit), what derating factor is typically applied to current-carrying capacity?",
+      "options": [
+        "0.80",
+        "0.70",
+        "0.65",
+        "0.57"
+      ],
+      "correct_index": 2,
+      "explanation": "When 4 circuits are bunched (e.g. in conduit), AS/NZS 3008 derating factor is 0.65."
+    },
+    {
+      "id": 220,
+      "type": "single",
+      "text": "Cables in ducts in the ground must be installed at what minimum depth under AS/NZS 3000?",
+      "options": [
+        "300 mm",
+        "450 mm",
+        "600 mm",
+        "900 mm"
+      ],
+      "correct_index": 2,
+      "explanation": "Cables in ducts in the ground: minimum depth 600 mm (AS/NZS 3000)."
+    },
+    {
+      "id": 221,
+      "type": "single",
+      "text": "Cables crossing under buildings must be in conduit and at what minimum depth under AS/NZS 3000?",
+      "options": [
+        "75 mm",
+        "150 mm",
+        "300 mm",
+        "450 mm"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 222,
+      "type": "single",
+      "text": "Under AS/NZS 3000, what is the maximum height at which switchboard operating devices (e.g. switches, circuit breakers) should be installed for normal access?",
+      "options": [
+        "1.8 m",
+        "2.0 m",
+        "2.2 m",
+        "2.4 m"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 223,
+      "type": "single",
+      "text": "What is the minimum clear working space in front of a switchboard required by AS/NZS 3000?",
+      "options": [
+        "600 mm",
+        "800 mm",
+        "1000 mm",
+        "1200 mm"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 224,
+      "type": "single",
+      "text": "Overcurrent protection must be provided at points where, under AS/NZS 3000:",
+      "options": [
+        "The load is connected",
+        "The circuit branches or the current-carrying capacity of the conductor reduces",
+        "The switchboard is installed only",
+        "Cables are grouped only"
+      ],
+      "correct_index": 1,
+      "explanation": "Overcurrent protection is required where the circuit branches or conductor capacity reduces."
+    },
+    {
+      "id": 225,
+      "type": "single",
+      "text": "Current-carrying capacity of cables under AS/NZS 3000 must account for:",
+      "options": [
+        "Ambient temperature only",
+        "Installation method only",
+        "Ambient temperature, cable grouping, and installation method",
+        "Voltage drop only"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 226,
+      "type": "single",
+      "text": "Which installation method generally gives the highest current-carrying capacity for a given cable size?",
+      "options": [
+        "Enclosed in conduit",
+        "Clipped direct to surface",
+        "Buried direct in ground",
+        "In cable tray"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 227,
+      "type": "single",
+      "text": "Under AS/NZS 3000, cables run parallel to gas pipes must maintain a minimum separation of:",
+      "options": [
+        "25 mm",
+        "50 mm",
+        "100 mm",
+        "200 mm"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 228,
+      "type": "single",
+      "text": "Circuit protective devices in a switchboard must be capable of making and breaking:",
+      "options": [
+        "Nominal load current only",
+        "The prospective short-circuit current at their point of installation",
+        "Earth fault current only",
+        "Leakage current only"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 229,
+      "type": "single",
+      "text": "Switchboard circuit identification must be:",
+      "options": [
+        "Numbered only",
+        "Clearly marked and durable",
+        "Colour coded only",
+        "Optional"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 230,
+      "type": "single",
+      "text": "What is the typical minimum short-circuit (withstand) rating required for protective devices in a domestic installation?",
+      "options": [
+        "3 kA",
+        "6 kA",
+        "10 kA",
+        "16 kA"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 231,
+      "type": "single",
+      "text": "Flexible cord with a cross-sectional area of 0.75 mm² must be protected by an overcurrent device not exceeding what rating under AS/NZS 3000?",
+      "options": [
+        "6 A",
+        "10 A",
+        "13 A",
+        "16 A"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 232,
+      "type": "single",
+      "text": "What is the minimum IP rating for switchboards in normal dry locations under AS/NZS 3000?",
+      "options": [
+        "IP2X",
+        "IP44",
+        "IP54",
+        "IP65"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 233,
+      "type": "single",
+      "text": "For a TT earthing system, the earth electrode resistance is typically required not to exceed:",
+      "options": [
+        "25 Ω",
+        "50 Ω",
+        "100 Ω",
+        "200 Ω"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 234,
+      "type": "single",
+      "text": "Recessed luminaires installed in ceilings must maintain adequate clearance from thermal insulation unless they are:",
+      "options": [
+        "LED type only",
+        "Rated for contact with insulation (contact-rated)",
+        "Low voltage only",
+        "In a bathroom"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 235,
+      "type": "single",
+      "text": "Luminaires mounted in areas accessible to children (e.g. schools) must be shielded when mounted below what height under AS/NZS 3000?",
+      "options": [
+        "2.0 m",
+        "2.5 m",
+        "3.0 m",
+        "3.5 m"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 236,
+      "type": "single",
+      "text": "What IP rating is typically required for temporary electrical installations on construction sites (AS/NZS 3012)?",
+      "options": [
+        "IP44",
+        "IP54",
+        "IP65",
+        "IP20"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 237,
+      "type": "single",
+      "text": "Protective conductors must be mechanically protected where they are exposed to:",
+      "options": [
+        "UV radiation only",
+        "Mechanical damage or corrosion",
+        "High temperature only",
+        "Low humidity only"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 238,
+      "type": "single",
+      "text": "Main earthing terminals must be accessible and identified with:",
+      "options": [
+        "The earth symbol",
+        "Equipment designation only",
+        "Voltage rating only",
+        "Circuit number only"
+      ],
+      "correct_index": 0
+    },
+    {
+      "id": 239,
+      "type": "true_false",
+      "text": "Consider the following statements about AS/NZS 3000 and AS/NZS 3008.",
+      "statements": [
+        "Cable fill in conduit must not exceed 40% of the conduit internal cross-sectional area.",
+        "When cables are grouped, derating factors from AS/NZS 3008 Table 22 (or equivalent) apply.",
+        "The minimum bend radius for unarmoured cables is 4 times the overall diameter."
+      ],
+      "correct_answers": [true, true, true]
+    },
+    {
+      "id": 240,
+      "type": "single",
+      "text": "According to AS/NZS 3000, what is the minimum separation between LV and ELV (extra-low voltage) wiring when in the same enclosure?",
+      "options": [
+        "5 mm",
+        "10 mm",
+        "20 mm",
+        "50 mm"
+      ],
+      "correct_index": 3
+    },
+    {
+      "id": 241,
+      "type": "single",
+      "text": "Neutral bars in switchboards are required to be rated at what percentage of the main switch rating?",
+      "options": [
+        "50%",
+        "75%",
+        "100%",
+        "125%"
+      ],
+      "correct_index": 2
+    },
+    {
+      "id": 242,
+      "type": "multiple",
+      "text": "Which two of the following are required when installing cables in roof spaces under AS/NZS 3000?",
+      "options": [
+        "Cables must be at least 50 mm above thermal insulation (unless otherwise permitted).",
+        "Cables may be laid directly on top of insulation with no clearance.",
+        "Cables should not be run over trusses where they may be penetrated by roofing nails.",
+        "Cables must be in metallic conduit only."
+      ],
+      "correct_indices": [0, 2]
+    },
+    {
+      "id": 243,
+      "type": "single",
+      "text": "Supplementary equipotential bonding in bathrooms connects:",
+      "options": [
+        "Only the water pipe",
+        "Exposed conductive parts and extraneous conductive parts within the zones (e.g. within 2.5 m of bath/shower)",
+        "Only the lighting circuit",
+        "No bonding is required in bathrooms"
+      ],
+      "correct_index": 1
+    },
+    {
+      "id": 244,
+      "type": "single",
+      "text": "Socket outlets in domestic premises must be protected by an RCD with a maximum rated residual current of:",
+      "options": [
+        "10 mA",
+        "30 mA",
+        "100 mA",
+        "300 mA"
+      ],
+      "correct_index": 1,
+      "explanation": "Socket outlets in domestic premises must have RCD protection not exceeding 30 mA."
     }
   ]
 }
